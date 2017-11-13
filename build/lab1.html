@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Lab 0001</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="lab work">
+    <link rel="shortcut icon" href="static/img/general/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="static/css/main.css"><!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <nav class="navbar is-transparent">
+      <div class="navbar-brand"><a class="navbar-item" href="index.html"><img src="static/img/general/css-code.png" alt="hapon hangout">
+          <h1 class="navbar-title">HAPON  HANGOUT</h1></a>
+        <button class="button navbar-burger"><span></span><span></span><span></span></button>
+      </div>
+      <div class="navbar-menu" id="navbarExampleTransparentExample">
+        <div class="navbar-start"><a class="navbar-item" href="index.html">Home</a>
+          <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link" href="index.html">Labs</a>
+            <div class="navbar-dropdown is-boxed"><a class="navbar-item" href="lab1.html">0001</a>
+              <hr class="navbar-divider"><a class="navbar-item" href="lab2.html">0010</a><a class="navbar-item" href="lab3.html">0011</a>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control"><a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Awesome Labs)"><span class="icon"><i class="fa fa-twitter"></i></span><span>Tweet</span></a></p>
+              <p class="control"><a class="button is-primary" href="https://github.com/MarynaHapon"><span class="icon"><i class="fa fa-github"></i></span><span>GitHub</span></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="hero is-warning is-medium">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">Лабораторная работа №1</h1>
+          <h2 class="subtitle">Основные понятия языка JS.</h2>
+        </div>
+      </div>
+    </section>
+    <div class="wrap-box">
+      <section class="container">
+        <div class="box">
+          <div class="columns">
+            <div class="column flex-vertical">
+              <p>Разработать консольную программу Hello в виде одного класса.</p><a class="alertHello button is-outlined is-warning">Hello, world! (alert)</a>
+            </div>
+            <div class="column is-two-thirds">
+              <pre>&lt;script&gt;
+&#160;&#160;var selectElement = function(item) {
+&#160;&#160;&#160;&#160;return document.querySelector(item);
+&#160;&#160;}
+
+&#160;&#160;function alertMessege() {
+&#160;&#160;&#160;&#160;alert("Hello, World!");
+&#160;&#160;}
+
+&#160;&#160;selectElement(".alertHello").onclick = function() {
+&#160;&#160;&#160;&#160;alertMessege();
+&#160;&#160;}
+&lt;/script&gt;
+</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="wrap-box">
+      <section class="container">
+        <div class="box">
+          <div class="columns">
+            <div class="column flex-vertical">
+              <p>Разработать консольную программу Hello в виде двух классов.</p><a class="modalHelloShow button is-outlined is-warning">Hello, world! (modal)</a>
+            </div>
+            <div class="column is-two-thirds">
+              <pre>&lt;script&gt;
+&#160;&#160;function ModalMessege(text, item) {
+&#160;&#160;&#160;&#160;this.text = text;
+&#160;&#160;&#160;&#160;this.item = item;
+
+&#160;&#160;&#160;&#160;this.message = function() {
+&#160;&#160;&#160;&#160;&#160;&#160;alert("Hello, " + text + " !");
+&#160;&#160;&#160;&#160;};
+&#160;&#160;&#160;&#160;this.setModalMessege = function() {
+&#160;&#160;&#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = this.text;
+&#160;&#160;&#160;&#160;};
+&#160;&#160;&#160;&#160;this.showModal = function(item) {
+&#160;&#160;&#160;&#160;&#160;&#160;selectElement(this.item).style.display = "flex";
+&#160;&#160;&#160;&#160;};
+&#160;&#160;&#160;&#160;this.hideModal = function(item) {
+&#160;&#160;&#160;&#160;&#160;&#160;selectElement(this.item).style.display = "none";
+&#160;&#160;&#160;&#160;}
+&#160;&#160;}
+
+&#160;&#160;var modalHelloWorld = new ModalMessege("Hello, World!", ".modalHello");
+&#160;&#160;console.log(modalHelloWorld);
+	
+&#160;&#160;selectElement(".modalHelloShow").addEventListener("click", function() {
+&#160;&#160;&#160;&#160;modalHelloWorld.setModalMessege();
+&#160;&#160;&#160;&#160;modalHelloWorld.showModal();
+&#160;&#160;});
+&#160;&#160;selectElement(".modalHelloHide").addEventListener("click", function() {
+&#160;&#160;&#160;&#160;modalHelloWorld.hideModal();
+&#160;&#160;});
+&lt;/script&gt;
+</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="wrap-box">
+      <section class="container">
+        <div class="box">
+          <div class="columns">
+            <div class="column flex-vertical">
+              <p>Разработать программу Hello с диалоговым окном в виде двух классов. Просмотреть полученную страницу Web- браузером.</p>
+              <div>
+                <div class="field userMessage">
+                  <label class="label">Введите ваше сообщение</label>
+                  <div class="control">
+                    <textarea class="textarea" placeholder="Ваш текст"></textarea>
+                  </div>
+                </div>
+                <div class="btn-flex-group"><a class="button is-success is-outlined userMessageOk">Подтвердить</a><a class="button is-danger is-outlined userMessageCancel"> Отменить</a></div>
+              </div>
+            </div>
+            <div class="column is-two-thirds">
+              <pre>&lt;script&gt;
+&#160;&#160;function ModalInfo(modalNode, messageNode) {
+&#160;&#160;&#160;&#160;this.modalNode = modalNode;
+&#160;&#160;&#160;&#160;this.messageNode = messageNode;
+
+&#160;&#160;&#160;&#160;this.showModal = function(modalNode) {
+&#160;&#160;&#160;&#160;&#160;&#160;selectElement(this.modalNode).style.display = "flex";
+&#160;&#160;&#160;&#160;};
+&#160;&#160;&#160;&#160;this.hideModal = function(modalNode) {
+&#160;&#160;&#160;&#160;&#160;&#160;selectElement(this.modalNode).style.display = "none";
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;this.getUserMessage = function(messageNode) {
+&#160;&#160;&#160;&#160;&#160;&#160;return selectElement(this.messageNode).value;
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;this.setModalMessege = function(messageText) {
+&#160;&#160;&#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = messageText;
+&#160;&#160;&#160;&#160;};
+&#160;&#160;&#160;&#160;this.resetUserMessage = function(messageNode) {
+&#160;&#160;&#160;&#160;&#160;&#160;return selectElement(this.messageNode).value = "";
+&#160;&#160;&#160;&#160;}
+&#160;&#160;}
+
+&#160;&#160;var modalUserMessege = new ModalInfo(".modalHello", ".userMessage textarea.textarea")
+
+&#160;&#160;selectElement(".userMessageOk").addEventListener("click", function() {
+&#160;&#160;&#160;&#160;var message = modalUserMessege.getUserMessage();
+	
+&#160;&#160;&#160;&#160;if (message != "") {
+&#160;&#160;&#160;&#160;&#160;&#160;modalUserMessege.setModalMessege(message);
+&#160;&#160;&#160;&#160;&#160;&#160;modalUserMessege.showModal();
+&#160;&#160;&#160;&#160;}
+&#160;&#160;});
+
+&#160;&#160;selectElement(".userMessageCancel").addEventListener("click", function() {
+&#160;&#160;&#160;&#160;modalUserMessege.resetUserMessage();
+&#160;&#160;});
+&lt;/script&gt;
+</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="wrap-box">
+      <section class="container">
+        <div class="box">
+          <div class="columns">
+            <div class="column flex-vertical">
+              <p>Написать программу ввода строк как аргументов командной строки и их вывода на консоль.</p>
+              <div>
+                <div class="field userFirstName">
+                  <label class="label">Введите ваше имя
+                    <div class="control has-icons-left has-icons-right">
+                      <input class="input" type="text" placeholder="Ваше имя"><span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+                    </div><span class="btnFirstNameReset icon is-big is-right"><i class="fa fa-times-circle"></i></span>
+                  </label>
+                </div>
+                <div class="field userLastName">
+                  <label class="label">Введите вашу фамилию
+                    <div class="control has-icons-left has-icons-right">
+                      <input class="input" type="text" placeholder="Ваша фамилия"><span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+                    </div><span class="btnLastNameReset icon is-big is-right"><i class="fa fa-times-circle"></i></span>
+                  </label>
+                </div><a class="button is-success is-outlined userNameOk">Подтвердить</a>
+              </div>
+            </div>
+            <div class="column is-two-thirds">
+              <pre>&lt;script&gt;
+&#160;&#160;var setModalMessege = function(text) {
+&#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = text;
+&#160;&#160;}
+&#160;&#160;var showModal = function(item) {
+&#160;&#160;&#160;&#160;selectElement(item).style.display = "flex";
+&#160;&#160;}
+&#160;&#160;var hideModal = function(item) {
+&#160;&#160;&#160;&#160;selectElement(item).style.display = "none";
+&#160;&#160;}
+&#160;&#160;var getUserName = function(item) {
+&#160;&#160;&#160;&#160;return selectElement(item).value;
+&#160;&#160;}
+&#160;&#160;var resetUserName = function(item) {
+&#160;&#160;&#160;&#160;return selectElement(item).value = "";
+&#160;&#160;}
+&#160;&#160;var regName = new RegExp("^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$");
+	
+&#160;&#160;var inputValidUI = function(item, classValid, classInvalid) {
+&#160;&#160;&#160;&#160;selectElement(item).classList.add(classValid);
+&#160;&#160;&#160;&#160;selectElement(item).classList.remove(classInvalid);
+&#160;&#160;}
+&#160;&#160;var inputInvalidUI = function(item, classValid, classInvalid) {
+&#160;&#160;&#160;&#160;selectElement(item).classList.add(classInvalid);
+&#160;&#160;&#160;&#160;selectElement(item).classList.remove(classValid);
+&#160;&#160;}
+
+&#160;&#160;selectElement(".userNameOk").addEventListener("click", function() {
+&#160;&#160;&#160;&#160;var userFirstName = getUserName(".userFirstName input");
+&#160;&#160;&#160;&#160;var userLastName = getUserName(".userLastName input");
+
+&#160;&#160;&#160;&#160;if(regName.test(userFirstName) && regName.test(userLastName)) {
+&#160;&#160;&#160;&#160;&#160;&#160;setModalMessege("Ваше имя: " + userFirstName + " " + userLastName);
+&#160;&#160;&#160;&#160;&#160;&#160;showModal(".modalHello");
+&#160;&#160;&#160;&#160;} 
+&#160;&#160;&#160;&#160;if (regName.test(userFirstName)) {
+&#160;&#160;&#160;&#160;&#160;&#160;inputValidUI(".userFirstName input", "is-success", "is-danger")
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;if (!regName.test(userFirstName)) {
+&#160;&#160;&#160;&#160;&#160;&#160;inputInvalidUI(".userFirstName input", "is-success", "is-danger");
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;if (regName.test(userLastName)) {
+&#160;&#160;&#160;&#160;&#160;&#160;inputValidUI(".userLastName input", "is-success", "is-danger")
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;if (!regName.test(userLastName)) {
+&#160;&#160;&#160;&#160;&#160;&#160;inputInvalidUI(".userLastName input", "is-success", "is-danger");
+&#160;&#160;&#160;&#160;}
+&#160;&#160;});
+
+&#160;&#160;selectElement(".btnFirstNameReset").addEventListener("click", function() {
+&#160;&#160;&#160;&#160;resetUserName(".userFirstName input");
+&#160;&#160;});
+&#160;&#160;selectElement(".btnLastNameReset").addEventListener("click", function() {
+&#160;&#160;&#160;&#160;resetUserName(".userLastName input");
+&#160;&#160;});
+&lt;/script&gt;
+
+</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="wrap-box">
+      <section class="container">
+        <div class="box">
+          <div class="columns">
+            <div class="column flex-vertical">
+              <p>Ввести с консоли n целых чисел и поместить их в массив. Найти среди них указанные числа и вывести на консоль: Числа, которые делятся на 5 или на 10.</p>
+              <div>
+                <div id="userNumbers">
+                  <div class="field checkNumb">
+                    <label class="label userNumber">Введите целое число
+                      <div class="control has-icons-right">
+                        <input class="input" type="text" placeholder="Ваше число">
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserNumber">Добавить число</a><a class="button is-primary is-outlined checkNumber"> Фильтр</a></div>
+              </div>
+            </div>
+            <div class="column is-two-thirds">
+              <pre>&lt;script&gt;
+&#160;&#160;var inputNumberUI = function() {
+&#160;&#160;&#160;&#160;var newLabel = document.createElement('label');
+&#160;&#160;&#160;&#160;newLabel.className = 'label userNumber';
+&#160;&#160;&#160;&#160;newLabel.innerHTML = '';
+
+&#160;&#160;&#160;&#160;var newControl = document.createElement('div');
+&#160;&#160;&#160;&#160;newControl.className = 'control has-icons-right';
+
+&#160;&#160;&#160;&#160;var newInput = document.createElement('input');
+&#160;&#160;&#160;&#160;newInput.className = 'input';
+&#160;&#160;&#160;&#160;newInput.placeholder = 'Ваше число';
+&#160;&#160;&#160;&#160;newInput.type = 'text';
+
+&#160;&#160;&#160;&#160;var newDeleteBtn = document.createElement('span');
+&#160;&#160;&#160;&#160;newDeleteBtn.className = 'icon is-big is-right deleteUserNumber';
+
+&#160;&#160;&#160;&#160;var newDeleteBtnIcon = document.createElement('i');
+&#160;&#160;&#160;&#160;newDeleteBtnIcon.className = 'fa fa-times-circle';
+
+&#160;&#160;&#160;&#160;newLabel.appendChild(newControl);
+&#160;&#160;&#160;&#160;newControl.appendChild(newInput);
+&#160;&#160;&#160;&#160;newLabel.appendChild(newDeleteBtn);
+&#160;&#160;&#160;&#160;newDeleteBtn.appendChild(newDeleteBtnIcon);
+&#160;&#160;&#160;&#160;userNumbers.appendChild(newLabel);
+
+&#160;&#160;&#160;&#160;newDeleteBtnIcon.onclick = function() {
+&#160;&#160;&#160;&#160;&#160;&#160;userNumbers.removeChild(newLabel)
+&#160;&#160;&#160;&#160;}
+&#160;&#160;};
+
+&#160;&#160;selectElement('.addUserNumber').addEventListener('click', function() {
+&#160;&#160;&#160;&#160;inputNumberUI();
+&#160;&#160;});
+
+&#160;&#160;selectElement('.checkNumber').addEventListener('click', function() {
+&#160;&#160;&#160;&#160;var allUserNumbers = document.querySelectorAll('#userNumbers input.input');
+&#160;&#160;&#160;&#160;var arrayUserNumbers = [];
+
+&#160;&#160;&#160;&#160;for(var x = 0; x < allUserNumbers.length; x++) {
+&#160;&#160;&#160;&#160;&#160;&#160;var userNumber = allUserNumbers[x].value;
+&#160;&#160;&#160;&#160;&#160;&#160;var regNum = /[0-9]/g;
+
+&#160;&#160;&#160;&#160;if(regNum.test(userNumber)) {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;arrayUserNumbers.push(userNumber);
+&#160;&#160;&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;}
+
+&#160;&#160;&#160;&#160;var arrayResultUserNumbers = arrayUserNumbers.filter(function(item){
+&#160;&#160;&#160;&#160;&#160;&#160;if (item % 5 == 0 || item % 10 == 0) return item;
+&#160;&#160;&#160;&#160;});
+
+&#160;&#160;&#160;&#160;setModalMessege('[ '+ arrayResultUserNumbers + ' ]');
+&#160;&#160;&#160;&#160;showModal(".modalHello");
+
+&#160;&#160;&#160;&#160;onsole.log(arrayUserNumbers);
+&#160;&#160;&#160;&#160;console.log(arrayResultUserNumbers);
+&#160;&#160;});
+&lt;/script&gt;
+</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="modal modalHello is-success">
+      <article class="message is-success">
+        <div class="message-header">
+          <p>Modal message</p>
+          <button class="delete modalHelloHide" aria-label="delete"></button>
+        </div>
+        <div class="message-body"></div>
+      </article>
+    </div>
+    <footer class="footer">
+      <div class="container"> 
+        <div class="columns">
+          <div class="column">
+            <nav class="panel">
+              <p class="panel-heading">repositories</p><a class="panel-block is-active" href="lab1.html"><span class="panel-icon"><i class="fa fa-code-fork"></i></span>    Lab Work 0001</a><a class="panel-block" href="lab2.html"><span class="panel-icon"><i class="fa fa-book"></i></span>    Lab Work 0010</a><a class="panel-block" href="lab3.html"><span class="panel-icon"><i class="fa fa-book"></i></span>    Lab Work 0011</a><a class="panel-block"><span class="panel-icon"><i class="fa fa-book"></i></span>    Lab Work 0100</a><a class="panel-block"><span class="panel-icon"><i class="fa fa-book"></i></span>    Lab Work 0101</a>
+            </nav>
+          </div>
+          <div class="column is-two-thirds">
+            <div class="box">
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-64x64"><img src="static/img/content/user.jpg" alt="user"></figure>
+                </div>
+                <div class="media-content">
+                  <div class="content">
+                    <p><strong>Maryna Hapon</strong><small>@hapon</small><small>31m</small><br>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.</p>
+                  </div>
+                  <nav class="level is-mobile"><a class="level-item"><span class="icon is-small"><i class="fa fa-heart"></i></span></a></nav>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="column">
+            <nav class="panel">
+              <p class="panel-heading">social link </p><a class="button is-medium panel-block" href="https://github.com/MarynaHapon"><span class="icon"><i class="fa fa-github"></i></span><span>GitHub </span></a><a class="button is-medium panel-block" href="https://codepen.io/hapon"><span class="icon"><i class="fa fa-codepen"></i></span><span>codepen                    </span></a><a class="button is-medium panel-block" href="https://www.linkedin.com/in/maryna-hapon"><span class="icon"><i class="fa fa-linkedin"></i></span><span>linkedin                  </span></a><a class="button is-medium panel-block" href="https://www.facebook.com/morgana.hapon"><span class="icon"><i class="fa fa-facebook"> </i></span><span>facebook                    </span></a><a class="button is-medium panel-block" href="https://kitfatalist.tumblr.com"><span class="icon"><i class="fa fa-tumblr"> </i></span><span>tumblr  </span></a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="content has-text-centered">
+          <p><strong>HAPON HANGOUT</strong> labs by <a href="https://www.linkedin.com/in/maryna-hapon/">Maryna Hapon.</a></p>
+        </div>
+      </div>
+    </footer>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>

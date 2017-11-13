@@ -1,0 +1,317 @@
+extends ../layout/main
+
+block variables
+	- var title = 'Lab 0001'
+
+block content
+
+	section.hero.is-warning.is-medium
+		.hero-body
+			.container.has-text-centered
+				h1.title
+					| Лабораторная работа №1
+				h2.subtitle
+					| Основные понятия языка JS.
+		
+	.wrap-box
+		section.container
+			.box
+				.columns
+					.column.flex-vertical
+						p Разработать консольную программу Hello в виде одного класса.
+						a.alertHello.button.is-outlined.is-warning Hello, world! (alert)
+
+					.column.is-two-thirds
+						pre.
+							&lt;script&gt;
+							&#160;&#160;var selectElement = function(item) {
+							&#160;&#160;&#160;&#160;return document.querySelector(item);
+							&#160;&#160;}
+
+							&#160;&#160;function alertMessege() {
+							&#160;&#160;&#160;&#160;alert("Hello, World!");
+							&#160;&#160;}
+
+							&#160;&#160;selectElement(".alertHello").onclick = function() {
+							&#160;&#160;&#160;&#160;alertMessege();
+							&#160;&#160;}
+							&lt;/script&gt;
+				
+	.wrap-box
+		section.container
+			.box
+				.columns
+					.column.flex-vertical
+						p Разработать консольную программу Hello в виде двух классов.
+						a.modalHelloShow.button.is-outlined.is-warning Hello, world! (modal)
+					.column.is-two-thirds
+						pre.
+							&lt;script&gt;
+							&#160;&#160;function ModalMessege(text, item) {
+							&#160;&#160;&#160;&#160;this.text = text;
+							&#160;&#160;&#160;&#160;this.item = item;
+
+							&#160;&#160;&#160;&#160;this.message = function() {
+							&#160;&#160;&#160;&#160;&#160;&#160;alert("Hello, " + text + " !");
+							&#160;&#160;&#160;&#160;};
+							&#160;&#160;&#160;&#160;this.setModalMessege = function() {
+							&#160;&#160;&#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = this.text;
+							&#160;&#160;&#160;&#160;};
+							&#160;&#160;&#160;&#160;this.showModal = function(item) {
+							&#160;&#160;&#160;&#160;&#160;&#160;selectElement(this.item).style.display = "flex";
+							&#160;&#160;&#160;&#160;};
+							&#160;&#160;&#160;&#160;this.hideModal = function(item) {
+							&#160;&#160;&#160;&#160;&#160;&#160;selectElement(this.item).style.display = "none";
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;}
+
+							&#160;&#160;var modalHelloWorld = new ModalMessege("Hello, World!", ".modalHello");
+							&#160;&#160;console.log(modalHelloWorld);
+								
+							&#160;&#160;selectElement(".modalHelloShow").addEventListener("click", function() {
+							&#160;&#160;&#160;&#160;modalHelloWorld.setModalMessege();
+							&#160;&#160;&#160;&#160;modalHelloWorld.showModal();
+							&#160;&#160;});
+							&#160;&#160;selectElement(".modalHelloHide").addEventListener("click", function() {
+							&#160;&#160;&#160;&#160;modalHelloWorld.hideModal();
+							&#160;&#160;});
+							&lt;/script&gt;
+
+	.wrap-box
+		section.container
+			.box
+				.columns
+					.column.flex-vertical
+						p Разработать программу Hello с диалоговым окном в виде двух классов. Просмотреть полученную страницу Web- браузером.
+						
+						div
+							.field.userMessage
+								label.label Введите ваше сообщение
+								.control
+									textarea.textarea(placeholder='Ваш текст')
+
+							.btn-flex-group
+								a.button.is-success.is-outlined.userMessageOk Подтвердить
+								a.button.is-danger.is-outlined.userMessageCancel  Отменить
+
+					.column.is-two-thirds
+						pre.
+							&lt;script&gt;
+							&#160;&#160;function ModalInfo(modalNode, messageNode) {
+							&#160;&#160;&#160;&#160;this.modalNode = modalNode;
+							&#160;&#160;&#160;&#160;this.messageNode = messageNode;
+
+							&#160;&#160;&#160;&#160;this.showModal = function(modalNode) {
+							&#160;&#160;&#160;&#160;&#160;&#160;selectElement(this.modalNode).style.display = "flex";
+							&#160;&#160;&#160;&#160;};
+							&#160;&#160;&#160;&#160;this.hideModal = function(modalNode) {
+							&#160;&#160;&#160;&#160;&#160;&#160;selectElement(this.modalNode).style.display = "none";
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;&#160;&#160;this.getUserMessage = function(messageNode) {
+							&#160;&#160;&#160;&#160;&#160;&#160;return selectElement(this.messageNode).value;
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;&#160;&#160;this.setModalMessege = function(messageText) {
+							&#160;&#160;&#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = messageText;
+							&#160;&#160;&#160;&#160;};
+							&#160;&#160;&#160;&#160;this.resetUserMessage = function(messageNode) {
+							&#160;&#160;&#160;&#160;&#160;&#160;return selectElement(this.messageNode).value = "";
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;}
+
+							&#160;&#160;var modalUserMessege = new ModalInfo(".modalHello", ".userMessage textarea.textarea")
+
+							&#160;&#160;selectElement(".userMessageOk").addEventListener("click", function() {
+							&#160;&#160;&#160;&#160;var message = modalUserMessege.getUserMessage();
+								
+							&#160;&#160;&#160;&#160;if (message != "") {
+							&#160;&#160;&#160;&#160;&#160;&#160;modalUserMessege.setModalMessege(message);
+							&#160;&#160;&#160;&#160;&#160;&#160;modalUserMessege.showModal();
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;});
+
+							&#160;&#160;selectElement(".userMessageCancel").addEventListener("click", function() {
+							&#160;&#160;&#160;&#160;modalUserMessege.resetUserMessage();
+							&#160;&#160;});
+							&lt;/script&gt;
+
+	.wrap-box
+		section.container
+			.box
+				.columns
+					.column.flex-vertical
+						p Написать программу ввода строк как аргументов командной строки и их вывода на консоль.
+
+						div
+							.field.userFirstName
+								label.label Введите ваше имя
+									.control.has-icons-left.has-icons-right
+										input.input(type='text', placeholder='Ваше имя')
+
+										span.icon.is-small.is-left
+											i.fa.fa-user
+									span.btnFirstNameReset.icon.is-big.is-right
+										i.fa.fa-times-circle
+
+							.field.userLastName
+								label.label Введите вашу фамилию
+									.control.has-icons-left.has-icons-right
+										input.input(type='text', placeholder='Ваша фамилия')
+
+										span.icon.is-small.is-left
+											i.fa.fa-user
+
+									span.btnLastNameReset.icon.is-big.is-right
+										i.fa.fa-times-circle
+
+							a.button.is-success.is-outlined.userNameOk Подтвердить
+						
+
+					.column.is-two-thirds
+						pre.
+							&lt;script&gt;
+							&#160;&#160;var setModalMessege = function(text) {
+							&#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = text;
+							&#160;&#160;}
+							&#160;&#160;var showModal = function(item) {
+							&#160;&#160;&#160;&#160;selectElement(item).style.display = "flex";
+							&#160;&#160;}
+							&#160;&#160;var hideModal = function(item) {
+							&#160;&#160;&#160;&#160;selectElement(item).style.display = "none";
+							&#160;&#160;}
+							&#160;&#160;var getUserName = function(item) {
+							&#160;&#160;&#160;&#160;return selectElement(item).value;
+							&#160;&#160;}
+							&#160;&#160;var resetUserName = function(item) {
+							&#160;&#160;&#160;&#160;return selectElement(item).value = "";
+							&#160;&#160;}
+							&#160;&#160;var regName = new RegExp("^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$");
+								
+							&#160;&#160;var inputValidUI = function(item, classValid, classInvalid) {
+							&#160;&#160;&#160;&#160;selectElement(item).classList.add(classValid);
+							&#160;&#160;&#160;&#160;selectElement(item).classList.remove(classInvalid);
+							&#160;&#160;}
+							&#160;&#160;var inputInvalidUI = function(item, classValid, classInvalid) {
+							&#160;&#160;&#160;&#160;selectElement(item).classList.add(classInvalid);
+							&#160;&#160;&#160;&#160;selectElement(item).classList.remove(classValid);
+							&#160;&#160;}
+
+							&#160;&#160;selectElement(".userNameOk").addEventListener("click", function() {
+							&#160;&#160;&#160;&#160;var userFirstName = getUserName(".userFirstName input");
+							&#160;&#160;&#160;&#160;var userLastName = getUserName(".userLastName input");
+
+							&#160;&#160;&#160;&#160;if(regName.test(userFirstName) && regName.test(userLastName)) {
+							&#160;&#160;&#160;&#160;&#160;&#160;setModalMessege("Ваше имя: " + userFirstName + " " + userLastName);
+							&#160;&#160;&#160;&#160;&#160;&#160;showModal(".modalHello");
+							&#160;&#160;&#160;&#160;} 
+							&#160;&#160;&#160;&#160;if (regName.test(userFirstName)) {
+							&#160;&#160;&#160;&#160;&#160;&#160;inputValidUI(".userFirstName input", "is-success", "is-danger")
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;&#160;&#160;if (!regName.test(userFirstName)) {
+							&#160;&#160;&#160;&#160;&#160;&#160;inputInvalidUI(".userFirstName input", "is-success", "is-danger");
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;&#160;&#160;if (regName.test(userLastName)) {
+							&#160;&#160;&#160;&#160;&#160;&#160;inputValidUI(".userLastName input", "is-success", "is-danger")
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;&#160;&#160;if (!regName.test(userLastName)) {
+							&#160;&#160;&#160;&#160;&#160;&#160;inputInvalidUI(".userLastName input", "is-success", "is-danger");
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;});
+
+							&#160;&#160;selectElement(".btnFirstNameReset").addEventListener("click", function() {
+							&#160;&#160;&#160;&#160;resetUserName(".userFirstName input");
+							&#160;&#160;});
+							&#160;&#160;selectElement(".btnLastNameReset").addEventListener("click", function() {
+							&#160;&#160;&#160;&#160;resetUserName(".userLastName input");
+							&#160;&#160;});
+							&lt;/script&gt;
+
+
+	.wrap-box
+		section.container
+			.box
+				.columns
+					.column.flex-vertical
+						p Ввести с консоли n целых чисел и поместить их в массив. Найти среди них указанные числа и вывести на консоль: Числа, которые делятся на 5 или на 10.
+
+						div
+							#userNumbers
+								.field.checkNumb
+									label.label.userNumber Введите целое число
+										.control.has-icons-right
+											input.input(type='text', placeholder='Ваше число')
+
+							.btn-flex-group.btn-num-group
+								a.button.is-link.is-outlined.addUserNumber Добавить число
+								a.button.is-primary.is-outlined.checkNumber  Фильтр
+
+
+
+					.column.is-two-thirds
+						pre.
+							&lt;script&gt;
+							&#160;&#160;var inputNumberUI = function() {
+							&#160;&#160;&#160;&#160;var newLabel = document.createElement('label');
+							&#160;&#160;&#160;&#160;newLabel.className = 'label userNumber';
+							&#160;&#160;&#160;&#160;newLabel.innerHTML = '';
+
+							&#160;&#160;&#160;&#160;var newControl = document.createElement('div');
+							&#160;&#160;&#160;&#160;newControl.className = 'control has-icons-right';
+
+							&#160;&#160;&#160;&#160;var newInput = document.createElement('input');
+							&#160;&#160;&#160;&#160;newInput.className = 'input';
+							&#160;&#160;&#160;&#160;newInput.placeholder = 'Ваше число';
+							&#160;&#160;&#160;&#160;newInput.type = 'text';
+
+							&#160;&#160;&#160;&#160;var newDeleteBtn = document.createElement('span');
+							&#160;&#160;&#160;&#160;newDeleteBtn.className = 'icon is-big is-right deleteUserNumber';
+
+							&#160;&#160;&#160;&#160;var newDeleteBtnIcon = document.createElement('i');
+							&#160;&#160;&#160;&#160;newDeleteBtnIcon.className = 'fa fa-times-circle';
+
+							&#160;&#160;&#160;&#160;newLabel.appendChild(newControl);
+							&#160;&#160;&#160;&#160;newControl.appendChild(newInput);
+							&#160;&#160;&#160;&#160;newLabel.appendChild(newDeleteBtn);
+							&#160;&#160;&#160;&#160;newDeleteBtn.appendChild(newDeleteBtnIcon);
+							&#160;&#160;&#160;&#160;userNumbers.appendChild(newLabel);
+
+							&#160;&#160;&#160;&#160;newDeleteBtnIcon.onclick = function() {
+							&#160;&#160;&#160;&#160;&#160;&#160;userNumbers.removeChild(newLabel)
+							&#160;&#160;&#160;&#160;}
+							&#160;&#160;};
+
+							&#160;&#160;selectElement('.addUserNumber').addEventListener('click', function() {
+							&#160;&#160;&#160;&#160;inputNumberUI();
+							&#160;&#160;});
+
+							&#160;&#160;selectElement('.checkNumber').addEventListener('click', function() {
+							&#160;&#160;&#160;&#160;var allUserNumbers = document.querySelectorAll('#userNumbers input.input');
+							&#160;&#160;&#160;&#160;var arrayUserNumbers = [];
+
+							&#160;&#160;&#160;&#160;for(var x = 0; x < allUserNumbers.length; x++) {
+							&#160;&#160;&#160;&#160;&#160;&#160;var userNumber = allUserNumbers[x].value;
+							&#160;&#160;&#160;&#160;&#160;&#160;var regNum = /[0-9]/g;
+
+							&#160;&#160;&#160;&#160;if(regNum.test(userNumber)) {
+							&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;arrayUserNumbers.push(userNumber);
+							&#160;&#160;&#160;&#160;&#160;&#160;}
+							&#160;&#160;&#160;&#160;}
+
+							&#160;&#160;&#160;&#160;var arrayResultUserNumbers = arrayUserNumbers.filter(function(item){
+							&#160;&#160;&#160;&#160;&#160;&#160;if (item % 5 == 0 || item % 10 == 0) return item;
+							&#160;&#160;&#160;&#160;});
+
+							&#160;&#160;&#160;&#160;setModalMessege('[ '+ arrayResultUserNumbers + ' ]');
+							&#160;&#160;&#160;&#160;showModal(".modalHello");
+
+							&#160;&#160;&#160;&#160;onsole.log(arrayUserNumbers);
+							&#160;&#160;&#160;&#160;console.log(arrayResultUserNumbers);
+							&#160;&#160;});
+							&lt;/script&gt;
+	
+	.modal.modalHello.is-success
+		article.message.is-success
+			.message-header
+				p Modal message
+				button.delete.modalHelloHide(aria-label='delete')
+
+			.message-body
