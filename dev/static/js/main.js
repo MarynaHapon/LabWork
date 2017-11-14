@@ -4,9 +4,11 @@
 		return document.querySelector(item);
 	};
 
-	function alertMessege() {
+	var alertMessege = function() {
 		alert("Hello, World!");
-	}
+	};
+
+	console.log(alertMessege);
 
 	selectElement(".alertHello").onclick = function() {
 		alertMessege();
@@ -20,12 +22,15 @@
 		this.message = function() {
 			alert("Hello, " + text + " !");
 		};
+
 		this.setModalMessege = function() {
 			selectElement(".modalHello .message-body").innerHTML = this.text;
 		};
+
 		this.showModal = function(item) {
 			selectElement(this.item).style.display = "flex";
 		};
+
 		this.hideModal = function(item) {
 			selectElement(this.item).style.display = "none";
 		}
@@ -38,6 +43,7 @@
 		modalHelloWorld.setModalMessege();
 		modalHelloWorld.showModal();
 	});
+
 	selectElement(".modalHelloHide").addEventListener("click", function() {
 		modalHelloWorld.hideModal();
 	});
@@ -52,15 +58,19 @@
 		this.showModal = function(modalNode) {
 			selectElement(this.modalNode).style.display = "flex";
 		};
+
 		this.hideModal = function(modalNode) {
 			selectElement(this.modalNode).style.display = "none";
 		};
+
 		this.getUserMessage = function(messageNode) {
 			return selectElement(this.messageNode).value;
 		};
+
 		this.setModalMessege = function(messageText) {
 			selectElement(".modalHello .message-body").innerHTML = messageText;
 		};
+
 		this.resetUserMessage = function(messageNode) {
 			return selectElement(this.messageNode).value = "";
 		}
@@ -87,24 +97,30 @@
 	var setModalMessege = function(text) {
     	selectElement(".modalHello .message-body").innerHTML = text;
   	};
+
   	var showModal = function(item) {
 		selectElement(item).style.display = "flex";
 	};
+
 	var hideModal = function(item) {
 		selectElement(item).style.display = "none";
 	};
+
 	var getUserName = function(item) {
 		return selectElement(item).value;
 	};
+
 	var resetUserName = function(item) {
 		return selectElement(item).value = "";
 	};
+
 	var regName = new RegExp("^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$");
 	
 	var inputValidUI = function(item, classValid, classInvalid) {
 		selectElement(item).classList.add(classValid);
 		selectElement(item).classList.remove(classInvalid);
 	};
+
 	var inputInvalidUI = function(item, classValid, classInvalid) {
 		selectElement(item).classList.add(classInvalid);
 		selectElement(item).classList.remove(classValid);
@@ -135,6 +151,7 @@
 	selectElement(".btnFirstNameReset").addEventListener("click", function() {
 		resetUserName(".userFirstName input");
 	});
+
 	selectElement(".btnLastNameReset").addEventListener("click", function() {
 		resetUserName(".userLastName input");
 	});
