@@ -18,25 +18,44 @@ block content
 		section.container
 			.box
 				.columns
-					.column.flex-vertical
+					.column
 						h4 Задание 1
 						hr.navbar-divider
 						p В приведенных ниже заданиях необходимо вывести внизу фамилию разработчика, дату и время получения задания, а также дату и время сдачи задания. Для получения последней даты и времени используйте класс Date.
+						p Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.
+						p 1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.
+						p 2. Ввести n строк с консоли. Найти самую длинную строку. Вывести найденную строку и ее длину.
+						p 3. Ввести n строк с консоли. Упорядочить и вывести строки в порядке возрастания их длин, а также значения их длин.
+						hr.navbar-divider
 
-						//p Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.
-						//p 1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.
-						//p 2. Ввести n строк с консоли. Найти самую длинную строку. Вывести найденную строку и ее длину.
-						//p 3. Ввести n строк с консоли. Упорядочить и вывести строки в порядке возрастания их длин, а также значения их длин.
+				.columns
+					.column.flex-vertical
+						div
+							#userString
+								.field.checkNumb
+									label.label.userNumber Введите вашу строку
+										.control.has-icons-right
+											input.input(type='text', placeholder='Ваша строка')
 
-						a.button.is-outlined.is-warning Hello
+							.btn-flex-group.btn-num-group
+								a.button.is-link.is-outlined.addUserString Добавить новую строку
+								a.button.is-primary.is-outlined.checkString  Отлично
+
 
 					.column.is-two-thirds
 						pre
-							p.startDate
+							p
+								span Выдача задания
+								span.startDate
+								span / Текущая дата
+								span.currentDate
 
-							p.currentDate
 
+	.modal.modalHello.is-success
+		article.message.is-success
+			.message-header
+				p Modal message
+				button.delete.modalHelloHide(aria-label='delete')
 
-	
-
+			.message-body
 

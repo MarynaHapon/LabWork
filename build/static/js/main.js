@@ -5,31 +5,49 @@
 	};
 
 	// lab 0010
+    var stringInputUI = function() {
+        var newLabel = document.createElement('label');
+        newLabel.className = 'label userNumber';
+        newLabel.innerHTML = '';
+
+        var newControl = document.createElement('div');
+        newControl.className = 'control has-icons-right';
+
+        var newInput = document.createElement('input');
+        newInput.className = 'input';
+        newInput.placeholder = 'Ваше число';
+        newInput.type = 'text';
+
+        var newDeleteBtn = document.createElement('span');
+        newDeleteBtn.className = 'icon is-big is-right deleteUserNumber';
+
+        var newDeleteBtnIcon = document.createElement('i');
+        newDeleteBtnIcon.className = 'fa fa-times-circle';
+
+        newLabel.appendChild(newControl);
+        newControl.appendChild(newInput);
+        newLabel.appendChild(newDeleteBtn);
+        newDeleteBtn.appendChild(newDeleteBtnIcon);
+        userString.appendChild(newLabel);
+
+        newDeleteBtnIcon.onclick = function() {
+            userString.removeChild(newLabel)
+        }
+    };
+
+    selectElement('.addUserString').addEventListener('click', function() {
+        stringInputUI();
+    });
+
+    selectElement('.checkString').addEventListener('click', function() {
+        var allUserStrings = document.querySelectorAll('#userString input.input');
+    });
+
+
+
+    // sign
     var start = new Date(2017, 9, 1);
     var current = new Date();
-
-    /*
-    function currentTime() {
-        var currentHours = current.getHours();
-        var currentMinutes = current.getMinutes();
-        var currentSeconds = current.getSeconds();
-
-        var currentYear = current.getFullYear();
-		var currentDay = current.getDay();
-		var currentMonth = current.getMonth();
-
-        currentMinutes = checkTime(currentMinutes);
-        currentSeconds = checkTime(currentSeconds);
-        selectElement('.currentDate').innerHTML = currentDay + "-" + currentMonth + "-" + currentYear + "; " + currentHours + ":" + currentMinutes + ":" + currentSeconds + ";";
-        var t = setTimeout(currentTime, 500);
-    }
-    function checkTime(i) {
-        if (i < 10) {i = "0" + i}  // add zero in front of numbers < 10
-        return i;
-    }
-    currentTime();
-    console.log(currentTime());
-	*/
 
     function checkDate(date, node) {
     	this.date = date;
@@ -60,9 +78,16 @@
     dateStart.setDateToPage();
     dateCurrent.setDateToPage();
 
+    dateStart.setDateToPage();
+    dateCurrent.setDateToPage();
+
+
     console.log(dateStart);
     console.log(dateCurrent);
-	
+
+
+
+
 
 	// lab 0001
     function alertMessege() {

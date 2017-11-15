@@ -46,23 +46,48 @@
       <section class="container">
         <div class="box">
           <div class="columns">
-            <div class="column flex-vertical">
+            <div class="column">
               <h4>Задание 1</h4>
               <hr class="navbar-divider">
               <p>В приведенных ниже заданиях необходимо вывести внизу фамилию разработчика, дату и время получения задания, а также дату и время сдачи задания. Для получения последней даты и времени используйте класс Date.</p>
-              <!--p Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.-->
-              <!--p 1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.-->
-              <!--p 2. Ввести n строк с консоли. Найти самую длинную строку. Вывести найденную строку и ее длину.-->
-              <!--p 3. Ввести n строк с консоли. Упорядочить и вывести строки в порядке возрастания их длин, а также значения их длин.--><a class="button is-outlined is-warning">Hello</a>
+              <p>Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.</p>
+              <p>1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.</p>
+              <p>2. Ввести n строк с консоли. Найти самую длинную строку. Вывести найденную строку и ее длину.</p>
+              <p>3. Ввести n строк с консоли. Упорядочить и вывести строки в порядке возрастания их длин, а также значения их длин.</p>
+              <hr class="navbar-divider">
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column flex-vertical">
+              <div>
+                <div id="userString">
+                  <div class="field checkNumb">
+                    <label class="label userNumber">Введите вашу строку
+                      <div class="control has-icons-right">
+                        <input class="input" type="text" placeholder="Ваша строка">
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserString">Добавить новую строку</a><a class="button is-primary is-outlined checkString"> Отлично</a></div>
+              </div>
             </div>
             <div class="column is-two-thirds">
               <pre>
-                <p class="startDate"></p>
-                <p class="currentDate"></p></pre>
+                <p><span>Выдача задания</span><span class="startDate"></span><span>/ Текущая дата</span><span class="currentDate"></span></p></pre>
             </div>
           </div>
         </div>
       </section>
+    </div>
+    <div class="modal modalHello is-success">
+      <article class="message is-success">
+        <div class="message-header">
+          <p>Modal message</p>
+          <button class="delete modalHelloHide" aria-label="delete"></button>
+        </div>
+        <div class="message-body"></div>
+      </article>
     </div>
     <footer class="footer">
       <div class="container"> 
