@@ -1,11 +1,11 @@
 (function(){
-	// alert hello
+
 	var selectElement = function(item) {
 		return document.querySelector(item);
 	};
 
 	// lab 0010
-    var stringInputUI = function() {
+    var stringInputUI = function(node) {
         var newLabel = document.createElement('label');
         newLabel.className = 'label userNumber';
         newLabel.innerHTML = '';
@@ -15,7 +15,7 @@
 
         var newInput = document.createElement('input');
         newInput.className = 'input';
-        newInput.placeholder = 'Ваше число';
+        newInput.placeholder = 'Ваша строка';
         newInput.type = 'text';
 
         var newDeleteBtn = document.createElement('span');
@@ -28,20 +28,24 @@
         newControl.appendChild(newInput);
         newLabel.appendChild(newDeleteBtn);
         newDeleteBtn.appendChild(newDeleteBtnIcon);
-        userString.appendChild(newLabel);
+        node.appendChild(newLabel);
 
         newDeleteBtnIcon.onclick = function() {
-            userString.removeChild(newLabel)
+            node.removeChild(newLabel)
         }
     };
 
-    selectElement('.addUserString').addEventListener('click', function() {
-        stringInputUI();
+    // short string
+    selectElement('.addUserShortString').addEventListener('click', function() {
+        stringInputUI(userShortString);
     });
 
-    selectElement('.checkString').addEventListener('click', function() {
-        var allUserStrings = document.querySelectorAll('#userString input.input');
+    selectElement('.checkShortString').addEventListener('click', function() {
+    	var MAX_VALUE = 1000000;
+
+        var allUserStrings = document.querySelectorAll('#userShortString input.input');
         var arrayUserStrings = [];
+        var minStringValue = [];
 
         for(var y = 0; y < allUserStrings.length; y++) {
             var userString = allUserStrings[y].value;
@@ -52,11 +56,64 @@
             }
         }
 
-        console.log(allUserStrings);
-        console.log(arrayUserStrings);
+        var minStringLength =  arrayUserStrings.reduce(function(x, y) {
+            return Math.min(x, y.length)
+        }, MAX_VALUE);
+
+        if(arrayUserStrings.length == 0) {
+            minStringLength = 0;
+		}
+
+        for(var z = 0; z < arrayUserStrings.length; z++) {
+            if (arrayUserStrings[z].length == minStringLength) {
+                minStringValue.push(arrayUserStrings[z]);
+            }
+        }
+
+        selectElement(".lab2 span.resultShortStringTitle").innerHTML = "Cамая короткая строка: ";
+        selectElement(".lab2 span.resultShortStringValue").innerHTML = minStringValue;
+
+        selectElement(".lab2 span.resultShortLengthTitle").innerHTML = "Длина строки: ";
+        selectElement(".lab2 span.resultShortLengthValue").innerHTML = minStringLength;
     });
 
+	// long string
+    selectElement('.addUserString').addEventListener('click', function() {
+        stringInputUI(userLongString);
+    });
 
+    selectElement('.checkString').addEventListener('click', function() {
+        var MIN_VALUE = 0;
+
+        var allUserStrings = document.querySelectorAll('#userLongString input.input');
+        var arrayUserStrings = [];
+        var maxStringValue = [];
+
+        for(var y = 0; y < allUserStrings.length; y++) {
+            var userString = allUserStrings[y].value;
+            var regTest = /[a-z]/g;
+
+            if(regTest.test(userString)) {
+                arrayUserStrings.push(userString);
+            }
+        }
+
+        var maxStringLength =  arrayUserStrings.reduce(function(x, y) {
+			return Math.max(x, y.length)
+		}, MIN_VALUE);
+
+        for(var z = 0; z < arrayUserStrings.length; z++) {
+        	if (arrayUserStrings[z].length == maxStringLength) {
+                maxStringValue.push(arrayUserStrings[z]);
+			}
+		}
+
+        selectElement(".lab2 span.resultLongStringTitle").innerHTML = "Cамая длинная строка: ";
+        selectElement(".lab2 span.resultLongStringValue").innerHTML = maxStringValue;
+
+        selectElement(".lab2 span.resultLongLengthTitle").innerHTML = "Длина строки: ";
+        selectElement(".lab2 span.resultLongLengthValue").innerHTML = maxStringLength;
+    });
 
     // sign
     var start = new Date(2017, 9, 1);
@@ -94,13 +151,8 @@
     dateStart.setDateToPage();
     dateCurrent.setDateToPage();
 
-
     console.log(dateStart);
     console.log(dateCurrent);
-
-
-
-
 
 	// lab 0001
     function alertMessege() {

@@ -60,7 +60,7 @@
           <div class="columns">
             <div class="column flex-vertical">
               <div>
-                <div id="userString">
+                <div id="userShortString">
                   <div class="field checkNumb">
                     <label class="label userNumber">Введите вашу строку
                       <div class="control has-icons-right">
@@ -69,11 +69,35 @@
                     </label>
                   </div>
                 </div>
-                <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserString">Добавить новую строку</a><a class="button is-primary is-outlined checkString"> Отлично</a></div>
+                <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserShortString">Добавить новую строку</a><a class="button is-primary is-outlined checkShortString"> Найти самую короткую строку</a></div>
               </div>
             </div>
-            <div class="column is-two-forth">
+            <div class="column is-two-forth lab2">
               <pre>
+                <p><span class="resultShortStringTitle"></span><span class="resultShortStringValue"></span></p>
+                <p><span class="resultShortLengthTitle"></span><span class="resultShortLengthValue"></span></p>
+                <p><span>Выдача задания</span><span class="startDate"></span><span>/ Текущая дата</span><span class="currentDate"></span></p></pre>
+            </div>
+          </div>
+          <div class="columns">
+            <div class="column flex-vertical">
+              <div>
+                <div id="userLongString">
+                  <div class="field checkNumb">
+                    <label class="label userNumber">Введите вашу строку
+                      <div class="control has-icons-right">
+                        <input class="input" type="text" placeholder="Ваша строка">
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserString">Добавить новую строку</a><a class="button is-primary is-outlined checkString"> Найти самую длинную строку</a></div>
+              </div>
+            </div>
+            <div class="column is-two-forth lab2">
+              <pre>
+                <p><span class="resultLongStringTitle"></span><span class="resultLongStringValue"></span></p>
+                <p><span class="resultLongLengthTitle"></span><span class="resultLongLengthValue"></span></p>
                 <p><span>Выдача задания</span><span class="startDate"></span><span>/ Текущая дата</span><span class="currentDate"></span></p></pre>
             </div>
           </div>
