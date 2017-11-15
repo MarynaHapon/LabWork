@@ -41,6 +41,19 @@
 
     selectElement('.checkString').addEventListener('click', function() {
         var allUserStrings = document.querySelectorAll('#userString input.input');
+        var arrayUserStrings = [];
+
+        for(var y = 0; y < allUserStrings.length; y++) {
+            var userString = allUserStrings[y].value;
+            var regTest = /[a-z]/g;
+
+            if(regTest.test(userString)) {
+                arrayUserStrings.push(userString);
+            }
+        }
+
+        console.log(allUserStrings);
+        console.log(arrayUserStrings);
     });
 
 
