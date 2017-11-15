@@ -4,13 +4,72 @@
 		return document.querySelector(item);
 	};
 
-	var alertMessege = function() {
-		alert("Hello, World!");
-	};
+	// lab 0010
+    var start = new Date(2017, 9, 1);
+    var current = new Date();
 
-	console.log(alertMessege);
+    /*
+    function currentTime() {
+        var currentHours = current.getHours();
+        var currentMinutes = current.getMinutes();
+        var currentSeconds = current.getSeconds();
 
-	selectElement(".alertHello").onclick = function() {
+        var currentYear = current.getFullYear();
+		var currentDay = current.getDay();
+		var currentMonth = current.getMonth();
+
+        currentMinutes = checkTime(currentMinutes);
+        currentSeconds = checkTime(currentSeconds);
+        selectElement('.currentDate').innerHTML = currentDay + "-" + currentMonth + "-" + currentYear + "; " + currentHours + ":" + currentMinutes + ":" + currentSeconds + ";";
+        var t = setTimeout(currentTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i}  // add zero in front of numbers < 10
+        return i;
+    }
+    currentTime();
+    console.log(currentTime());
+	*/
+
+    function checkDate(date, node) {
+    	this.date = date;
+		this.seconds = date.getSeconds();
+		this.minutes = date.getMinutes();
+    	this.hours = date.getHours();
+        this.day = date.getDay();
+    	this.month = date.getMonth();
+    	this.year = date.getFullYear();
+
+        checkTime = function(i) {
+            if (i < 10) {i = "0" + i}
+            return i;
+        };
+
+        minutes = checkTime(this.minutes);
+        seconds = checkTime(this.seconds);
+
+		this.setDateToPage = function() {
+            selectElement(node).innerHTML = this.day + "-" + this.month + "-" + this.year + "; " + this.hours + ":" + this.minutes + ":" + this.seconds + ";";
+        };
+
+	}
+
+    var dateStart = new checkDate(start, ".startDate");
+    var dateCurrent = new checkDate(current, ".currentDate");
+
+    dateStart.setDateToPage();
+    dateCurrent.setDateToPage();
+
+    console.log(dateStart);
+    console.log(dateCurrent);
+	
+
+	// lab 0001
+    function alertMessege() {
+		return alert("Hello, World!");
+	}
+
+	selectElement(".alertHello").onclick = function(){
 		alertMessege();
 	};
 
@@ -38,7 +97,7 @@
 
 	var modalHelloWorld = new ModalMessege("Hello, World!", ".modalHello");
 	console.log(modalHelloWorld);
-	
+
 	selectElement(".modalHelloShow").addEventListener("click", function() {
 		modalHelloWorld.setModalMessege();
 		modalHelloWorld.showModal();
@@ -81,7 +140,7 @@
 
 	selectElement(".userMessageOk").addEventListener("click", function() {
 		var message = modalUserMessege.getUserMessage();
-	
+
 		if (message !== " ") {
 			modalUserMessege.setModalMessege(message);
 			modalUserMessege.showModal();
@@ -115,7 +174,7 @@
 	};
 
 	var regName = new RegExp("^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$");
-	
+
 	var inputValidUI = function(item, classValid, classInvalid) {
 		selectElement(item).classList.add(classValid);
 		selectElement(item).classList.remove(classInvalid);
@@ -133,7 +192,7 @@
 		if(regName.test(userFirstName) && regName.test(userLastName)) {
 			setModalMessege("Ваше имя: " + userFirstName + " " + userLastName);
 			showModal(".modalHello");
-		} 
+		}
 		if (regName.test(userFirstName)) {
 			inputValidUI(".userFirstName input", "is-success", "is-danger")
 		}
@@ -215,5 +274,6 @@
 		console.log(arrayUserNumbers);
 		console.log(arrayResultUserNumbers);
 	});
+
 
 })();
