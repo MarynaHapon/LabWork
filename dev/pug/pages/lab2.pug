@@ -30,18 +30,17 @@ block content
 
 				.columns
 					.column.flex-vertical
-						div
-							#userShortString
-								.field.checkNumb
-									label.label.userNumber Введите вашу строку
-										.control.has-icons-right
-											input.input(type='text', placeholder='Ваша строка')
+						#userShortString
+							.field.checkNumb
+								label.label.userNumber Введите вашу строку
+									.control.has-icons-right
+										input.input(type='text', placeholder='Ваша строка')
 
-							.btn-flex-group.btn-num-group
-								a.button.is-link.is-outlined.addUserShortString Добавить новую строку
-								a.button.is-primary.is-outlined.checkShortString  Найти самую короткую строку
+						.btn-flex-group.btn-num-group
+							a.button.is-link.is-outlined.addUserShortString Добавить новую строку
+							a.button.is-primary.is-outlined.checkShortString  Найти самую короткую строку
 
-								
+
 					.column.is-two-forth.lab2
 						pre
 							p
@@ -59,16 +58,15 @@ block content
 
 				.columns
 					.column.flex-vertical
-						div
-							#userLongString
-								.field.checkNumb
-									label.label.userNumber Введите вашу строку
-										.control.has-icons-right
-											input.input(type='text', placeholder='Ваша строка')
+						#userLongString
+							.field.checkNumb
+								label.label.userNumber Введите вашу строку
+									.control.has-icons-right
+										input.input(type='text', placeholder='Ваша строка')
 
-							.btn-flex-group.btn-num-group
-								a.button.is-link.is-outlined.addUserString Добавить новую строку
-								a.button.is-primary.is-outlined.checkString  Найти самую длинную строку
+						.btn-flex-group.btn-num-group
+							a.button.is-link.is-outlined.addUserString Добавить новую строку
+							a.button.is-primary.is-outlined.checkString  Найти самую длинную строку
 
 
 					.column.is-two-forth.lab2
@@ -84,6 +82,37 @@ block content
 								span.startDate
 								span / Текущая дата
 								span.currentDate
+
+
+				.columns
+					.column.flex-vertical
+						#userIncreaseString
+							.field.checkNumb
+								label.label.userNumber Введите вашу строку
+									.control.has-icons-right
+										input.input(type='text', placeholder='Ваша строка')
+
+						.btn-flex-group.btn-num-group
+							a.button.is-link.is-outlined.addUserIncreaseString Добавить новую строку
+							a.button.is-primary.is-outlined.checkIncreaseString  Упорядочить строки
+
+
+					.column.is-two-forth.lab2
+						pre
+							p
+								span.resultIncreaseStringTitle
+								span.resultIncreaseStringValue
+							p
+								span.resultIncreaseLengthTitle
+								span.resultIncreaseLengthValue
+							p
+								span Выдача задания
+								span.startDate
+								span / Текущая дата
+								span.currentDate
+
+
+
 
 
 	.modal.modalHello.is-success

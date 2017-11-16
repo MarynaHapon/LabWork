@@ -115,6 +115,39 @@
         selectElement(".lab2 span.resultLongLengthValue").innerHTML = maxStringLength;
     });
 
+
+    // length increase
+    selectElement('.addUserIncreaseString').addEventListener('click', function() {
+        stringInputUI(userIncreaseString);
+    });
+
+    selectElement('.checkIncreaseString').addEventListener('click', function() {
+        var allUserStrings = document.querySelectorAll('#userIncreaseString input.input');
+        var arrayUserStrings = [];
+		
+        for(var y = 0; y < allUserStrings.length; y++) {
+            var userString = allUserStrings[y].value;
+
+            if(userString != "") {
+                arrayUserStrings.push(userString);
+            }
+        }
+
+        var sortedUserStrings = arrayUserStrings.sort(function (a, b) {
+			return a.length - b.length;
+        });
+
+        var sortedUserStringsLength = sortedUserStrings.map(function(item){
+        	return item.length;
+		});
+
+        selectElement(".lab2 span.resultIncreaseStringTitle").innerHTML = "Cтроки в порядке возрастания их длин: ";
+        selectElement(".lab2 span.resultIncreaseStringValue").innerHTML = sortedUserStrings;
+
+        selectElement(".lab2 span.resultIncreaseLengthTitle").innerHTML = "Длина строк: ";
+        selectElement(".lab2 span.resultIncreaseLengthValue").innerHTML = sortedUserStringsLength;
+    });
+
     // sign
     var start = new Date(2017, 9, 1);
     var current = new Date();
