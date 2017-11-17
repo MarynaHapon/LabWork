@@ -1,5 +1,4 @@
 (function(){
-
 	var selectElement = function(item) {
 		return document.querySelector(item);
 	};
@@ -115,7 +114,6 @@
         selectElement(".lab2 span.resultLongLengthValue").innerHTML = maxStringLength;
     });
 
-
     // length increase
     selectElement('.addUserIncreaseString').addEventListener('click', function() {
         stringInputUI(userIncreaseString);
@@ -198,7 +196,6 @@
         selectElement(".lab2 span.resultDecreaseLengthValue").innerHTML = sortedUserStringsLength;
     });
 
-
 	// less average
     selectElement('.addUserLessAverageString').addEventListener('click', function() {
         stringInputUI(userLessAverageString);
@@ -241,14 +238,62 @@
             return item.length;
 		});
 
-        selectElement(".lab2 span.resultLessAverageStringTitle").innerHTML = "Cтроки в порядке возрастания их длин: ";
+        selectElement(".lab2 span.resultLessAverageStringTitle").innerHTML = "Cтроки, длина которых меньше средней: ";
         selectElement(".lab2 span.resultLessAverageStringValue").innerHTML = averageStringValue;
 
-        selectElement(".lab2 span.resultLessAverageLengthTitle").innerHTML = "Длина строк в порядке возрастания: ";
+        selectElement(".lab2 span.resultLessAverageLengthTitle").innerHTML = "Длины строк: ";
         selectElement(".lab2 span.resultLessAverageLengthValue").innerHTML = averageStringLength;
     });
 
 
+    // larger average
+    selectElement('.addUserMoreAverageString').addEventListener('click', function() {
+        stringInputUI(userMoreAverageString);
+    });
+
+    selectElement('.checkMoreAverageString').addEventListener('click', function() {
+        var allUserStrings = document.querySelectorAll('#userMoreAverageString input.input');
+        var arrayUserStrings = [];
+        var MIN_VALUE = 0;
+
+        for(var y = 0; y < allUserStrings.length; y++) {
+            var userString = allUserStrings[y].value;
+
+            if(userString != "") {
+                arrayUserStrings.push(userString);
+            }
+        }
+
+        var sortedUserStrings = arrayUserStrings.sort(function (a, b) {
+            return a.length - b.length;
+        });
+
+        var sortedUserStringsLength = sortedUserStrings.map(function(item){
+            return item.length;
+        });
+
+        var userStringAmount = sortedUserStringsLength.length;
+
+        var totalStringLength =  sortedUserStringsLength.reduce(function(x, y) {
+            return x + y;
+        },MIN_VALUE);
+
+        var averageLength = Math.floor(totalStringLength / userStringAmount);
+
+        var averageStringValue = sortedUserStrings.filter(function (item) {
+            return item.length >= averageLength;
+        });
+
+        var averageStringLength = averageStringValue.map(function(item) {
+            return item.length;
+        });
+
+        selectElement(".lab2 span.resultMoreAverageStringTitle").innerHTML = "Cтроки, длина которых больше средней: ";
+        selectElement(".lab2 span.resultMoreAverageStringValue").innerHTML = averageStringValue;
+
+        selectElement(".lab2 span.resultMoreAverageLengthTitle").innerHTML = "Длины строк: ";
+        selectElement(".lab2 span.resultMoreAverageLengthValue").innerHTML = averageStringLength;
+    });
 
     // sign
     var start = new Date(2017, 9, 1);

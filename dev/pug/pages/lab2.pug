@@ -12,6 +12,7 @@ block content
 					| Лабораторная работа №2
 				h2.subtitle
 					| Работа с массивами и строками.
+	hr.section-divider
 
 
 	.wrap-box
@@ -164,7 +165,8 @@ block content
 							a.button.is-link.is-outlined.addUserLessAverageString Добавить новую строку
 							a.button.is-primary.is-outlined.checkLessAverageString  Cтроки длина которых меньше средней
 
-.,					.column.is-two-forth.lab2
+
+					.column.is-two-forth.lab2
 						pre
 							p
 								span.resultLessAverageStringTitle
@@ -178,6 +180,36 @@ block content
 								span / Текущая дата
 								span.currentDate
 
+
+
+				hr.navbar-divider
+				p 6. Ввести n строк с консоли. Вывести на консоль те строки, длина которых больше средней, а также их длины.
+				.columns
+					.column.flex-vertical
+						#userMoreAverageString
+							.field.checkNumb
+								label.label.userNumber Введите вашу строку
+									.control.has-icons-right
+										input.input(type='text', placeholder='Ваша строка')
+
+						.btn-flex-group.btn-num-group
+							a.button.is-link.is-outlined.addUserMoreAverageString Добавить новую строку
+							a.button.is-primary.is-outlined.checkMoreAverageString Cтроки длина которых больше средней
+
+
+					.column.is-two-forth.lab2
+						pre
+							p
+								span.resultMoreAverageStringTitle
+								span.resultMoreAverageStringValue
+							p
+								span.resultMoreAverageLengthTitle
+								span.resultMoreAverageLengthValue
+							p
+								span Выдача задания
+								span.startDate
+								span / Текущая дата
+								span.currentDate
 
 
 
