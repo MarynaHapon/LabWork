@@ -163,7 +163,7 @@
         selectElement(".lab2 span.resultIncreaseLengthTitle").innerHTML = "Длина строк в порядке возрастания: ";
         selectElement(".lab2 span.resultIncreaseLengthValue").innerHTML = sortedUserStringsLength;
     });
-	
+
     // decrease length
     selectElement('.addUserDecreaseString').addEventListener('click', function() {
         stringInputUI(userDecreaseString);
@@ -191,13 +191,62 @@
             return item.length;
         });
 
-        selectElement(".lab2 span.resultDecreaseStringTitle").innerHTML = "Cтроки в порядке возрастания их длин: ";
+        selectElement(".lab2 span.resultDecreaseStringTitle").innerHTML = "Cтроки в порядке убывания их длин: ";
         selectElement(".lab2 span.resultDecreaseStringValue").innerHTML = reverseSortedUserStrings;
 
-        selectElement(".lab2 span.resultDecreaseLengthTitle").innerHTML = "Длина строк в порядке возрастания: ";
+        selectElement(".lab2 span.resultDecreaseLengthTitle").innerHTML = "Длина строк в порядке убывания: ";
         selectElement(".lab2 span.resultDecreaseLengthValue").innerHTML = sortedUserStringsLength;
     });
 
+
+	// less average
+    selectElement('.addUserLessAverageString').addEventListener('click', function() {
+        stringInputUI(userLessAverageString);
+    });
+
+    selectElement('.checkLessAverageString').addEventListener('click', function() {
+        var allUserStrings = document.querySelectorAll('#userLessAverageString input.input');
+        var arrayUserStrings = [];
+        var MIN_VALUE = 0;
+
+        for(var y = 0; y < allUserStrings.length; y++) {
+            var userString = allUserStrings[y].value;
+
+            if(userString != "") {
+                arrayUserStrings.push(userString);
+            }
+        }
+
+        var sortedUserStrings = arrayUserStrings.sort(function (a, b) {
+            return a.length - b.length;
+        });
+
+        var sortedUserStringsLength = sortedUserStrings.map(function(item){
+            return item.length;
+        });
+
+        var userStringAmount = sortedUserStringsLength.length;
+
+        var totalStringLength =  sortedUserStringsLength.reduce(function(x, y) {
+            return x + y;
+        },MIN_VALUE);
+
+        var averageLength = Math.floor(totalStringLength / userStringAmount);
+
+        var averageStringValue = sortedUserStrings.filter(function (item) {
+			return item.length <= averageLength;
+		});
+
+        var averageStringLength = averageStringValue.map(function(item) {
+            return item.length;
+		});
+
+        selectElement(".lab2 span.resultLessAverageStringTitle").innerHTML = "Cтроки в порядке возрастания их длин: ";
+        selectElement(".lab2 span.resultLessAverageStringValue").innerHTML = averageStringValue;
+
+        selectElement(".lab2 span.resultLessAverageLengthTitle").innerHTML = "Длина строк в порядке возрастания: ";
+        selectElement(".lab2 span.resultLessAverageLengthValue").innerHTML = averageStringLength;
+    });
 
 
 

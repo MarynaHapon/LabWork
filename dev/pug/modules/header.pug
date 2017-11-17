@@ -1,42 +1,45 @@
-nav.navbar.is-transparent
-	.navbar-brand
-		a.navbar-item(href='index.html')
-			img(src='static/img/general/css-code.png', alt='hapon hangout')
-			h1.navbar-title HAPON  HANGOUT
-		
-		button.button.navbar-burger
-			span
-			span
-			span
-
-	#navbarExampleTransparentExample.navbar-menu
-		.navbar-start
+.nav-site
+	nav.navbar.is-transparent
+		.navbar-brand
 			a.navbar-item(href='index.html')
-				| Home
-			.navbar-item.has-dropdown.is-hoverable
-				a.navbar-link(href='index.html')
-					| Labs
-				.navbar-dropdown.is-boxed
-					a.navbar-item(href='lab1.html')
-						| 0001
-					a.navbar-item(href='lab2.html')
-						| 0010
-					hr.navbar-divider
-					a.navbar-item(href='lab3.html')
-						| 0011
+				img(src='static/img/general/css-code.png', alt='hapon hangout')
+				h1.navbar-title HAPON  HANGOUT
 
-			
-		.navbar-end
-			.navbar-item
-				.field.is-grouped
-					p.control
-						a.bd-tw-button.button(data-social-network='Twitter', data-social-action='tweet', data-social-target='http://localhost:4000', target='_blank', href='https://twitter.com/intent/tweet?text=Awesome Labs)')
-							span.icon
-								i.fa.fa-twitter
-							span
-								| Tweet
-					p.control
-						a.button.is-primary(href='https://github.com/MarynaHapon')
-							span.icon
-								i.fa.fa-github
-							span GitHub
+			button.button.navbar-burger
+				span
+				span
+				span
+
+		#navbarExampleTransparentExample.navbar-menu
+			.navbar-start
+				a.navbar-item(href='index.html')
+					| Home
+				.navbar-item.has-dropdown.is-hoverable
+					a.navbar-link(href='index.html')
+						| Labs
+					.navbar-dropdown.is-boxed
+						a.navbar-item(href='lab1.html')
+							| 0001
+						a.navbar-item(href='lab2.html')
+							| 0010
+						hr.navbar-divider
+						a.navbar-item(href='lab3.html')
+							| 0011
+
+
+			.navbar-end
+				.navbar-item
+					.field.is-grouped
+						p.control
+							a.bd-tw-button.button(data-social-network='Twitter', data-social-action='tweet', data-social-target='http://localhost:4000', target='_blank', href='https://twitter.com/intent/tweet?text=Awesome Labs)')
+								span.icon
+									i.fa.fa-twitter
+								span
+									| Tweet
+						p.control
+							a.button.is-primary(href='https://github.com/MarynaHapon')
+								span.icon
+									i.fa.fa-github
+								span GitHub
+
+	hr.navbar-divider

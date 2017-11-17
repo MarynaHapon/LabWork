@@ -23,10 +23,13 @@ block content
 						hr.navbar-divider
 						p В приведенных ниже заданиях необходимо вывести внизу фамилию разработчика, дату и время получения задания, а также дату и время сдачи задания. Для получения последней даты и времени используйте класс Date.
 						p Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.
-						p 1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.
-						p 2. Ввести n строк с консоли. Найти самую длинную строку. Вывести найденную строку и ее длину.
-						p 3. Ввести n строк с консоли. Упорядочить и вывести строки в порядке возрастания их длин, а также значения их длин.
 						hr.navbar-divider
+						p 5. Ввести n строк с консоли. Вывести на консоль те строки, длина которых меньше средней, также их длины.
+						p 6. Ввести n строк с консоли. Вывести на консоль те строки, длина которых больше средней, а также их длины.
+						hr.navbar-divider
+
+				hr.navbar-divider
+				p 1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.
 
 				.columns
 					.column.flex-vertical
@@ -55,6 +58,8 @@ block content
 								span / Текущая дата
 								span.currentDate
 
+				hr.navbar-divider
+				p 2. Ввести n строк с консоли. Найти самую длинную строку. Вывести найденную строку и ее длину.
 
 				.columns
 					.column.flex-vertical
@@ -83,6 +88,8 @@ block content
 								span / Текущая дата
 								span.currentDate
 
+				hr.navbar-divider
+				p 3. Ввести n строк с консоли. Упорядочить и вывести строки в порядке возрастания их длин, а также значения их длин.
 
 				.columns
 					.column.flex-vertical
@@ -111,6 +118,8 @@ block content
 								span / Текущая дата
 								span.currentDate
 
+				hr.navbar-divider
+				p 4. Ввести n строк с консоли. Упорядочить строки и вывести эти строки в порядке убывания длины, а также значения их длин.
 
 				.columns
 					.column.flex-vertical
@@ -133,6 +142,36 @@ block content
 							p
 								span.resultDecreaseLengthTitle
 								span.resultDecreaseLengthValue
+							p
+								span Выдача задания
+								span.startDate
+								span / Текущая дата
+								span.currentDate
+
+
+
+				hr.navbar-divider
+				p 5. Ввести n строк с консоли. Вывести на консоль те строки, длина которых меньше средней, также их длины.
+				.columns
+					.column.flex-vertical
+						#userLessAverageString
+							.field.checkNumb
+								label.label.userNumber Введите вашу строку
+									.control.has-icons-right
+										input.input(type='text', placeholder='Ваша строка')
+
+						.btn-flex-group.btn-num-group
+							a.button.is-link.is-outlined.addUserLessAverageString Добавить новую строку
+							a.button.is-primary.is-outlined.checkLessAverageString  Cтроки длина которых меньше средней
+
+.,					.column.is-two-forth.lab2
+						pre
+							p
+								span.resultLessAverageStringTitle
+								span.resultLessAverageStringValue
+							p
+								span.resultLessAverageLengthTitle
+								span.resultLessAverageLengthValue
 							p
 								span Выдача задания
 								span.startDate
