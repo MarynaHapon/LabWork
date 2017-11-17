@@ -124,7 +124,7 @@
     selectElement('.checkIncreaseString').addEventListener('click', function() {
         var allUserStrings = document.querySelectorAll('#userIncreaseString input.input');
         var arrayUserStrings = [];
-		
+
         for(var y = 0; y < allUserStrings.length; y++) {
             var userString = allUserStrings[y].value;
 
@@ -141,12 +141,65 @@
         	return item.length;
 		});
 
+        /*
+        for(var x = 0; x < sortedUserStringsLength.length; x++) {
+
+            var newLabel = document.createElement('label');
+            newLabel.className = 'label userNumber';
+            newLabel.innerHTML = '';
+
+            var newControl = document.createElement('div');
+            newControl.className = 'control has-icons-right';
+
+            newLabel.appendChild(newControl);
+            test.appendChild(newLabel);
+
+            newLabel.innerHTML = sortedUserStrings[x];
+        }
+		*/
         selectElement(".lab2 span.resultIncreaseStringTitle").innerHTML = "Cтроки в порядке возрастания их длин: ";
         selectElement(".lab2 span.resultIncreaseStringValue").innerHTML = sortedUserStrings;
 
-        selectElement(".lab2 span.resultIncreaseLengthTitle").innerHTML = "Длина строк: ";
+        selectElement(".lab2 span.resultIncreaseLengthTitle").innerHTML = "Длина строк в порядке возрастания: ";
         selectElement(".lab2 span.resultIncreaseLengthValue").innerHTML = sortedUserStringsLength;
     });
+	
+    // decrease length
+    selectElement('.addUserDecreaseString').addEventListener('click', function() {
+        stringInputUI(userDecreaseString);
+    });
+
+    selectElement('.checkDecreaseString').addEventListener('click', function() {
+        var allUserStrings = document.querySelectorAll('#userDecreaseString input.input');
+        var arrayUserStrings = [];
+
+        for(var y = 0; y < allUserStrings.length; y++) {
+            var userString = allUserStrings[y].value;
+
+            if(userString != "") {
+                arrayUserStrings.push(userString);
+            }
+        }
+
+        var sortedUserStrings = arrayUserStrings.sort(function (a, b) {
+            return a.length - b.length;
+        });
+
+        var reverseSortedUserStrings = sortedUserStrings.reverse();
+
+        var sortedUserStringsLength = reverseSortedUserStrings.map(function(item){
+            return item.length;
+        });
+
+        selectElement(".lab2 span.resultDecreaseStringTitle").innerHTML = "Cтроки в порядке возрастания их длин: ";
+        selectElement(".lab2 span.resultDecreaseStringValue").innerHTML = reverseSortedUserStrings;
+
+        selectElement(".lab2 span.resultDecreaseLengthTitle").innerHTML = "Длина строк в порядке возрастания: ";
+        selectElement(".lab2 span.resultDecreaseLengthValue").innerHTML = sortedUserStringsLength;
+    });
+
+
+
 
     // sign
     var start = new Date(2017, 9, 1);
