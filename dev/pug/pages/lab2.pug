@@ -25,9 +25,6 @@ block content
 						p В приведенных ниже заданиях необходимо вывести внизу фамилию разработчика, дату и время получения задания, а также дату и время сдачи задания. Для получения последней даты и времени используйте класс Date.
 						p Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.
 						hr.navbar-divider
-						p 7. Ввести n строк с консоли. В тексте найти первую подстроку максимальной длины, не содержащую букв.
-						p 8. Ввести n строк с консоли. В трех словах найти одинаковые буквы, которые встречаются во всех словах.
-						hr.navbar-divider
 
 				hr.navbar-divider
 				p 1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.
@@ -255,6 +252,51 @@ block content
 								span.startDate
 								span / Текущая дата
 								span.currentDate
+
+
+	.wrap-box
+		section.container
+			.box
+				.columns
+					.column
+						h4 Задание 2
+						hr.navbar-divider
+						p В одномерном массиве, состоящем из n целых элементов, вычислить:
+						p 1. произведение элементов массива с четными номерами;
+						p 2. сумму элементов массива, расположенных между первым и последним нулевыми элементами.
+						p Преобразовать массив таким образом, чтобы сначала располагались все положительные элементы, а потом – все отрицательные (элементы, равные 0, считать положительными).
+						hr.navbar-divider
+
+				hr.navbar-divider
+				p 1. В одномерном массиве, состоящем из n целых элементов, вычислить: произведение элементов массива с четными номерами;
+
+				.columns
+					.column.flex-vertical
+						#userNumberMul
+							.field.checkNumb
+								label.label.userNumber Введите ваше число
+									.control.has-icons-right
+										input.input(type='text', placeholder='Ваше число')
+
+						.btn-flex-group.btn-num-group
+							a.button.is-link.is-outlined.addUseNumberMul Добавить новое число
+							a.button.is-primary.is-outlined.checkUserNumberMul  Вычислить
+
+					.column.is-two-forth.lab2
+						pre
+							p
+								span.resultUserNumberMulTitle
+								span.resultUserNumberMulValue
+							p
+								span Выдача задания
+								span.startDate
+								span / Текущая дата
+								span.currentDate
+
+
+
+
+
 
 
 

@@ -346,6 +346,41 @@
         selectElement(".lab2 span.resultNumSameSubstringValue").innerHTML = sameChar;
     });
 
+    // multiplication of even
+    selectElement('.addUseNumberMul').addEventListener('click', function() {
+        stringInputUI(userNumberMul);
+    });
+
+    selectElement('.checkUserNumberMul').addEventListener('click', function() {
+
+        var allUserNumbers = document.querySelectorAll('#userNumberMul input.input');
+        var arrayUserNumbers= [];
+
+        for(var i = 0; i < allUserNumbers.length; i++) {
+            var userNumber = allUserNumbers[i].value;
+
+            if(userNumber != "") {
+                arrayUserNumbers.push(userNumber);
+            }
+        }
+
+        var arrUserNumberEven = [];
+
+        for (var j = 0; j < arrayUserNumbers.length; j++) {
+            var jj = j + 1;
+            if ( jj % 2 == 0) {
+                arrUserNumberEven.push(arrayUserNumbers[j]);
+            }
+        }
+
+        var numberEvenMul = arrUserNumberEven.reduce(function (x, y) {
+            return Number(x) + Number(y);
+        }, 0);
+
+        selectElement(".lab2 span.resultUserNumberMulTitle").innerHTML = "Произведение элементов массива с четными номерами: ";
+        selectElement(".lab2 span.resultUserNumberMulValue").innerHTML = numberEvenMul;
+    });
+
     // sign
     var start = new Date(2017, 9, 1);
     var current = new Date();
@@ -427,7 +462,7 @@
 	selectElement(".modalHelloHide").addEventListener("click", function() {
 		modalHelloWorld.hideModal();
 	});
-    
+
 	// user modal info
 	function ModalInfo(modalNode, messageNode) {
 		this.modalNode = modalNode;
