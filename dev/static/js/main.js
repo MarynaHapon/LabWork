@@ -245,7 +245,6 @@
         selectElement(".lab2 span.resultLessAverageLengthValue").innerHTML = averageStringLength;
     });
 
-
     // larger average
     selectElement('.addUserMoreAverageString').addEventListener('click', function() {
         stringInputUI(userMoreAverageString);
@@ -314,10 +313,54 @@
             return Math.max(x, y)
         }, MIN_VALUE);
 
-        selectElement(".lab2 span.resultNumSubstringTitle").innerHTML = "первую подстроку максимальной длины: ";
+        selectElement(".lab2 span.resultNumSubstringTitle").innerHTML = "Подстроку максимальной длины: ";
         selectElement(".lab2 span.resultNumSubstringValue").innerHTML = maxNumberString;
     });
 
+    // same substring
+    selectElement('.checkSameSubstring').addEventListener('click', function() {
+
+        var userString = selectElement('#userSameSubstring textarea').value;
+        var userStringLength = userString.split(" ").length;
+
+        var stringBase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        var countObject = {};
+
+        function characterCount(word, character) {
+            var count = 0;
+            for (var i = 0; i < word.length; i++) {
+                if (word[i] === character) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        for (var j = 0, m = stringBase.length; j < m; j++) {
+            var currentChar = stringBase[j];
+            countObject[currentChar] = characterCount(userString, currentChar);
+        }
+
+        var sameCharArr = [];
+
+        var obj = countObject;
+        var keys = Object.keys(obj);
+
+        for (var i = 0, l = keys.length; i < l; i++) {
+            if(obj[keys[i]] == userStringLength) {
+                console.log(keys[i] + ' is ' + obj[keys[i]]);
+
+                if(obj[keys[i]] == userStringLength) {
+                    sameCharArr.push(keys[i]);
+                }
+            }
+        }
+
+        var sameChar = sameCharArr.join();
+
+        selectElement(".lab2 span.resultSameSubstringTitle").innerHTML = "Буквы, которые встречаются во всех словах: ";
+        selectElement(".lab2 span.resultNumSameSubstringValue").innerHTML = sameChar;
+    });
 
     // sign
     var start = new Date(2017, 9, 1);
