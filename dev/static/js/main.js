@@ -139,22 +139,6 @@
         	return item.length;
 		});
 
-        /*
-        for(var x = 0; x < sortedUserStringsLength.length; x++) {
-
-            var newLabel = document.createElement('label');
-            newLabel.className = 'label userNumber';
-            newLabel.innerHTML = '';
-
-            var newControl = document.createElement('div');
-            newControl.className = 'control has-icons-right';
-
-            newLabel.appendChild(newControl);
-            test.appendChild(newLabel);
-
-            newLabel.innerHTML = sortedUserStrings[x];
-        }
-		*/
         selectElement(".lab2 span.resultIncreaseStringTitle").innerHTML = "Cтроки в порядке возрастания их длин: ";
         selectElement(".lab2 span.resultIncreaseStringValue").innerHTML = sortedUserStrings;
 
@@ -443,9 +427,7 @@
 	selectElement(".modalHelloHide").addEventListener("click", function() {
 		modalHelloWorld.hideModal();
 	});
-
-
-
+    
 	// user modal info
 	function ModalInfo(modalNode, messageNode) {
 		this.modalNode = modalNode;
