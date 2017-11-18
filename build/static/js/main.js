@@ -374,11 +374,56 @@
         }
 
         var numberEvenMul = arrUserNumberEven.reduce(function (x, y) {
-            return Number(x) + Number(y);
-        }, 0);
+            return Number(x) * Number(y);
+        }, 1);
 
         selectElement(".lab2 span.resultUserNumberMulTitle").innerHTML = "Произведение элементов массива с четными номерами: ";
         selectElement(".lab2 span.resultUserNumberMulValue").innerHTML = numberEvenMul;
+    });
+
+    // sum
+    selectElement('.addUseNumberSum').addEventListener('click', function() {
+        stringInputUI(userNumberSum);
+    });
+
+    selectElement('.checkUserNumberSum').addEventListener('click', function() {
+        var allUserNumbers = document.querySelectorAll('#userNumberSum input.input');
+        var arrayUserNumbers= [];
+
+        for(var i = 0; i < allUserNumbers.length; i++) {
+            var userNumber = allUserNumbers[i].value;
+
+            if(userNumber != "") {
+                arrayUserNumbers.push(Number(userNumber));
+            }
+        }
+
+        var sortedUserNumbers = arrayUserNumbers.sort(function (a, b) {
+            return a > b;
+        });
+
+        var reverseSortedUserNumbers = sortedUserNumbers.reverse();
+        console.log(reverseSortedUserNumbers);
+
+        var arrUserSubNumber = [];
+
+        for (var j = 0; j < reverseSortedUserNumbers.length; j++) {
+
+            if (reverseSortedUserNumbers[j] != 0 ) {
+                arrUserSubNumber.push(arrayUserNumbers[j]);
+            } else {
+                break
+            }
+        }
+
+        console.log(arrUserSubNumber);
+
+        var numberSum = arrUserSubNumber.reduce(function (x, y) {
+            return Number(x) + Number(y);
+        }, 0);
+
+        selectElement(".lab2 span.resultUserNumberSumTitle").innerHTML = "Сумма элементов массива: ";
+        selectElement(".lab2 span.resultUserNumberSumValue").innerHTML = numberSum;
     });
 
     // sign
