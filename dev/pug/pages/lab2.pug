@@ -25,8 +25,8 @@ block content
 						p В приведенных ниже заданиях необходимо вывести внизу фамилию разработчика, дату и время получения задания, а также дату и время сдачи задания. Для получения последней даты и времени используйте класс Date.
 						p Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.
 						hr.navbar-divider
-						p 5. Ввести n строк с консоли. Вывести на консоль те строки, длина которых меньше средней, также их длины.
-						p 6. Ввести n строк с консоли. Вывести на консоль те строки, длина которых больше средней, а также их длины.
+						p 7. Ввести n строк с консоли. В тексте найти первую подстроку максимальной длины, не содержащую букв.
+						p 8. Ввести n строк с консоли. В трех словах найти одинаковые буквы, которые встречаются во всех словах.
 						hr.navbar-divider
 
 				hr.navbar-divider
@@ -205,6 +205,37 @@ block content
 							p
 								span.resultMoreAverageLengthTitle
 								span.resultMoreAverageLengthValue
+							p
+								span Выдача задания
+								span.startDate
+								span / Текущая дата
+								span.currentDate
+
+
+
+				hr.navbar-divider
+				p 7. Ввести n строк с консоли. В тексте найти первую подстроку максимальной длины, не содержащую букв.
+				.columns
+					.column.flex-vertical
+						#userNumSubstring
+							.field.checkNumb
+								label.label.userNumber Введите вашу строку
+									.control.has-icons-right
+										input.input(type='text', placeholder='Ваша строка')
+
+						.btn-flex-group.btn-num-group
+							a.button.is-link.is-outlined.addUserNumSubstring Добавить новую строку
+							a.button.is-primary.is-outlined.checkNumSubstring Максимальная подстрока
+
+
+					.column.is-two-forth.lab2
+						pre
+							p
+								span.resultNumSubstringTitle
+								span.resultNumSubstringValue
+							p
+								span.resultNumSubstringLengthTitle
+								span.resultNumSubstringLengthValue
 							p
 								span Выдача задания
 								span.startDate

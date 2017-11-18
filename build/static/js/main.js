@@ -288,12 +288,58 @@
             return item.length;
         });
 
-        selectElement(".lab2 span.resultMoreAverageStringTitle").innerHTML = "Cтроки, длина которых больше средней: ";
+        selectElement(".lab2 span.resultMoreAverageStringTitle").innerHTML = "Строки, длина которых больше средней: ";
         selectElement(".lab2 span.resultMoreAverageStringValue").innerHTML = averageStringValue;
 
-        selectElement(".lab2 span.resultMoreAverageLengthTitle").innerHTML = "Длины строк: ";
+        selectElement(".lab2 span.resultMoreAverageLengthTitle").innerHTML = "Длина строк: ";
         selectElement(".lab2 span.resultMoreAverageLengthValue").innerHTML = averageStringLength;
     });
+
+    // num substring
+    selectElement('.addUserNumSubstring').addEventListener('click', function() {
+        stringInputUI(userNumSubstring);
+    });
+
+    selectElement('.checkNumSubstring').addEventListener('click', function() {
+        var allUserStrings = document.querySelectorAll('#userNumSubstring input.input');
+        var arrayUserStrings = [];
+
+        for(var y = 0; y < allUserStrings.length; y++) {
+            var userString = allUserStrings[y].value;
+
+            if(userString != "") {
+                arrayUserStrings.push(userString);
+            }
+        }
+
+        var newArrrr = [];
+        var regTest = /[0-9]/;
+
+
+
+		var userNumberString = arrayUserStrings.filter(function(item){
+            if(regTest.test(item)) {
+                return item;
+            }
+		});
+
+		var MIN_VALUE = 0;
+        var maxStringLength =  userNumberString.reduce(function(x, y) {
+            return Math.max(x, y)
+        }, MIN_VALUE);
+
+
+		console.log(userNumberString);
+
+
+
+        selectElement(".lab2 span.resultNumSubstringTitle").innerHTML = "первую подстроку максимальной длины: ";
+        selectElement(".lab2 span.resultNumSubstringValue").innerHTML = maxStringLength;
+
+        //selectElement(".lab2 span.resultNumSubstringLengthTitle").innerHTML = "Длина строк: ";
+        //selectElement(".lab2 span.resultNumSubstringLengthValue").innerHTML = averageStringLength;
+    });
+
 
     // sign
     var start = new Date(2017, 9, 1);
