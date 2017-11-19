@@ -12,7 +12,7 @@
         /* just me being lazy */
         exp = Math.exp, pow = Math.pow, sqrt = Math.sqrt,
         PI = Math.PI, sin = Math.sin, cos = Math.cos;
-    
+
     /* FUNCTIONS */
     /* a random number between min & max */
     var rand = function(max, min) {
