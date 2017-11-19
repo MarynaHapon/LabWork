@@ -10,7 +10,7 @@ block content
 
 		hr.section-divider
 		.container.has-text-centered
-			h1.title
+			h1.title.is-uppercase
 				| Лабораторная работа №2
 			h2.subtitle
 				| Работа с массивами и строками.
@@ -26,10 +26,14 @@ block content
 						hr.navbar-divider
 						p В приведенных ниже заданиях необходимо вывести внизу фамилию разработчика, дату и время получения задания, а также дату и время сдачи задания. Для получения последней даты и времени используйте класс Date.
 						p Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.
-						//hr.navbar-divider
+
 
 				hr.navbar-divider
-				p 1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.
+				.notification
+					p
+						| 1. Ввести n строк с консоли, найти
+						strong &#160;самую короткую&#160;
+						| строку. Вывести эту строку и ее длину.
 
 				.columns
 					.column.flex-vertical
@@ -44,6 +48,7 @@ block content
 							a.button.is-primary.is-outlined.checkShortString Вычислить
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultShortStringTitle
@@ -57,8 +62,13 @@ block content
 								span / Текущая дата
 								span.currentDate
 
+
 				hr.navbar-divider
-				p 2. Ввести n строк с консоли. Найти самую длинную строку. Вывести найденную строку и ее длину.
+				.notification
+					p
+						| 2. Ввести n строк с консоли, найти
+						strong &#160;самую длинную&#160;
+						| строку. Вывести эту строку и ее длину.
 
 				.columns
 					.column.flex-vertical
@@ -73,6 +83,7 @@ block content
 							a.button.is-primary.is-outlined.checkString Вычислить
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultLongStringTitle
@@ -86,8 +97,13 @@ block content
 								span / Текущая дата
 								span.currentDate
 
+
 				hr.navbar-divider
-				p 3. Ввести n строк с консоли. Упорядочить и вывести строки в порядке возрастания их длин, а также значения их длин.
+				.notification
+					p
+						| 3. Ввести n строк с консоли. Упорядочить и вывести строки
+						strong &#160;в порядке возрастания их длин&#160;
+						| , а также значения их длин.
 
 				.columns
 					.column.flex-vertical
@@ -102,6 +118,7 @@ block content
 							a.button.is-primary.is-outlined.checkIncreaseString Вычислить
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultIncreaseStringTitle
@@ -115,8 +132,13 @@ block content
 								span / Текущая дата
 								span.currentDate
 
+
 				hr.navbar-divider
-				p 4. Ввести n строк с консоли. Упорядочить строки и вывести эти строки в порядке убывания длины, а также значения их длин.
+				.notification
+					p
+						| 4. Ввести n строк с консоли. Упорядочить и вывести строки
+						strong &#160;в порядке убывания длины&#160;
+						| , а также значения их длин.
 
 				.columns
 					.column.flex-vertical
@@ -131,6 +153,7 @@ block content
 							a.button.is-primary.is-outlined.checkDecreaseString Вычислить
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultDecreaseStringTitle
@@ -146,7 +169,12 @@ block content
 
 
 				hr.navbar-divider
-				p 5. Ввести n строк с консоли. Вывести на консоль те строки, длина которых меньше средней, также их длины.
+				.notification
+					p
+						| 5. Ввести n строк с консоли. Вывести на консоль те строки
+						strong &#160;длина которых меньше средней&#160;
+						| , также их длины.
+
 				.columns
 					.column.flex-vertical
 						#userLessAverageString
@@ -160,6 +188,7 @@ block content
 							a.button.is-primary.is-outlined.checkLessAverageString Вычислить
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultLessAverageStringTitle
@@ -175,7 +204,12 @@ block content
 
 
 				hr.navbar-divider
-				p 6. Ввести n строк с консоли. Вывести на консоль те строки, длина которых больше средней, а также их длины.
+				.notification
+					p
+						| 6. Ввести n строк с консоли. Вывести на консоль те строки
+						strong &#160;длина которых больше средней&#160;
+						| , также их длины.
+
 				.columns
 					.column.flex-vertical
 						#userMoreAverageString
@@ -190,6 +224,7 @@ block content
 
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultMoreAverageStringTitle
@@ -205,7 +240,12 @@ block content
 
 
 				hr.navbar-divider
-				p 7. Ввести n строк с консоли. В тексте найти первую подстроку максимальной длины, не содержащую букв.
+				.notification
+					p
+						| 7. Ввести n строк с консоли. В тексте найти первую
+						strong &#160;подстроку максимальной длины&#160;
+						| , не содержащую букв.
+
 				.columns
 					.column.flex-vertical
 						#userNumSubstring
@@ -219,6 +259,7 @@ block content
 
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultNumSubstringTitle
@@ -233,9 +274,13 @@ block content
 								span.currentDate
 
 
-
 				hr.navbar-divider
-				p 8. Ввести n строк с консоли. В трех словах найти одинаковые буквы, которые встречаются во всех словах.
+				.notification
+					p
+						| 8. Ввести n строк с консоли. В трех словах найти
+						strong &#160;одинаковые буквы&#160;
+						| , которые встречаются во всех словах.
+
 				.columns
 					.column.flex-vertical
 						#userSameSubstring
@@ -248,6 +293,7 @@ block content
 							a.button.is-primary.is-outlined.checkSameSubstring Вычислить
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultSameSubstringTitle
@@ -265,9 +311,15 @@ block content
 				.columns
 					.column
 						h4.has-text-primary Задание 2
-						hr.navbar-divider
 
-				p 1. В одномерном массиве, состоящем из n целых элементов, вычислить: произведение элементов массива с четными номерами;
+
+				hr.navbar-divider
+				.notification
+					p
+						| 1. В одномерном массиве, состоящем из n целых элементов, вычислить:
+						strong &#160;произведение элементов массива&#160;
+						| , с четными номерами.
+
 				.columns
 					.column.flex-vertical
 						#userNumberMul
@@ -281,6 +333,7 @@ block content
 							a.button.is-primary.is-outlined.checkUserNumberMul  Вычислить
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultUserNumberMulTitle
@@ -292,10 +345,14 @@ block content
 								span.currentDate
 
 
-
 				hr.navbar-divider
-				p 2. В одномерном массиве, состоящем из n целых элементов, вычислить: сумму элементов массива, расположенных между первым и последним нулевыми элементами.
-				p Преобразовать массив таким образом, чтобы сначала располагались все положительные элементы, а потом – все отрицательные (элементы, равные 0, считать положительными).
+				.notification
+					p
+						| 2. В одномерном массиве, состоящем из n целых элементов, вычислить:
+						strong &#160;сумму элементов массива&#160;
+						| , расположенных между первым и последним нулевыми элементами.
+						| Преобразовать массив таким образом, чтобы сначала располагались все положительные элементы, а потом – все отрицательные (элементы, равные 0, считать положительными).
+
 				.columns
 					.column.flex-vertical
 						#userNumberSum
@@ -309,6 +366,7 @@ block content
 							a.button.is-primary.is-outlined.checkUserNumberSum  Вычислить
 
 					.column.is-two-forth.lab2
+						label.label Результат
 						pre
 							p
 								span.resultUserNumberSumTitle
@@ -320,6 +378,3 @@ block content
 								span.currentDate
 
 
-	block script
-		script(src="static/js/lab2.js")
-		script(src="static/js/wave.js")

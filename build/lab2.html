@@ -40,7 +40,7 @@
       <canvas class="c"></canvas>
       <hr class="section-divider">
       <div class="container has-text-centered">
-        <h1 class="title">Лабораторная работа №2</h1>
+        <h1 class="title is-uppercase">Лабораторная работа №2</h1>
         <h2 class="subtitle">Работа с массивами и строками.</h2>
       </div>
     </section>
@@ -54,11 +54,12 @@
               <hr class="navbar-divider">
               <p>В приведенных ниже заданиях необходимо вывести внизу фамилию разработчика, дату и время получения задания, а также дату и время сдачи задания. Для получения последней даты и времени используйте класс Date.</p>
               <p>Модифицировать программы решения задач, осуществляя ввод строк как аргументов командной строки.</p>
-              <!--hr.navbar-divider-->
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>1. Ввести n строк с консоли, найти самую короткую строку. Вывести эту строку и ее длину.</p>
+          <div class="notification">
+            <p>1. Ввести n строк с консоли, найти<strong>&#160;самую короткую&#160;</strong>строку. Вывести эту строку и ее длину.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userShortString">
@@ -73,6 +74,7 @@
               <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserShortString">Добавить новую строку</a><a class="button is-primary is-outlined checkShortString">Вычислить</a></div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultShortStringTitle"></span><span class="resultShortStringValue"></span></p>
                 <p><span class="resultShortLengthTitle"></span><span class="resultShortLengthValue"></span></p>
@@ -80,7 +82,9 @@
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>2. Ввести n строк с консоли. Найти самую длинную строку. Вывести найденную строку и ее длину.</p>
+          <div class="notification">
+            <p>2. Ввести n строк с консоли, найти<strong>&#160;самую длинную&#160;</strong>строку. Вывести эту строку и ее длину.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userLongString">
@@ -95,6 +99,7 @@
               <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserString">Добавить новую строку</a><a class="button is-primary is-outlined checkString">Вычислить</a></div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultLongStringTitle"></span><span class="resultLongStringValue"></span></p>
                 <p><span class="resultLongLengthTitle"></span><span class="resultLongLengthValue"></span></p>
@@ -102,7 +107,9 @@
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>3. Ввести n строк с консоли. Упорядочить и вывести строки в порядке возрастания их длин, а также значения их длин.</p>
+          <div class="notification">
+            <p>3. Ввести n строк с консоли. Упорядочить и вывести строки<strong>&#160;в порядке возрастания их длин&#160;</strong>, а также значения их длин.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userIncreaseString">
@@ -117,6 +124,7 @@
               <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserIncreaseString">Добавить новую строку</a><a class="button is-primary is-outlined checkIncreaseString">Вычислить</a></div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultIncreaseStringTitle"></span><span class="resultIncreaseStringValue"></span></p>
                 <p><span class="resultIncreaseLengthTitle"></span><span class="resultIncreaseLengthValue"></span></p>
@@ -124,7 +132,9 @@
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>4. Ввести n строк с консоли. Упорядочить строки и вывести эти строки в порядке убывания длины, а также значения их длин.</p>
+          <div class="notification">
+            <p>4. Ввести n строк с консоли. Упорядочить и вывести строки<strong>&#160;в порядке убывания длины&#160;</strong>, а также значения их длин.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userDecreaseString">
@@ -139,6 +149,7 @@
               <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserDecreaseString">Добавить новую строку</a><a class="button is-primary is-outlined checkDecreaseString">Вычислить</a></div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultDecreaseStringTitle"></span><span class="resultDecreaseStringValue"></span></p>
                 <p><span class="resultDecreaseLengthTitle"></span><span class="resultDecreaseLengthValue"></span></p>
@@ -146,7 +157,9 @@
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>5. Ввести n строк с консоли. Вывести на консоль те строки, длина которых меньше средней, также их длины.</p>
+          <div class="notification">
+            <p>5. Ввести n строк с консоли. Вывести на консоль те строки<strong>&#160;длина которых меньше средней&#160;</strong>, также их длины.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userLessAverageString">
@@ -161,6 +174,7 @@
               <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserLessAverageString">Добавить новую строку</a><a class="button is-primary is-outlined checkLessAverageString">Вычислить</a></div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultLessAverageStringTitle"></span><span class="resultLessAverageStringValue"></span></p>
                 <p><span class="resultLessAverageLengthTitle"></span><span class="resultLessAverageLengthValue"></span></p>
@@ -168,7 +182,9 @@
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>6. Ввести n строк с консоли. Вывести на консоль те строки, длина которых больше средней, а также их длины.</p>
+          <div class="notification">
+            <p>6. Ввести n строк с консоли. Вывести на консоль те строки<strong>&#160;длина которых больше средней&#160;</strong>, также их длины.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userMoreAverageString">
@@ -183,6 +199,7 @@
               <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUserMoreAverageString">Добавить новую строку</a><a class="button is-primary is-outlined checkMoreAverageString">Вычислить</a></div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultMoreAverageStringTitle"></span><span class="resultMoreAverageStringValue"></span></p>
                 <p><span class="resultMoreAverageLengthTitle"></span><span class="resultMoreAverageLengthValue"></span></p>
@@ -190,7 +207,9 @@
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>7. Ввести n строк с консоли. В тексте найти первую подстроку максимальной длины, не содержащую букв.</p>
+          <div class="notification">
+            <p>7. Ввести n строк с консоли. В тексте найти первую<strong>&#160;подстроку максимальной длины&#160;</strong>, не содержащую букв.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userNumSubstring">
@@ -204,6 +223,7 @@
               </div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultNumSubstringTitle"></span><span class="resultNumSubstringValue"></span></p>
                 <p><span class="resultNumSubstringLengthTitle"></span><span class="resultNumSubstringLengthValue"></span></p>
@@ -211,7 +231,9 @@
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>8. Ввести n строк с консоли. В трех словах найти одинаковые буквы, которые встречаются во всех словах.</p>
+          <div class="notification">
+            <p>8. Ввести n строк с консоли. В трех словах найти<strong>&#160;одинаковые буквы&#160;</strong>, которые встречаются во всех словах.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userSameSubstring">
@@ -225,6 +247,7 @@
               </div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultSameSubstringTitle"></span><span class="resultNumSameSubstringValue"></span></p>
                 <p><span>Выдача задания</span><span class="startDate"></span><span>/ Текущая дата</span><span class="currentDate"></span></p></pre>
@@ -239,10 +262,12 @@
           <div class="columns">
             <div class="column">
               <h4 class="has-text-primary">Задание 2</h4>
-              <hr class="navbar-divider">
             </div>
           </div>
-          <p>1. В одномерном массиве, состоящем из n целых элементов, вычислить: произведение элементов массива с четными номерами;</p>
+          <hr class="navbar-divider">
+          <div class="notification">
+            <p>1. В одномерном массиве, состоящем из n целых элементов, вычислить:<strong>&#160;произведение элементов массива&#160;</strong>, с четными номерами.</p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userNumberMul">
@@ -257,14 +282,18 @@
               <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUseNumberMul">Добавить новое число</a><a class="button is-primary is-outlined checkUserNumberMul"> Вычислить</a></div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultUserNumberMulTitle"></span><span class="resultUserNumberMulValue"></span></p>
                 <p><span>Выдача задания</span><span class="startDate"></span><span>/ Текущая дата</span><span class="currentDate"></span></p></pre>
             </div>
           </div>
           <hr class="navbar-divider">
-          <p>2. В одномерном массиве, состоящем из n целых элементов, вычислить: сумму элементов массива, расположенных между первым и последним нулевыми элементами.</p>
-          <p>Преобразовать массив таким образом, чтобы сначала располагались все положительные элементы, а потом – все отрицательные (элементы, равные 0, считать положительными).</p>
+          <div class="notification">
+            <p>2. В одномерном массиве, состоящем из n целых элементов, вычислить:<strong>&#160;сумму элементов массива&#160;</strong>, расположенных между первым и последним нулевыми элементами.
+              Преобразовать массив таким образом, чтобы сначала располагались все положительные элементы, а потом – все отрицательные (элементы, равные 0, считать положительными).
+            </p>
+          </div>
           <div class="columns">
             <div class="column flex-vertical">
               <div id="userNumberSum">
@@ -279,6 +308,7 @@
               <div class="btn-flex-group btn-num-group"><a class="button is-link is-outlined addUseNumberSum">Добавить новое число</a><a class="button is-primary is-outlined checkUserNumberSum"> Вычислить</a></div>
             </div>
             <div class="column is-two-forth lab2">
+              <label class="label">Результат</label>
               <pre>
                 <p><span class="resultUserNumberSumTitle"></span><span class="resultUserNumberSumValue"></span></p>
                 <p><span>Выдача задания</span><span class="startDate"></span><span>/ Текущая дата</span><span class="currentDate"></span></p></pre>
@@ -287,8 +317,6 @@
         </div>
       </section>
     </div>
-    <script src="static/js/lab2.js"></script>
-    <script src="static/js/wave.js"></script>
     <hr class="section-divider">
     <footer class="footer">
       <div class="container"> 
@@ -326,6 +354,8 @@
         </div>
       </div>
     </footer>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/lab1.js"></script>
     <script src="static/js/lab2.js"></script>
     <script src="static/js/wave.js"></script>
   </body>
