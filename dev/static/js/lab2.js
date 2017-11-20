@@ -43,7 +43,7 @@
     });
 
     selectElement('.checkShortString').addEventListener('click', function() {
-        var MAX_VALUE = 1000000;
+        var MAX_VALUE = 100000000;
 
         var allUserStrings = document.querySelectorAll('#userShortString input.input');
         var arrayUserStrings = [];
@@ -458,46 +458,21 @@
         selectElement(".lab2 span.resultUserNumberSumValue").innerHTML = numberSum;
     });
 
-
     // sign
-    var start = new Date(2017, 9, 1);
+    var start = new Date(2017, 9, 1, 0, 0, 0, 0);
     var current = new Date();
 
     function checkDate(date, node) {
-        this.date = date;
-        this.seconds = date.getSeconds();
-        this.minutes = date.getMinutes();
-        this.hours = date.getHours();
-        this.day = date.getDay();
-        this.month = date.getMonth();
-        this.year = date.getFullYear();
+        var dateNodeList = document.querySelectorAll(node);
 
-        checkTime = function(i) {
-            if (i < 10) {i = "0" + i}
-            return i;
-        };
-
-        minutes = checkTime(this.minutes);
-        seconds = checkTime(this.seconds);
-
-        this.setDateToPage = function() {
-            selectElement(node).innerHTML = this.day + "-" + this.month + "-" + this.year + "; " + this.hours + ":" + this.minutes + ":" + this.seconds + ";";
-        };
-
+        for(var i = 0; i < dateNodeList.length; i++) {
+            dateNodeItem = dateNodeList[i];
+            dateNodeItem.innerHTML = date.toLocaleString('en-GB');
+        }
     }
 
     var dateStart = new checkDate(start, ".startDate");
     var dateCurrent = new checkDate(current, ".currentDate");
-
-    dateStart.setDateToPage();
-    dateCurrent.setDateToPage();
-
-    dateStart.setDateToPage();
-    dateCurrent.setDateToPage();
-
-    console.log(dateStart);
-    console.log(dateCurrent);
-
 })();
 
 
