@@ -393,6 +393,18 @@
 
 
     // sum
+    var regNum = /[0-9]/g;
+
+    var errorMessageUI = function (item) {
+        item.classList.add("is-danger");
+        item.classList.remove("is-success");
+    };
+
+    var successMessageUI = function(item) {
+        item.classList.add("is-success");
+        item.classList.remove("is-danger");
+    };
+
     selectElement('.addUseNumberSum').addEventListener('click', function() {
         stringInputUI(userNumberSum);
     });
@@ -403,9 +415,14 @@
 
         for(var i = 0; i < allUserNumbers.length; i++) {
             var userNumber = allUserNumbers[i].value;
+            var currentNode = allUserNumbers[i];
 
-            if(userNumber != "") {
+            if(userNumber != "" && regNum.test(userNumber)) {
                 arrayUserNumbers.push(Number(userNumber));
+                successMessageUI(currentNode);
+            }
+            if(!regNum.test(userNumber)) {
+                errorMessageUI(currentNode);
             }
         }
 
