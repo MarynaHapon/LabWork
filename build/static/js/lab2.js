@@ -355,6 +355,18 @@
         selectElement(".lab2 span.resultNumSameSubstringValue").innerHTML = sameChar;
     });
 
+    // UI check numbers
+    var regNum = /[0-9]/g;
+
+    var errorMessageUI = function (item) {
+        item.classList.add("is-danger");
+        item.classList.remove("is-success");
+    };
+
+    var successMessageUI = function(item) {
+        item.classList.add("is-success");
+        item.classList.remove("is-danger");
+    };
 
     // multiplication of even
     selectElement('.addUseNumberMul').addEventListener('click', function() {
@@ -368,9 +380,15 @@
 
         for(var i = 0; i < allUserNumbers.length; i++) {
             var userNumber = allUserNumbers[i].value;
+            var currentNode = allUserNumbers[i];
 
-            if(userNumber != "") {
+            if(userNumber != "" && regNum.test(userNumber)) {
                 arrayUserNumbers.push(userNumber);
+                successMessageUI(currentNode);
+            }
+
+            if(!regNum.test(userNumber)) {
+                errorMessageUI(currentNode);
             }
         }
 
@@ -393,18 +411,6 @@
 
 
     // sum
-    var regNum = /[0-9]/g;
-
-    var errorMessageUI = function (item) {
-        item.classList.add("is-danger");
-        item.classList.remove("is-success");
-    };
-
-    var successMessageUI = function(item) {
-        item.classList.add("is-success");
-        item.classList.remove("is-danger");
-    };
-
     selectElement('.addUseNumberSum').addEventListener('click', function() {
         stringInputUI(userNumberSum);
     });
@@ -421,6 +427,7 @@
                 arrayUserNumbers.push(Number(userNumber));
                 successMessageUI(currentNode);
             }
+
             if(!regNum.test(userNumber)) {
                 errorMessageUI(currentNode);
             }
