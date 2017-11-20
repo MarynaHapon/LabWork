@@ -368,6 +368,7 @@
         item.classList.remove("is-danger");
     };
 
+
     // multiplication of even
     selectElement('.addUseNumberMul').addEventListener('click', function() {
         stringInputUI(userNumberMul);
@@ -378,35 +379,37 @@
         var allUserNumbers = document.querySelectorAll('#userNumberMul input.input');
         var arrayUserNumbers= [];
 
+
         for(var i = 0; i < allUserNumbers.length; i++) {
             var userNumber = allUserNumbers[i].value;
-            var currentNode = allUserNumbers[i];
 
-            if(userNumber != "" && regNum.test(userNumber)) {
+            if (userNumber != "") {
                 arrayUserNumbers.push(userNumber);
-                successMessageUI(currentNode);
             }
 
-            if(!regNum.test(userNumber)) {
-                errorMessageUI(currentNode);
+            var arrUserNumberEven = [];
+
+            for (var j = 0; j < arrayUserNumbers.length; j++) {
+                var jj = j + 1;
+                if (jj % 2 == 0) {
+                    arrUserNumberEven.push(arrayUserNumbers[j]);
+                }
+            }
+
+            if (arrUserNumberEven != false) {
+                var numberEvenMul = arrUserNumberEven.reduce(function (x, y) {
+                    return Number(x) * Number(y);
+                }, 1);
+
+                selectElement(".lab2 span.resultUserNumberMulTitle").innerHTML = "Произведение элементов массива с четными номерами: ";
+                selectElement(".lab2 span.resultUserNumberMulValue").innerHTML = numberEvenMul;
+            }
+
+            if (arrUserNumberEven == false) {
+                selectElement(".lab2 span.resultUserNumberMulTitle").innerHTML = "Произведение элементов массива с четными номерами: ";
+                selectElement(".lab2 span.resultUserNumberMulValue").innerHTML = "0";
             }
         }
-
-        var arrUserNumberEven = [];
-
-        for (var j = 0; j < arrayUserNumbers.length; j++) {
-            var jj = j + 1;
-            if ( jj % 2 == 0) {
-                arrUserNumberEven.push(arrayUserNumbers[j]);
-            }
-        }
-
-        var numberEvenMul = arrUserNumberEven.reduce(function (x, y) {
-            return Number(x) * Number(y);
-        }, 1);
-
-        selectElement(".lab2 span.resultUserNumberMulTitle").innerHTML = "Произведение элементов массива с четными номерами: ";
-        selectElement(".lab2 span.resultUserNumberMulValue").innerHTML = numberEvenMul;
     });
 
 
@@ -425,12 +428,8 @@
 
             if(userNumber != "" && regNum.test(userNumber)) {
                 arrayUserNumbers.push(Number(userNumber));
-                successMessageUI(currentNode);
             }
 
-            if(!regNum.test(userNumber)) {
-                errorMessageUI(currentNode);
-            }
         }
 
         var sortedUserNumbers = arrayUserNumbers.sort(function (a, b) {
