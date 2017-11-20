@@ -424,12 +424,10 @@
 
         for(var i = 0; i < allUserNumbers.length; i++) {
             var userNumber = allUserNumbers[i].value;
-            var currentNode = allUserNumbers[i];
 
-            if(userNumber != "" && regNum.test(userNumber)) {
+            if(userNumber != "") {
                 arrayUserNumbers.push(Number(userNumber));
             }
-
         }
 
         var sortedUserNumbers = arrayUserNumbers.sort(function (a, b) {
@@ -443,7 +441,7 @@
 
         for (var j = 0; j < reverseSortedUserNumbers.length; j++) {
 
-            if (reverseSortedUserNumbers[j] != 0 ) {
+            if (reverseSortedUserNumbers[j] > 0) {
                 arrUserSubNumber.push(arrayUserNumbers[j]);
             } else {
                 break
