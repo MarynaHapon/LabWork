@@ -129,22 +129,58 @@
         };
     }
 
-    var Petrov = new Patient();
+    var PatientArray = [];
 
-    Petrov.setId("12324234");
-    Petrov.setSurname("Surname");
-    Petrov.setName("Name");
-    Petrov.setPatronymic("Patronymic");
-    Petrov.setAddress("Kyiv Vishneva 32");
-    Petrov.setPhone("+380681165655");
-    Petrov.setMedicalCardID("123123123123");
-    
-    console.log(Petrov.toStringInfo());
-    console.log(Petrov.getId());
-    console.log(Petrov.getSurname());
-    console.log(Petrov.getName());
-    console.log(Petrov.getPatronymic());
-    console.log(Petrov.getAddress());
-    console.log(Petrov.getPhone());
-    console.log(Petrov.getMedicalCardID());
+    function PatientList(item) {
+        var currentItem = [];
+
+        currentItem.push(item.getId());
+        currentItem.push(item.getSurname());
+        currentItem.push(item.setName());
+        currentItem.push(item.setPatronymic());
+        currentItem.push(item.setAddress());
+        currentItem.push(item.setPhone());
+        currentItem.push(item.setMedicalCardID());
+        currentItem.push(item.setDiagnosis());
+
+        PatientArray.push(currentItem);
+    }
+
+    // test
+    var patient01 = new Patient();
+
+    patient01.setId("00000001");
+    patient01.setSurname("Surname");
+    patient01.setName("Name");
+    patient01.setPatronymic("Patronymic");
+    patient01.setAddress("Kyiv Vishneva 32");
+    patient01.setPhone("+380681165655");
+    patient01.setMedicalCardID("00000001");
+
+    PatientList(patient01);
+
+    console.log(PatientArray);
+
+
+    document.getElementById("registerPatient").addEventListener("click", function (item) {
+        var currentPatient = new Patient();
+
+        var id = document.getElementById("ID").value,
+            surname = document.getElementById("surname").value,
+            name = document.getElementById("name").value,
+            patronymic = document.getElementById("patronymic").value,
+            address = document.getElementById("address").value,
+            phone = document.getElementById("phone").value,
+            medicalCardID = document.getElementById("medicalCardID").value;
+
+        currentPatient.setId(id);
+        currentPatient.setSurname(surname);
+        currentPatient.setName(name);
+        currentPatient.setPatronymic(patronymic);
+        currentPatient.setAddress(address);
+        currentPatient.setPhone(phone);
+        currentPatient.setMedicalCardID(medicalCardID);
+    });
+
+    console.log(PatientArray);
 })();

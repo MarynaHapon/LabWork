@@ -50,14 +50,71 @@
             <div class="column">
               <h4 class="has-text-info">Задание 1</h4>
               <hr class="navbar-divider">
-              <p>Создать классы, спецификации которых приведены ниже. Определить конструкторы и методы setТип(), getТип(), equals(), toString(). Определить дополнительно методы в классе, создающем массив объектов. Задать критерий выбора данных и вывести эти данные на консоль.</p>
-              <p>Patient: id, Фамилия, Имя, Отчество, Адрес, Телефон, Номер медицинской карты, Диагноз.</p>
+              <p>Создать классы, спецификации которых приведены ниже. Определить конструкторы и методы<em>&#160;setТип(), getТип(), equals(), toString()</em>. Определить дополнительно методы в классе, создающем массив объектов. Задать критерий выбора данных и вывести эти данные на консоль.</p>
+              <p><b>Patient:</b>&#160;id, Фамилия, Имя, Отчество, Адрес, Телефон, Номер медицинской карты, Диагноз.</p>
               <p>Создать массив объектов. Вывести:</p>
               <p>a)    список пациентов, имеющих данный диагноз;</p>
               <p>b)    список пациентов, номер медицинской карты у которых находится в заданном интервале.</p>
             </div>
           </div>
-          <hr class="navbar-divider">
+          <div class="columns">
+            <div class="column is-two-forth lab3">
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="title">Регистрация нового пациента</h3>
+                  <div class="field">
+                    <div class="control">
+                      <label class="label userNumber">Введите ID</label>
+                      <input class="input is-info" type="text" placeholder="ID" id="ID">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control">
+                      <label class="label userNumber">Введите фамилию пациента</label>
+                      <input class="input is-info" type="text" placeholder="Фамилия" id="surname">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="control">
+                      <label class="label userNumber">Введите имя пациента</label>
+                      <input class="input is-info" type="text" placeholder="Имя" id="name">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label userNumber">Введите отчество пациента</label>
+                    <div class="control">
+                      <input class="input is-info" type="text" placeholder="Отчество" id="patronymic">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label userNumber">Введите адрес пациента</label>
+                    <div class="control">
+                      <input class="input is-info" type="text" placeholder="Адрес" id="address">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label userNumber">Введите телефон пациента</label>
+                    <div class="control">
+                      <input class="input is-info" type="text" placeholder="Телефон" id="phone">
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label class="label userNumber">Введите номер медицинской карты</label>
+                    <div class="control">
+                      <input class="input is-info" type="text" placeholder="Номер медицинской карты" id="medicalCardID">
+                    </div>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item"><a class="button is-primary is-inverted" id="registerPatient">Сохранить</a></p>
+                  <p class="card-footer-item"><a class="button is-danger is-inverted" id="resetPatient">Отменить</a></p>
+                </footer>
+              </div>
+            </div>
+            <div class="column is-two-forth lab3">
+              <input class="input" type="text" placeholder="Text input">
+            </div>
+          </div>
         </div>
       </section>
     </div>

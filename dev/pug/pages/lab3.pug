@@ -20,13 +20,74 @@ block content
 					.column
 						h4.has-text-info Задание 1
 						hr.navbar-divider
-						p Создать классы, спецификации которых приведены ниже. Определить конструкторы и методы setТип(), getТип(), equals(), toString(). Определить дополнительно методы в классе, создающем массив объектов. Задать критерий выбора данных и вывести эти данные на консоль.
-						p Patient: id, Фамилия, Имя, Отчество, Адрес, Телефон, Номер медицинской карты, Диагноз.
+						p Создать классы, спецификации которых приведены ниже. Определить конструкторы и методы
+							em &#160;setТип(), getТип(), equals(), toString()
+							| . Определить дополнительно методы в классе, создающем массив объектов. Задать критерий выбора данных и вывести эти данные на консоль.
+						p
+							b Patient:
+							| &#160;id, Фамилия, Имя, Отчество, Адрес, Телефон, Номер медицинской карты, Диагноз.
 						p Создать массив объектов. Вывести:
 						p a)    список пациентов, имеющих данный диагноз;
 						p b)    список пациентов, номер медицинской карты у которых находится в заданном интервале.
 
-				hr.navbar-divider
+
+				.columns
+					.column.is-two-forth.lab3
+						.card
+							.card-content
+								h3.title
+									| Регистрация нового пациента
+
+								.field
+									.control
+										label.label.userNumber Введите ID
+										input.input.is-info(type='text', placeholder='ID')#ID
+
+								.field
+									.control
+										label.label.userNumber Введите фамилию пациента
+										input.input.is-info(type='text', placeholder='Фамилия')#surname
+
+								.field
+									.control
+										label.label.userNumber Введите имя пациента
+										input.input.is-info(type='text', placeholder='Имя')#name
+
+								.field
+									label.label.userNumber Введите отчество пациента
+									.control
+										input.input.is-info(type='text', placeholder='Отчество')#patronymic
+
+								.field
+									label.label.userNumber Введите адрес пациента
+									.control
+										input.input.is-info(type='text', placeholder='Адрес')#address
+
+								.field
+									label.label.userNumber Введите телефон пациента
+									.control
+										input.input.is-info(type='text', placeholder='Телефон')#phone
+
+								.field
+									label.label.userNumber Введите номер медицинской карты
+									.control
+										input.input.is-info(type='text', placeholder='Номер медицинской карты')#medicalCardID
+
+
+							footer.card-footer
+								p.card-footer-item
+									a.button.is-primary.is-inverted#registerPatient Сохранить
+
+								p.card-footer-item
+									a.button.is-danger.is-inverted#resetPatient Отменить
+
+
+
+
+					.column.is-two-forth.lab3
+						input.input(type='text', placeholder='Text input')
+
+
 
 
 

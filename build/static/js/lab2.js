@@ -474,9 +474,3 @@
     var dateStart = new checkDate(start, ".startDate");
     var dateCurrent = new checkDate(current, ".currentDate");
 })();
-
-
-
-
-
-
