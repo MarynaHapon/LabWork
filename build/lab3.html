@@ -20,8 +20,8 @@
         <div class="navbar-menu" id="navbarExampleTransparentExample">
           <div class="navbar-start"><a class="navbar-item" href="index.html">Home</a>
             <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link" href="index.html">Labs</a>
-              <div class="navbar-dropdown is-boxed"><a class="navbar-item" href="lab1.html">0001</a><a class="navbar-item" href="lab2.html">0010</a>
-                <hr class="navbar-divider"><a class="navbar-item" href="lab3.html">0011</a>
+              <div class="navbar-dropdown is-boxed"><a class="navbar-item" href="lab1.html">0001</a><a class="navbar-item" href="lab2.html">0010</a><a class="navbar-item" href="lab3.html">0011</a>
+                <hr class="navbar-divider"><a class="navbar-item" href="index.html">0100</a>
               </div>
             </div>
           </div>
@@ -36,28 +36,52 @@
         </div>
       </nav>
     </div>
-    <section class="hero is-success is-medium">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title">Лабораторная работа №3</h1>
-          <h2 class="subtitle">КРасиВо</h2>
-        </div>
+    <section class="hero is-white is-medium bg-lab2">
+      <div class="container has-text-centered title-lab-2">
+        <h1 class="title is-uppercase">Лабораторная работа №3</h1>
+        <h2 class="subtitle">Классы. Поля данных и методы. Конструкторы. Наследование. Полиморфизм.</h2>
       </div>
-      <div class="hero-foot">
-        <nav class="tabs">
-          <div class="container">
-            <ul>
-              <li class="is-active"><a>Overview</a></li>
-              <li><a>Modifiers</a></li>
-              <li><a>Grid</a></li>
-              <li><a>Elements</a></li>
-              <li><a>Components</a></li>
-              <li><a>Layout</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <canvas id="dots"></canvas>
     </section>
+    <div class="wrap-box">
+      <section class="container">
+        <div class="box">
+          <div class="columns">
+            <div class="column">
+              <h4 class="has-text-info">Задание 1</h4>
+              <hr class="navbar-divider">
+              <p>Создать классы, спецификации которых приведены ниже. Определить конструкторы и методы setТип(), getТип(), equals(), toString(). Определить дополнительно методы в классе, создающем массив объектов. Задать критерий выбора данных и вывести эти данные на консоль.</p>
+              <p>Patient: id, Фамилия, Имя, Отчество, Адрес, Телефон, Номер медицинской карты, Диагноз.</p>
+              <p>Создать массив объектов. Вывести:</p>
+              <p>a)    список пациентов, имеющих данный диагноз;</p>
+              <p>b)    список пациентов, номер медицинской карты у которых находится в заданном интервале.</p>
+            </div>
+          </div>
+          <hr class="navbar-divider">
+        </div>
+      </section>
+    </div>
+    <div class="wrap-box">
+      <section class="container">
+        <div class="box">
+          <div class="columns">
+            <div class="column">
+              <h4 class="has-text-info">Задание 2</h4>
+              <hr class="navbar-divider">
+              <p>Определить класс Вектор в R<sup>3</sup>. Реализовать методы для проверки векторов на ортогональность, проверки пересечения неортогональных векторов, сравнения векторов. Создать массив из m объектов. Определить, какие из векторов компланарны.</p>
+            </div>
+          </div>
+          <hr class="navbar-divider">
+          <div class="notification">
+            <!--p
+            | 1. В одномерном массиве, состоящем из n целых элементов, вычислить:
+            strong &#160;произведение элементов массива&#160;
+            | , с четными номерами.
+            -->
+          </div>
+        </div>
+      </section>
+    </div>
     <hr class="section-divider">
     <footer class="footer">
       <div class="container"> 
@@ -99,5 +123,7 @@
     <script src="static/js/lab1.js"></script>
     <script src="static/js/lab2.js"></script>
     <script src="static/js/wave.js"></script>
+    <script src="static/js/lab3.js"></script>
+    <script src="static/js/dots.js"></script>
   </body>
 </html>

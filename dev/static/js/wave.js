@@ -1,5 +1,5 @@
 (function () {
-    var c = document.querySelector('.c') /* canvas element */,
+    var c = document.querySelector('#wave') /* canvas element */,
         w /* canvas width */,
         h /* canvas height */,
         ctx = c.getContext('2d') /* canvas context */,
