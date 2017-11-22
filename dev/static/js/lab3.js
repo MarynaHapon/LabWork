@@ -136,51 +136,105 @@
 
         currentItem.push(item.getId());
         currentItem.push(item.getSurname());
-        currentItem.push(item.setName());
-        currentItem.push(item.setPatronymic());
-        currentItem.push(item.setAddress());
-        currentItem.push(item.setPhone());
-        currentItem.push(item.setMedicalCardID());
-        currentItem.push(item.setDiagnosis());
+        currentItem.push(item.getName());
+        currentItem.push(item.getPatronymic());
+        currentItem.push(item.getAddress());
+        currentItem.push(item.getPhone());
+        currentItem.push(item.getMedicalCardID());
+        currentItem.push(item.getDiagnosis());
 
         PatientArray.push(currentItem);
     }
 
     // test
-    var patient01 = new Patient();
+    var Petrov = new Patient();
 
-    patient01.setId("00000001");
-    patient01.setSurname("Surname");
-    patient01.setName("Name");
-    patient01.setPatronymic("Patronymic");
-    patient01.setAddress("Kyiv Vishneva 32");
-    patient01.setPhone("+380681165655");
-    patient01.setMedicalCardID("00000001");
+    Petrov.setId("00000001");
+    Petrov.setSurname("Чейни");
+    Petrov.setName("Джон");
+    Petrov.setPatronymic("Федорович");
+    Petrov.setAddress("Kyiv Vishneva 32");
+    Petrov.setPhone("+380681165655");
+    Petrov.setMedicalCardID("00000001");
 
-    PatientList(patient01);
+    PatientList(Petrov);
+
+    var Sidorov = new Patient();
+
+    Sidorov.setId("00000002");
+    Sidorov.setSurname("Сидоров");
+    Sidorov.setName("Петр");
+    Sidorov.setPatronymic("Викторович");
+    Sidorov.setAddress("Kyiv Vishneva 33");
+    Sidorov.setPhone("+380681165656");
+    Sidorov.setMedicalCardID("00000002");
+
+    PatientList(Sidorov);
+
+    var Markova = new Patient();
+
+    Markova.setId("00000003");
+    Markova.setSurname("Маркова");
+    Markova.setName("Елизавета");
+    Markova.setPatronymic("Давидовна");
+    Markova.setAddress("Kyiv Vishneva 35");
+    Markova.setPhone("+380681165657");
+    Markova.setMedicalCardID("00000003");
+
+    PatientList(Markova);
+
+
+    var Poznakova = new Patient();
+
+    Poznakova.setId("00000004");
+    Poznakova.setSurname("Познякова");
+    Poznakova.setName("Роза");
+    Poznakova.setPatronymic("Марковна");
+    Poznakova.setAddress("Kyiv Vishneva 88");
+    Poznakova.setPhone("+380681165658");
+    Poznakova.setMedicalCardID("00000004");
+
+    PatientList(Poznakova);
+
 
     console.log(PatientArray);
 
+    // input items
+    var inputId = document.getElementById("ID"),
+        inputSurname = document.getElementById("surname"),
+        inputName = document.getElementById("name"),
+        inputPatronymic = document.getElementById("patronymic"),
+        inputAddress = document.getElementById("address"),
+        inputPhone = document.getElementById("phone"),
+        inputMedicalCardID = document.getElementById("medicalCardID");
 
-    document.getElementById("registerPatient").addEventListener("click", function (item) {
+
+    // check btn submit
+    document.getElementById("registerPatient").addEventListener("click", function () {
         var currentPatient = new Patient();
 
-        var id = document.getElementById("ID").value,
-            surname = document.getElementById("surname").value,
-            name = document.getElementById("name").value,
-            patronymic = document.getElementById("patronymic").value,
-            address = document.getElementById("address").value,
-            phone = document.getElementById("phone").value,
-            medicalCardID = document.getElementById("medicalCardID").value;
+        currentPatient.setId(inputId.value);
+        currentPatient.setSurname(inputSurname.value);
+        currentPatient.setName(inputName.value);
+        currentPatient.setPatronymic(inputPatronymic.value);
+        currentPatient.setAddress(inputAddress.value);
+        currentPatient.setPhone(inputPhone.value);
+        currentPatient.setMedicalCardID(inputMedicalCardID.value);
 
-        currentPatient.setId(id);
-        currentPatient.setSurname(surname);
-        currentPatient.setName(name);
-        currentPatient.setPatronymic(patronymic);
-        currentPatient.setAddress(address);
-        currentPatient.setPhone(phone);
-        currentPatient.setMedicalCardID(medicalCardID);
+        PatientList(currentPatient);
     });
+
+
+    document.getElementById("resetPatient").addEventListener("click", function () {
+        inputId.value = "";
+        inputSurname.value = "";
+        inputName.value = "";
+        inputPatronymic.value = "";
+        inputAddress.value = "";
+        inputPhone.value = "";
+        inputMedicalCardID.value = "";
+    });
+
 
     console.log(PatientArray);
 })();
