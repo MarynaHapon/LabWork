@@ -129,26 +129,27 @@
         };
     }
 
-    var PatientArray = [];
+    var PatientDataBase = [];
 
-    function PatientList(item) {
-        var currentItem = [];
+    function PatientData(item) {
+        return {
+            "id": item.getId(item),
+            "surname": item.getSurname(),
+            "name": item.getName(),
+            "patronymic": item.getPatronymic(),
+            "address": item.getAddress(),
+            "phone": item.getPhone(),
+            "medicalCardID": item.getMedicalCardID(),
+            "diagnosis": item.getDiagnosis()
+        }
+    }
 
-        currentItem.push(item.getId());
-        currentItem.push(item.getSurname());
-        currentItem.push(item.getName());
-        currentItem.push(item.getPatronymic());
-        currentItem.push(item.getAddress());
-        currentItem.push(item.getPhone());
-        currentItem.push(item.getMedicalCardID());
-        currentItem.push(item.getDiagnosis());
-
-        PatientArray.push(currentItem);
+    function toDataBase(item) {
+        return PatientDataBase.push(PatientData(item))
     }
 
     // test
     var Petrov = new Patient();
-
     Petrov.setId("00000001");
     Petrov.setSurname("Чейни");
     Petrov.setName("Джон");
@@ -156,11 +157,11 @@
     Petrov.setAddress("Kyiv Vishneva 32");
     Petrov.setPhone("+380681165655");
     Petrov.setMedicalCardID("00000001");
+    Petrov.setDiagnosis("Ипохондрик");
+    toDataBase(Petrov);
 
-    PatientList(Petrov);
 
     var Sidorov = new Patient();
-
     Sidorov.setId("00000002");
     Sidorov.setSurname("Сидоров");
     Sidorov.setName("Петр");
@@ -168,11 +169,10 @@
     Sidorov.setAddress("Kyiv Vishneva 33");
     Sidorov.setPhone("+380681165656");
     Sidorov.setMedicalCardID("00000002");
+    toDataBase(Sidorov);
 
-    PatientList(Sidorov);
 
     var Markova = new Patient();
-
     Markova.setId("00000003");
     Markova.setSurname("Маркова");
     Markova.setName("Елизавета");
@@ -180,12 +180,10 @@
     Markova.setAddress("Kyiv Vishneva 35");
     Markova.setPhone("+380681165657");
     Markova.setMedicalCardID("00000003");
-
-    PatientList(Markova);
+    toDataBase(Markova);
 
 
     var Poznakova = new Patient();
-
     Poznakova.setId("00000004");
     Poznakova.setSurname("Познякова");
     Poznakova.setName("Роза");
@@ -193,11 +191,8 @@
     Poznakova.setAddress("Kyiv Vishneva 88");
     Poznakova.setPhone("+380681165658");
     Poznakova.setMedicalCardID("00000004");
+    toDataBase(Poznakova);
 
-    PatientList(Poznakova);
-
-
-    console.log(PatientArray);
 
     // input items
     var inputId = document.getElementById("ID"),
@@ -220,8 +215,9 @@
         currentPatient.setAddress(inputAddress.value);
         currentPatient.setPhone(inputPhone.value);
         currentPatient.setMedicalCardID(inputMedicalCardID.value);
+        toDataBase(currentPatient);
 
-        PatientList(currentPatient);
+        console.log(PatientDataBase);
     });
 
 
@@ -234,7 +230,5 @@
         inputPhone.value = "";
         inputMedicalCardID.value = "";
     });
-
-
-    console.log(PatientArray);
+    
 })();
