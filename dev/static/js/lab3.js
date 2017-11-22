@@ -127,6 +127,10 @@
         this.getDiagnosis = function () {
             return diagnosis;
         };
+
+        this.evalsMedicalCardID = function() {
+
+        }
     }
 
     var PatientDataBase = [];
@@ -234,13 +238,22 @@
     });
 
     // diagnosis part
-    document.getElementById("diagnosisSubmit").addEventListener("click", function (item) {
+    document.getElementById("diagnosisSubmit").addEventListener("click", function () {
+        var MedicalCardID = inputDiagnosisMedicalCardID.value;
+        console.log(PatientDataBase);
 
+        for(var i = 0; i < PatientDataBase.length; i++) {
+            if(PatientDataBase[i].id == MedicalCardID) {
+                PatientDataBase[i].diagnosis = inputDiagnosis.value;
+                console.log(PatientDataBase[i]);
+            }
+        }
     });
 
-    document.getElementById("diagnosisCancel").addEventListener("click", function (item) {
+    
+    document.getElementById("diagnosisCancel").addEventListener("click", function () {
         inputDiagnosisMedicalCardID.value = "";
         inputDiagnosis.value = "";
     });
-    
+
 })();
