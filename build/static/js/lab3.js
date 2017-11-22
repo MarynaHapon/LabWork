@@ -201,7 +201,9 @@
         inputPatronymic = document.getElementById("patronymic"),
         inputAddress = document.getElementById("address"),
         inputPhone = document.getElementById("phone"),
-        inputMedicalCardID = document.getElementById("medicalCardID");
+        inputMedicalCardID = document.getElementById("medicalCardID"),
+        inputDiagnosisMedicalCardID =  document.getElementById("diagnosisMedicalCardID"),
+        inputDiagnosis = document.getElementById("diagnosis");
 
 
     // check btn submit
@@ -237,8 +239,8 @@
     });
 
     document.getElementById("diagnosisCancel").addEventListener("click", function (item) {
-        
+        inputDiagnosisMedicalCardID.value = "";
+        inputDiagnosis.value = "";
     });
-
-
+    
 })();
