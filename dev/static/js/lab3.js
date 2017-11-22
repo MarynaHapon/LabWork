@@ -230,5 +230,15 @@
         inputPhone.value = "";
         inputMedicalCardID.value = "";
     });
-    
+
+    // diagnosis part
+    document.getElementById("diagnosisSubmit").addEventListener("click", function (item) {
+
+    });
+
+    document.getElementById("diagnosisCancel").addEventListener("click", function (item) {
+        
+    });
+
+
 })();

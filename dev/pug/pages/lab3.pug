@@ -40,56 +40,73 @@ block content
 
 								.field
 									.control
-										label.label.userNumber Введите ID
+										label.label Введите ID
 										input.input.is-info(type='text', placeholder='ID')#ID
 
 								.field
 									.control
-										label.label.userNumber Введите фамилию пациента
+										label.label Введите фамилию пациента
 										input.input.is-info(type='text', placeholder='Фамилия')#surname
 
 								.field
 									.control
-										label.label.userNumber Введите имя пациента
+										label.label Введите имя пациента
 										input.input.is-info(type='text', placeholder='Имя')#name
 
 								.field
-									label.label.userNumber Введите отчество пациента
+									label.label Введите отчество пациента
 									.control
 										input.input.is-info(type='text', placeholder='Отчество')#patronymic
 
 								.field
-									label.label.userNumber Введите адрес пациента
+									label.label Введите адрес пациента
 									.control
 										input.input.is-info(type='text', placeholder='Адрес')#address
 
 								.field
-									label.label.userNumber Введите телефон пациента
+									label.label Введите телефон пациента
 									.control
 										input.input.is-info(type='text', placeholder='Телефон')#phone
 
 								.field
-									label.label.userNumber Введите номер медицинской карты
+									label.label Введите номер медицинской карты
 									.control
 										input.input.is-info(type='text', placeholder='Номер медицинской карты')#medicalCardID
 
 
 							footer.card-footer
 								p.card-footer-item
-									a.button.is-primary.is-inverted#registerPatient Сохранить
+									a.button.is-danger.is-inverted#resetPatient Отменить
 
 								p.card-footer-item
-									a.button.is-danger.is-inverted#resetPatient Отменить
+									a.button.is-primary.is-inverted#registerPatient Сохранить
+
 
 
 
 
 					.column.is-two-forth.lab3
-						input.input(type='text', placeholder='Text input')
+						.card
+							.card-content
+								h3.title
+									| Диагноз пациента
 
+								.field
+									.control
+										.field
+											label.label Введите номер медицинской карты
+											input.input.is-info(type='text', placeholder='Номер медицинской карты')
 
+										.field
+											label.label Введите диагноз пациента
+											textarea.textarea.is-info(placeholder='Диагноз')
 
+							footer.card-footer
+								p.card-footer-item
+									a.button.is-danger.is-inverted#diagnosisCancel Отменить
 
+								p.card-footer-item
+									a.button.is-primary.is-inverted#diagnosisSubmit Сохранить
 
 	.wrap-box
 		section.container

@@ -64,55 +64,75 @@
                   <h3 class="title">Регистрация нового пациента</h3>
                   <div class="field">
                     <div class="control">
-                      <label class="label userNumber">Введите ID</label>
+                      <label class="label">Введите ID</label>
                       <input class="input is-info" type="text" placeholder="ID" id="ID">
                     </div>
                   </div>
                   <div class="field">
                     <div class="control">
-                      <label class="label userNumber">Введите фамилию пациента</label>
+                      <label class="label">Введите фамилию пациента</label>
                       <input class="input is-info" type="text" placeholder="Фамилия" id="surname">
                     </div>
                   </div>
                   <div class="field">
                     <div class="control">
-                      <label class="label userNumber">Введите имя пациента</label>
+                      <label class="label">Введите имя пациента</label>
                       <input class="input is-info" type="text" placeholder="Имя" id="name">
                     </div>
                   </div>
                   <div class="field">
-                    <label class="label userNumber">Введите отчество пациента</label>
+                    <label class="label">Введите отчество пациента</label>
                     <div class="control">
                       <input class="input is-info" type="text" placeholder="Отчество" id="patronymic">
                     </div>
                   </div>
                   <div class="field">
-                    <label class="label userNumber">Введите адрес пациента</label>
+                    <label class="label">Введите адрес пациента</label>
                     <div class="control">
                       <input class="input is-info" type="text" placeholder="Адрес" id="address">
                     </div>
                   </div>
                   <div class="field">
-                    <label class="label userNumber">Введите телефон пациента</label>
+                    <label class="label">Введите телефон пациента</label>
                     <div class="control">
                       <input class="input is-info" type="text" placeholder="Телефон" id="phone">
                     </div>
                   </div>
                   <div class="field">
-                    <label class="label userNumber">Введите номер медицинской карты</label>
+                    <label class="label">Введите номер медицинской карты</label>
                     <div class="control">
                       <input class="input is-info" type="text" placeholder="Номер медицинской карты" id="medicalCardID">
                     </div>
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <p class="card-footer-item"><a class="button is-primary is-inverted" id="registerPatient">Сохранить</a></p>
                   <p class="card-footer-item"><a class="button is-danger is-inverted" id="resetPatient">Отменить</a></p>
+                  <p class="card-footer-item"><a class="button is-primary is-inverted" id="registerPatient">Сохранить</a></p>
                 </footer>
               </div>
             </div>
             <div class="column is-two-forth lab3">
-              <input class="input" type="text" placeholder="Text input">
+              <div class="card">
+                <div class="card-content">
+                  <h3 class="title">Диагноз пациента</h3>
+                  <div class="field">
+                    <div class="control">
+                      <div class="field">
+                        <label class="label">Введите номер медицинской карты</label>
+                        <input class="input is-info" type="text" placeholder="Номер медицинской карты">
+                      </div>
+                      <div class="field">
+                        <label class="label">Введите диагноз пациента</label>
+                        <textarea class="textarea is-info" placeholder="Диагноз"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <p class="card-footer-item"><a class="button is-danger is-inverted" id="diagnosisCancel">Отменить</a></p>
+                  <p class="card-footer-item"><a class="button is-primary is-inverted" id="diagnosisSubmit">Сохранить</a></p>
+                </footer>
+              </div>
             </div>
           </div>
         </div>
