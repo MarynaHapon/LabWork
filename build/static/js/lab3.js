@@ -131,6 +131,17 @@
         this.getDiagnosis = function () {
             return diagnosis;
         };
+
+        this.toStringInfo2 = function (item) {
+            return item.getId()
+                + " " + item.getSurname()
+                + " " + item.getName()
+                + " " + item.getPatronymic()
+                + " " + item.getAddress()
+                + " " + item.getPhone()
+                + " " + item.getMedicalCardID()
+                + " " + item.getDiagnosis()
+        };
     }
 
     function Store() {
@@ -189,6 +200,10 @@
             });
         }
     }
+
+    var toSrt = function (item) {
+      return item.medicalCardID + " - " + item.surname + " " + item.name + " " + item.patronymic + " - " + item.diagnosis;
+    };
 
 
     var patientStore = new Store();
@@ -318,12 +333,19 @@
     document.getElementById("resultDiagnosis").addEventListener("click", function () {
         var inputDiagnosis = searchDiagnosis.value;
 
+        var array = patientStore.searchDiagnosis( inputDiagnosis );
+
+        for(var i = 0; i < array.length; i++) {
+            var newParagraph = document.createElement('p');
+            console.log( array[i] );
+            newParagraph.innerHTML = toSrt(array[i]);
+            diagnosisPatient.appendChild(newParagraph);
+        }
+
         console.log( inputDiagnosis );
         console.log( patientStore.searchDiagnosis( inputDiagnosis ));
-
-        document.getElementById("diagnosisPatient").innerHTML = patientStore.searchDiagnosis( inputDiagnosis );
     });
 
-    //searchDiagnosis
+
     //console.log(PatientStore.getStore());
 })();
