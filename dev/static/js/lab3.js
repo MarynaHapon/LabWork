@@ -103,12 +103,14 @@
             diagnosis = "";
 
         this.setMedicalCardID = function (personMedicalCardID) {
+
             if(personMedicalCardID != "" && numberRegExp.test(personMedicalCardID)) {
                 medicalCardID = personMedicalCardID;
             }
             if (personMedicalCardID == "" || !numberRegExp.test(personMedicalCardID)) {
                 throw new Error("incorrect medical card ID");
             }
+
         };
 
         this.getMedicalCardID = function () {
@@ -116,21 +118,19 @@
         };
 
         this.setDiagnosis = function (personDiagnosis) {
+
             if(personDiagnosis != "") {
                 diagnosis = personDiagnosis;
             }
             if (personDiagnosis == "") {
                 throw new Error("incorrect diagnosis");
             }
+
         };
 
         this.getDiagnosis = function () {
             return diagnosis;
         };
-
-        this.evalsMedicalCardID = function() {
-
-        }
     }
 
     function Store() {
@@ -140,15 +140,14 @@
             return store;
         };
 
-        this.checkId = function (id) {
-            var storeInner = this.getStore();
+        this.checkId = function (item) {
+            var currentStore = this.getStore();
 
-            for(var i = 0; i < storeInner.length; i++) {
-                if(storeInner[i].id == id) return false;
+            for(var i = 0; i < currentStore.length; i++) {
 
-                if(storeInner[i].id != id) return true;
+                if(currentStore[i].id == item) return true;
+
             }
-
         };
 
         this.pushToStore = function (item) {
@@ -166,7 +165,7 @@
     }
 
 
-    var PatientStore = new Store();
+    var patientStore = new Store();
 
 
     // test
@@ -179,9 +178,8 @@
     Petrov.setPhone("+380681165655");
     Petrov.setMedicalCardID("00000001");
     Petrov.setDiagnosis("Ипохондрик");
-    //toDataBase(Petrov);
-    PatientStore.pushToStore(Petrov);
 
+    patientStore.pushToStore(Petrov);
 
 
 
@@ -193,8 +191,10 @@
     Sidorov.setAddress("Kyiv Vishneva 33");
     Sidorov.setPhone("+380681165656");
     Sidorov.setMedicalCardID("00000002");
-    //toDataBase(Sidorov);
-    PatientStore.pushToStore(Sidorov);
+
+    patientStore.pushToStore(Sidorov);
+
+
 
     var Markova = new Patient();
     Markova.setId("00000003");
@@ -204,8 +204,10 @@
     Markova.setAddress("Kyiv Vishneva 35");
     Markova.setPhone("+380681165657");
     Markova.setMedicalCardID("00000003");
-    //toDataBase(Markova);
-    PatientStore.pushToStore(Markova);
+
+    patientStore.pushToStore(Markova);
+
+
 
     var Poznakova = new Patient();
     Poznakova.setId("00000004");
@@ -215,9 +217,10 @@
     Poznakova.setAddress("Kyiv Vishneva 88");
     Poznakova.setPhone("+380681165658");
     Poznakova.setMedicalCardID("00000004");
-    //toDataBase(Poznakova);
-    PatientStore.pushToStore(Poznakova);
 
+    patientStore.pushToStore(Poznakova);
+
+    //console.log(patientStore.checkId(000000 ));
 
     // input items
     var inputId = document.getElementById("ID"),
@@ -236,14 +239,7 @@
         try {
             var currentPatient = new Patient();
 
-            document.getElementById("message").innerHTML = "";
-
-            for(var i = 0; i < PatientStore.getStore().length; i++) {
-
-                if(PatientStore.getStore()[i].id != inputId.value) {
-
-                }
-            }
+            if ( !patientStore.checkId( inputId.value )) {
 
                 currentPatient.setId(inputId.value);
                 currentPatient.setSurname(inputSurname.value);
@@ -253,22 +249,15 @@
                 currentPatient.setPhone(inputPhone.value);
                 currentPatient.setMedicalCardID(inputMedicalCardID.value);
 
-                PatientStore.pushToStore(currentPatient);
-
-                //document.getElementById("message").innerHTML = "";
-                document.getElementById("message").innerHTML = "Пациент успешно зарегистрирован";
-
-
-
-            //document.getElementById("message").innerHTML = "Пациент с таким ID уже существует";
-
+                patientStore.pushToStore(currentPatient);
+            }
         }
 
         catch(e){
             console.log(e);
         }
 
-        console.log(PatientStore.getStore());
+        console.log(patientStore.getStore());
     });
 
 
@@ -288,8 +277,6 @@
         //console.log(PatientDataBase);
 
         //PatientDataBase.findPatient(MedicalCardID);
-
-
     });
 
 
