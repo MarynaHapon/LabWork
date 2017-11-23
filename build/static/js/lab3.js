@@ -162,6 +162,20 @@
             }
         };
 
+        this.searchDiagnosis = function (item) {
+            var currentStore = this.getStore();
+            var subStore = [];
+
+            for(var i = 0; i < currentStore.length; i++) {
+
+                if(currentStore[i].diagnosis == item) {
+                    subStore.push(currentStore[i]);
+                }
+            }
+
+            return subStore;
+        };
+
         this.pushToStore = function (item) {
             return store.push({
                 "id": item.getId(item),
@@ -243,7 +257,9 @@
         inputPhone = document.getElementById("phone"),
         inputMedicalCardID = document.getElementById("medicalCardID"),
         inputDiagnosisMedicalCardID =  document.getElementById("diagnosisMedicalCardID"),
-        inputDiagnosis = document.getElementById("diagnosis");
+        inputDiagnosis = document.getElementById("diagnosis"),
+
+        searchDiagnosis = document.getElementById("searchDiagnosis");
 
 
     // check btn submit
@@ -299,5 +315,15 @@
         inputDiagnosis.value = "";
     });
 
+    document.getElementById("resultDiagnosis").addEventListener("click", function () {
+        var inputDiagnosis = searchDiagnosis.value;
+
+        console.log( inputDiagnosis );
+        console.log( patientStore.searchDiagnosis( inputDiagnosis ));
+
+        document.getElementById("diagnosisPatient").innerHTML = patientStore.searchDiagnosis( inputDiagnosis );
+    });
+
+    //searchDiagnosis
     //console.log(PatientStore.getStore());
 })();
