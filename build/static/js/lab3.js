@@ -201,7 +201,7 @@
         }
     }
 
-    var toSrt = function (item) {
+    var toStr = function (item) {
       return item.medicalCardID + " - " + item.surname + " " + item.name + " " + item.patronymic + " - " + item.diagnosis;
     };
 
@@ -333,7 +333,7 @@
     document.getElementById("resultDiagnosis").addEventListener("click", function () {
         var inputDiagnosis = searchDiagnosis.value;
         var array = patientStore.searchDiagnosis( inputDiagnosis );
-        
+
         var sign = document.createElement('div');
         var query = document.createElement('span');
         var date = document.createElement('span');
@@ -350,7 +350,7 @@
         for(var i = 0; i < array.length; i++) {
             var data = document.createElement('p');
 
-            data.innerHTML = toSrt( array[i] );
+            data.innerHTML = toStr( array[i] );
 
             diagnosisPatient.appendChild( data );
             console.log( array[i] );
@@ -364,6 +364,42 @@
         console.log( patientStore.searchDiagnosis( inputDiagnosis ));
     });
 
+    document.getElementById("searchMedicalCart").addEventListener("click", function () {
+        var startRange = document.querySelector("#startRange").value;
+        var endRange = document.querySelector("#endRange").value;
 
+        var array = patientStore.getStore();
+
+        var sign = document.createElement('div');
+        var query = document.createElement('span');
+        var date = document.createElement('span');
+        var time = new Date();
+
+        sign.innerHTML = "Запрос: ";
+        sign.className = "diagnosisSign";
+        date.innerHTML = time.toLocaleString('en-GB');
+
+        sign.appendChild(query);
+        sign.appendChild(date);
+        resultMedicalCart.appendChild(sign);
+
+        for(var i = 0; i < array.length; i++) {
+            console.log(array);
+
+            if (startRange <= array[i].id && array[i].id <= endRange) {
+
+                var data = document.createElement('p');
+                data.innerHTML = toStr( array[i]) ;
+                resultMedicalCart.appendChild( data );
+
+            }
+        }
+
+        var hr = document.createElement('hr');
+        hr.className = "navbar-divider";
+        resultMedicalCart.appendChild( hr );
+
+        console.log( subArray );
+    });
     //console.log(PatientStore.getStore());
 })();
