@@ -99,7 +99,7 @@
     function Patient() {
         Person.call(this);
 
-        var medicalCardID = "1",
+        var medicalCardID = "",
             diagnosis = "";
 
         this.setMedicalCardID = function (personMedicalCardID) {
@@ -133,24 +133,41 @@
         }
     }
 
-    var PatientDataBase = [];
+    function Store() {
+        var store = [];
 
-    function PatientData(item) {
-        return {
-            "id": item.getId(item),
-            "surname": item.getSurname(),
-            "name": item.getName(),
-            "patronymic": item.getPatronymic(),
-            "address": item.getAddress(),
-            "phone": item.getPhone(),
-            "medicalCardID": item.getMedicalCardID(),
-            "diagnosis": item.getDiagnosis()
+        this.getStore = function () {
+            return store;
+        };
+
+        this.checkId = function (id) {
+            var storeInner = this.getStore();
+
+            for(var i = 0; i < storeInner.length; i++) {
+                if(storeInner[i].id == id) return false;
+
+                if(storeInner[i].id != id) return true;
+            }
+
+        };
+
+        this.pushToStore = function (item) {
+            return store.push({
+                "id": item.getId(item),
+                "surname": item.getSurname(),
+                "name": item.getName(),
+                "patronymic": item.getPatronymic(),
+                "address": item.getAddress(),
+                "phone": item.getPhone(),
+                "medicalCardID": item.getMedicalCardID(),
+                "diagnosis": item.getDiagnosis()
+            });
         }
     }
 
-    function toDataBase(item) {
-        return PatientDataBase.push(PatientData(item))
-    }
+
+    var PatientStore = new Store();
+
 
     // test
     var Petrov = new Patient();
@@ -162,7 +179,10 @@
     Petrov.setPhone("+380681165655");
     Petrov.setMedicalCardID("00000001");
     Petrov.setDiagnosis("Ипохондрик");
-    toDataBase(Petrov);
+    //toDataBase(Petrov);
+    PatientStore.pushToStore(Petrov);
+
+
 
 
     var Sidorov = new Patient();
@@ -173,8 +193,8 @@
     Sidorov.setAddress("Kyiv Vishneva 33");
     Sidorov.setPhone("+380681165656");
     Sidorov.setMedicalCardID("00000002");
-    toDataBase(Sidorov);
-
+    //toDataBase(Sidorov);
+    PatientStore.pushToStore(Sidorov);
 
     var Markova = new Patient();
     Markova.setId("00000003");
@@ -184,8 +204,8 @@
     Markova.setAddress("Kyiv Vishneva 35");
     Markova.setPhone("+380681165657");
     Markova.setMedicalCardID("00000003");
-    toDataBase(Markova);
-
+    //toDataBase(Markova);
+    PatientStore.pushToStore(Markova);
 
     var Poznakova = new Patient();
     Poznakova.setId("00000004");
@@ -195,7 +215,8 @@
     Poznakova.setAddress("Kyiv Vishneva 88");
     Poznakova.setPhone("+380681165658");
     Poznakova.setMedicalCardID("00000004");
-    toDataBase(Poznakova);
+    //toDataBase(Poznakova);
+    PatientStore.pushToStore(Poznakova);
 
 
     // input items
@@ -212,18 +233,42 @@
 
     // check btn submit
     document.getElementById("registerPatient").addEventListener("click", function () {
-        var currentPatient = new Patient();
+        try {
+            var currentPatient = new Patient();
 
-        currentPatient.setId(inputId.value);
-        currentPatient.setSurname(inputSurname.value);
-        currentPatient.setName(inputName.value);
-        currentPatient.setPatronymic(inputPatronymic.value);
-        currentPatient.setAddress(inputAddress.value);
-        currentPatient.setPhone(inputPhone.value);
-        currentPatient.setMedicalCardID(inputMedicalCardID.value);
-        toDataBase(currentPatient);
+            document.getElementById("message").innerHTML = "";
 
-        console.log(PatientDataBase);
+            for(var i = 0; i < PatientStore.getStore().length; i++) {
+
+                if(PatientStore.getStore()[i].id != inputId.value) {
+
+                }
+            }
+
+                currentPatient.setId(inputId.value);
+                currentPatient.setSurname(inputSurname.value);
+                currentPatient.setName(inputName.value);
+                currentPatient.setPatronymic(inputPatronymic.value);
+                currentPatient.setAddress(inputAddress.value);
+                currentPatient.setPhone(inputPhone.value);
+                currentPatient.setMedicalCardID(inputMedicalCardID.value);
+
+                PatientStore.pushToStore(currentPatient);
+
+                //document.getElementById("message").innerHTML = "";
+                document.getElementById("message").innerHTML = "Пациент успешно зарегистрирован";
+
+
+
+            //document.getElementById("message").innerHTML = "Пациент с таким ID уже существует";
+
+        }
+
+        catch(e){
+            console.log(e);
+        }
+
+        console.log(PatientStore.getStore());
     });
 
 
@@ -240,20 +285,19 @@
     // diagnosis part
     document.getElementById("diagnosisSubmit").addEventListener("click", function () {
         var MedicalCardID = inputDiagnosisMedicalCardID.value;
-        console.log(PatientDataBase);
+        //console.log(PatientDataBase);
 
-        for(var i = 0; i < PatientDataBase.length; i++) {
-            if(PatientDataBase[i].id == MedicalCardID) {
-                PatientDataBase[i].diagnosis = inputDiagnosis.value;
-                console.log(PatientDataBase[i]);
-            }
-        }
+        //PatientDataBase.findPatient(MedicalCardID);
+
+
     });
 
-    
+
     document.getElementById("diagnosisCancel").addEventListener("click", function () {
         inputDiagnosisMedicalCardID.value = "";
         inputDiagnosis.value = "";
     });
+
+    //console.log(PatientStore.getStore());
 
 })();
