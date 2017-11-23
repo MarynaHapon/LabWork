@@ -150,6 +150,18 @@
             }
         };
 
+        this.setDiagnosisForCardID = function (item, res) {
+            var currentStore = this.getStore();
+
+            for(var i = 0; i < currentStore.length; i++) {
+
+                if(currentStore[i].medicalCardID == item) {
+                    return currentStore[i].diagnosis = res;
+                }
+
+            }
+        };
+
         this.pushToStore = function (item) {
             return store.push({
                 "id": item.getId(item),
@@ -191,6 +203,7 @@
     Sidorov.setAddress("Kyiv Vishneva 33");
     Sidorov.setPhone("+380681165656");
     Sidorov.setMedicalCardID("00000002");
+    Sidorov.setDiagnosis("Ипохондрик");
 
     patientStore.pushToStore(Sidorov);
 
@@ -220,7 +233,6 @@
 
     patientStore.pushToStore(Poznakova);
 
-    //console.log(patientStore.checkId(000000 ));
 
     // input items
     var inputId = document.getElementById("ID"),
@@ -233,7 +245,7 @@
         inputDiagnosisMedicalCardID =  document.getElementById("diagnosisMedicalCardID"),
         inputDiagnosis = document.getElementById("diagnosis");
 
-
+    
     // check btn submit
     document.getElementById("registerPatient").addEventListener("click", function () {
         try {
@@ -260,7 +272,6 @@
         console.log(patientStore.getStore());
     });
 
-
     document.getElementById("resetPatient").addEventListener("click", function () {
         inputId.value = "";
         inputSurname.value = "";
@@ -271,14 +282,17 @@
         inputMedicalCardID.value = "";
     });
 
+
     // diagnosis part
     document.getElementById("diagnosisSubmit").addEventListener("click", function () {
-        var MedicalCardID = inputDiagnosisMedicalCardID.value;
-        //console.log(PatientDataBase);
+        var medicalCardID = inputDiagnosisMedicalCardID.value;
+        var diagnosis = inputDiagnosis.value;
 
-        //PatientDataBase.findPatient(MedicalCardID);
+        if ( patientStore.checkId( medicalCardID )) {
+            console.log(patientStore.setDiagnosisForCardID( medicalCardID, diagnosis ));
+            console.log(patientStore.getStore());
+        }
     });
-
 
     document.getElementById("diagnosisCancel").addEventListener("click", function () {
         inputDiagnosisMedicalCardID.value = "";
@@ -286,5 +300,4 @@
     });
 
     //console.log(PatientStore.getStore());
-
 })();
