@@ -140,7 +140,7 @@
             return store;
         };
 
-        this.checkId = function (item) {
+        this.equalsID = function (item) {
             var currentStore = this.getStore();
 
             for(var i = 0; i < currentStore.length; i++) {
@@ -245,13 +245,13 @@
         inputDiagnosisMedicalCardID =  document.getElementById("diagnosisMedicalCardID"),
         inputDiagnosis = document.getElementById("diagnosis");
 
-    
+
     // check btn submit
     document.getElementById("registerPatient").addEventListener("click", function () {
         try {
             var currentPatient = new Patient();
 
-            if ( !patientStore.checkId( inputId.value )) {
+            if ( !patientStore.equalsID( inputId.value )) {
 
                 currentPatient.setId(inputId.value);
                 currentPatient.setSurname(inputSurname.value);
@@ -288,7 +288,7 @@
         var medicalCardID = inputDiagnosisMedicalCardID.value;
         var diagnosis = inputDiagnosis.value;
 
-        if ( patientStore.checkId( medicalCardID )) {
+        if ( patientStore.equalsID( medicalCardID )) {
             console.log(patientStore.setDiagnosisForCardID( medicalCardID, diagnosis ));
             console.log(patientStore.getStore());
         }

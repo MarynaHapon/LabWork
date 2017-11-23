@@ -86,8 +86,6 @@ block content
 
 
 
-
-
 					.column.is-two-forth.lab3
 						.card
 							.card-content
@@ -110,6 +108,51 @@ block content
 
 								p.card-footer-item
 									a.button.is-primary.is-inverted#diagnosisSubmit Сохранить
+
+
+
+
+				.columns
+
+					.column.is-two-forth.lab3
+						.card
+							.card-content
+								h3.title
+									| База пациентов
+
+								.field
+									.control
+										label.label Введите интервал номеров медицинских карт
+										p.id-range
+											input.input.is-info(type='text', placeholder='Начальный номер')#startRange
+											input.input.is-info(type='text', placeholder='Конечный номер')#endRange
+
+								footer.card-footer
+									p.card-footer-item
+										a.button.is-info.is-inverted  Найти
+
+								.notification
+									p
+
+
+					.column.is-two-forth.lab3
+						.card
+							.card-content
+								h3.title
+									| База пациентов
+
+								.field
+									.control
+										label.label Введите диагноз
+										input.input.is-info(type='text', placeholder='Диагноз')#findDiagnosis
+
+								footer.card-footer
+									p.card-footer-item
+										a.button.is-info.is-inverted  Найти
+
+								.notification
+									p
+
 
 	.wrap-box
 		section.container
