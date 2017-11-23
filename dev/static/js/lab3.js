@@ -332,15 +332,33 @@
 
     document.getElementById("resultDiagnosis").addEventListener("click", function () {
         var inputDiagnosis = searchDiagnosis.value;
-
         var array = patientStore.searchDiagnosis( inputDiagnosis );
+        
+        var sign = document.createElement('div');
+        var query = document.createElement('span');
+        var date = document.createElement('span');
+        var time = new Date();
+
+        sign.innerHTML = "Запрос: " + inputDiagnosis;
+        sign.className = "diagnosisSign";
+        date.innerHTML = time.toLocaleString('en-GB');
+
+        sign.appendChild(query);
+        sign.appendChild(date);
+        diagnosisPatient.appendChild(sign);
 
         for(var i = 0; i < array.length; i++) {
-            var newParagraph = document.createElement('p');
+            var data = document.createElement('p');
+
+            data.innerHTML = toSrt( array[i] );
+
+            diagnosisPatient.appendChild( data );
             console.log( array[i] );
-            newParagraph.innerHTML = toSrt(array[i]);
-            diagnosisPatient.appendChild(newParagraph);
         }
+
+        var hr = document.createElement('hr');
+        hr.className = "navbar-divider";
+        diagnosisPatient.appendChild( hr );
 
         console.log( inputDiagnosis );
         console.log( patientStore.searchDiagnosis( inputDiagnosis ));
