@@ -174,10 +174,15 @@ block content
 
 
 
-	.modal.is-success
-		article.message.is-success
-			.message-header
-				p Modal message
-				button.delete.modalHelloHide(aria-label='delete')
+	.modal
+		.modal-background
+		.modal-card
+			header.modal-card-head
+				p.modal-card-title Modal title
+				button.delete(aria-label='close')
+			section.modal-card-body
+				// Content ...
+			footer.modal-card-foot
+				button.button.is-success Save changes
+				button.button Cancel
 
-			.message-body

@@ -252,6 +252,13 @@
 
     patientStore.pushToStore(Poznakova);
 
+    function modal() {
+
+        this.setModalMessage = function () {
+
+        }
+    }
+
 
     // input items
     var inputId = document.getElementById("ID"),
@@ -305,13 +312,18 @@
 
     // diagnosis part
     document.getElementById("diagnosisSubmit").addEventListener("click", function () {
+
         var medicalCardID = inputDiagnosisMedicalCardID.value;
         var diagnosis = inputDiagnosis.value;
 
         if ( patientStore.equalsID( medicalCardID )) {
             console.log(patientStore.setDiagnosisForCardID( medicalCardID, diagnosis ));
             console.log(patientStore.getStore());
+
+            document.querySelector(".modal").style.display = "flex";
         }
+
+
     });
 
     document.getElementById("diagnosisCancel").addEventListener("click", function () {

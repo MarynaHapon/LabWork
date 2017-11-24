@@ -16,7 +16,7 @@
 
 
     // modal hello
-    function ModalMessege(text, item) {
+    function ModalMessage(text, item) {
         this.text = text;
         this.item = item;
 
@@ -24,7 +24,7 @@
             alert("Hello, " + text + " !");
         };
 
-        this.setModalMessege = function() {
+        this.setModalMessage = function() {
             selectElement(".modalHello .message-body").innerHTML = this.text;
         };
 
@@ -37,11 +37,11 @@
         }
     }
 
-    var modalHelloWorld = new ModalMessege("Hello, World!", ".modalHello");
+    var modalHelloWorld = new ModalMessage("Hello, World!", ".modalHello");
     console.log(modalHelloWorld);
 
     selectElement(".modalHelloShow").addEventListener("click", function() {
-        modalHelloWorld.setModalMessege();
+        modalHelloWorld.setModalMessage();
         modalHelloWorld.showModal();
     });
 
@@ -67,7 +67,7 @@
             return selectElement(this.messageNode).value;
         };
 
-        this.setModalMessege = function(messageText) {
+        this.setModalMessage = function(messageText) {
             selectElement(".modalHello .message-body").innerHTML = messageText;
         };
 
@@ -76,25 +76,25 @@
         }
     }
 
-    var modalUserMessege = new ModalInfo(".modalHello", ".userMessage textarea.textarea")
-    console.log(modalUserMessege);
+    var modalUserMessage = new ModalInfo(".modalHello", ".userMessage textarea.textarea")
+    console.log(modalUserMessage);
 
     selectElement(".userMessageOk").addEventListener("click", function() {
-        var message = modalUserMessege.getUserMessage();
+        var message = modalUserMessage.getUserMessage();
 
         if (message !== " ") {
-            modalUserMessege.setModalMessege(message);
-            modalUserMessege.showModal();
+            modalUserMessage.setModalMessage(message);
+            modalUserMessage.showModal();
         }
     });
 
     selectElement(".userMessageCancel").addEventListener("click", function() {
-        modalUserMessege.resetUserMessage();
+        modalUserMessage.resetUserMessage();
     });
 
 
     // user name hello
-    var setModalMessege = function(text) {
+    var setModalMessage = function(text) {
         selectElement(".modalHello .message-body").innerHTML = text;
     };
 
@@ -131,7 +131,7 @@
         var userLastName = getUserName(".userLastName input");
 
         if(regName.test(userFirstName) && regName.test(userLastName)) {
-            setModalMessege("Ваше имя: " + userFirstName + " " + userLastName);
+            setModalMessage("Ваше имя: " + userFirstName + " " + userLastName);
             showModal(".modalHello");
         }
         if (regName.test(userFirstName)) {
@@ -209,7 +209,7 @@
             if (item % 5 == 0 || item % 10 == 0) return item;
         });
 
-        setModalMessege('[ '+ arrayResultUserNumbers + ' ]');
+        setModalMessage('[ '+ arrayResultUserNumbers + ' ]');
         showModal(".modalHello");
 
         console.log(arrayUserNumbers);

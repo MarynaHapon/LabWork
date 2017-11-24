@@ -58,12 +58,12 @@
 &#160;&#160;&#160;&#160;return document.querySelector(item);
 &#160;&#160;}
 
-&#160;&#160;function alertMessege() {
+&#160;&#160;function alertMessage() {
 &#160;&#160;&#160;&#160;alert("Hello, World!");
 &#160;&#160;}
 
 &#160;&#160;selectElement(".alertHello").onclick = function() {
-&#160;&#160;&#160;&#160;alertMessege();
+&#160;&#160;&#160;&#160;alertMessage();
 &#160;&#160;}
 &lt;/script&gt;
 </pre>
@@ -81,14 +81,14 @@
             </div>
             <div class="column is-two-thirds">
               <pre>&lt;script&gt;
-&#160;&#160;function ModalMessege(text, item) {
+&#160;&#160;function ModalMessage(text, item) {
 &#160;&#160;&#160;&#160;this.text = text;
 &#160;&#160;&#160;&#160;this.item = item;
 
 &#160;&#160;&#160;&#160;this.message = function() {
 &#160;&#160;&#160;&#160;&#160;&#160;alert("Hello, " + text + " !");
 &#160;&#160;&#160;&#160;};
-&#160;&#160;&#160;&#160;this.setModalMessege = function() {
+&#160;&#160;&#160;&#160;this.setModalMessage = function() {
 &#160;&#160;&#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = this.text;
 &#160;&#160;&#160;&#160;};
 &#160;&#160;&#160;&#160;this.showModal = function(item) {
@@ -99,11 +99,11 @@
 &#160;&#160;&#160;&#160;}
 &#160;&#160;}
 
-&#160;&#160;var modalHelloWorld = new ModalMessege("Hello, World!", ".modalHello");
+&#160;&#160;var modalHelloWorld = new ModalMessage("Hello, World!", ".modalHello");
 &#160;&#160;console.log(modalHelloWorld);
 	
 &#160;&#160;selectElement(".modalHelloShow").addEventListener("click", function() {
-&#160;&#160;&#160;&#160;modalHelloWorld.setModalMessege();
+&#160;&#160;&#160;&#160;modalHelloWorld.setModalMessage();
 &#160;&#160;&#160;&#160;modalHelloWorld.showModal();
 &#160;&#160;});
 &#160;&#160;selectElement(".modalHelloHide").addEventListener("click", function() {
@@ -147,7 +147,7 @@
 &#160;&#160;&#160;&#160;this.getUserMessage = function(messageNode) {
 &#160;&#160;&#160;&#160;&#160;&#160;return selectElement(this.messageNode).value;
 &#160;&#160;&#160;&#160;}
-&#160;&#160;&#160;&#160;this.setModalMessege = function(messageText) {
+&#160;&#160;&#160;&#160;this.setModalMessage = function(messageText) {
 &#160;&#160;&#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = messageText;
 &#160;&#160;&#160;&#160;};
 &#160;&#160;&#160;&#160;this.resetUserMessage = function(messageNode) {
@@ -155,19 +155,19 @@
 &#160;&#160;&#160;&#160;}
 &#160;&#160;}
 
-&#160;&#160;var modalUserMessege = new ModalInfo(".modalHello", ".userMessage textarea.textarea")
+&#160;&#160;var modalUserMessage = new ModalInfo(".modalHello", ".userMessage textarea.textarea")
 
 &#160;&#160;selectElement(".userMessageOk").addEventListener("click", function() {
-&#160;&#160;&#160;&#160;var message = modalUserMessege.getUserMessage();
+&#160;&#160;&#160;&#160;var message = modalUserMessage.getUserMessage();
 	
 &#160;&#160;&#160;&#160;if (message != "") {
-&#160;&#160;&#160;&#160;&#160;&#160;modalUserMessege.setModalMessege(message);
-&#160;&#160;&#160;&#160;&#160;&#160;modalUserMessege.showModal();
+&#160;&#160;&#160;&#160;&#160;&#160;modalUserMessage.setModalMessege(message);
+&#160;&#160;&#160;&#160;&#160;&#160;modalUserMessage.showModal();
 &#160;&#160;&#160;&#160;}
 &#160;&#160;});
 
 &#160;&#160;selectElement(".userMessageCancel").addEventListener("click", function() {
-&#160;&#160;&#160;&#160;modalUserMessege.resetUserMessage();
+&#160;&#160;&#160;&#160;modalUserMessage.resetUserMessage();
 &#160;&#160;});
 &lt;/script&gt;
 </pre>
@@ -201,7 +201,7 @@
             </div>
             <div class="column is-two-thirds">
               <pre>&lt;script&gt;
-&#160;&#160;var setModalMessege = function(text) {
+&#160;&#160;var setModalMessage = function(text) {
 &#160;&#160;&#160;&#160;selectElement(".modalHello .message-body").innerHTML = text;
 &#160;&#160;}
 &#160;&#160;var showModal = function(item) {
@@ -232,7 +232,7 @@
 &#160;&#160;&#160;&#160;var userLastName = getUserName(".userLastName input");
 
 &#160;&#160;&#160;&#160;if(regName.test(userFirstName) && regName.test(userLastName)) {
-&#160;&#160;&#160;&#160;&#160;&#160;setModalMessege("Ваше имя: " + userFirstName + " " + userLastName);
+&#160;&#160;&#160;&#160;&#160;&#160;setModalMessage("Ваше имя: " + userFirstName + " " + userLastName);
 &#160;&#160;&#160;&#160;&#160;&#160;showModal(".modalHello");
 &#160;&#160;&#160;&#160;} 
 &#160;&#160;&#160;&#160;if (regName.test(userFirstName)) {
@@ -335,10 +335,10 @@
 &#160;&#160;&#160;&#160;&#160;&#160;if (item % 5 == 0 || item % 10 == 0) return item;
 &#160;&#160;&#160;&#160;});
 
-&#160;&#160;&#160;&#160;setModalMessege('[ '+ arrayResultUserNumbers + ' ]');
+&#160;&#160;&#160;&#160;setModalMessage('[ '+ arrayResultUserNumbers + ' ]');
 &#160;&#160;&#160;&#160;showModal(".modalHello");
 
-&#160;&#160;&#160;&#160;onsole.log(arrayUserNumbers);
+&#160;&#160;&#160;&#160;console.log(arrayUserNumbers);
 &#160;&#160;&#160;&#160;console.log(arrayResultUserNumbers);
 &#160;&#160;});
 &lt;/script&gt;
