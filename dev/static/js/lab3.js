@@ -131,17 +131,6 @@
         this.getDiagnosis = function () {
             return diagnosis;
         };
-
-        this.toStringInfo2 = function (item) {
-            return item.getId()
-                + " " + item.getSurname()
-                + " " + item.getName()
-                + " " + item.getPatronymic()
-                + " " + item.getAddress()
-                + " " + item.getPhone()
-                + " " + item.getMedicalCardID()
-                + " " + item.getDiagnosis()
-        };
     }
 
     function Store() {
@@ -211,6 +200,7 @@
 
     // test
     var Petrov = new Patient();
+
     Petrov.setId("00000001");
     Petrov.setSurname("Чейни");
     Petrov.setName("Джон");
@@ -223,8 +213,8 @@
     patientStore.pushToStore(Petrov);
 
 
-
     var Sidorov = new Patient();
+
     Sidorov.setId("00000002");
     Sidorov.setSurname("Сидоров");
     Sidorov.setName("Петр");
@@ -237,8 +227,8 @@
     patientStore.pushToStore(Sidorov);
 
 
-
     var Markova = new Patient();
+
     Markova.setId("00000003");
     Markova.setSurname("Маркова");
     Markova.setName("Елизавета");
@@ -250,8 +240,8 @@
     patientStore.pushToStore(Markova);
 
 
-
     var Poznakova = new Patient();
+
     Poznakova.setId("00000004");
     Poznakova.setSurname("Познякова");
     Poznakova.setName("Роза");
@@ -263,28 +253,6 @@
     patientStore.pushToStore(Poznakova);
 
 
-
-    function ModalMessege(text, item) {
-        this.text = text;
-        this.item = item;
-
-        this.message = function() {
-            alert("Hello, " + text + " !");
-        };
-
-        this.setModalMessege = function() {
-            selectElement(".modalHello .message-body").innerHTML = this.text;
-        };
-
-        this.showModal = function(item) {
-            selectElement(this.item).style.display = "flex";
-        };
-
-        this.hideModal = function(item) {
-            selectElement(this.item).style.display = "none";
-        }
-    }
-
     // input items
     var inputId = document.getElementById("ID"),
         inputSurname = document.getElementById("surname"),
@@ -295,7 +263,6 @@
         inputMedicalCardID = document.getElementById("medicalCardID"),
         inputDiagnosisMedicalCardID =  document.getElementById("diagnosisMedicalCardID"),
         inputDiagnosis = document.getElementById("diagnosis"),
-
         searchDiagnosis = document.getElementById("searchDiagnosis");
 
 
@@ -315,9 +282,6 @@
                 currentPatient.setMedicalCardID(inputMedicalCardID.value);
 
                 patientStore.pushToStore(currentPatient);
-
-
-                var modalHelloWorld = new ModalMessege("Hello, World!", ".modalHello");
             }
         }
 
