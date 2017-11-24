@@ -263,6 +263,28 @@
     patientStore.pushToStore(Poznakova);
 
 
+
+    function ModalMessege(text, item) {
+        this.text = text;
+        this.item = item;
+
+        this.message = function() {
+            alert("Hello, " + text + " !");
+        };
+
+        this.setModalMessege = function() {
+            selectElement(".modalHello .message-body").innerHTML = this.text;
+        };
+
+        this.showModal = function(item) {
+            selectElement(this.item).style.display = "flex";
+        };
+
+        this.hideModal = function(item) {
+            selectElement(this.item).style.display = "none";
+        }
+    }
+
     // input items
     var inputId = document.getElementById("ID"),
         inputSurname = document.getElementById("surname"),
@@ -293,6 +315,9 @@
                 currentPatient.setMedicalCardID(inputMedicalCardID.value);
 
                 patientStore.pushToStore(currentPatient);
+
+
+                var modalHelloWorld = new ModalMessege("Hello, World!", ".modalHello");
             }
         }
 
