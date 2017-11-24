@@ -314,6 +314,8 @@
                 currentPatient.setMedicalCardID(inputMedicalCardID.value);
 
                 patientStore.pushToStore(currentPatient);
+
+                modalMessage.allInclusive("Регистрация нового пациента", "Успешно завершена.");
             }
         }
 
