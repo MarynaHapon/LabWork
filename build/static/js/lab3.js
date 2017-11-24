@@ -133,6 +133,7 @@
         };
     }
 
+
     function Store() {
         var store = [];
 
@@ -190,67 +191,10 @@
         }
     }
 
+
     var toStr = function (item) {
       return item.medicalCardID + " - " + item.surname + " " + item.name + " " + item.patronymic + " - " + item.diagnosis;
     };
-
-
-    var patientStore = new Store();
-
-
-    // test
-    var Petrov = new Patient();
-
-    Petrov.setId("00000001");
-    Petrov.setSurname("Чейни");
-    Petrov.setName("Джон");
-    Petrov.setPatronymic("Федорович");
-    Petrov.setAddress("Kyiv Vishneva 32");
-    Petrov.setPhone("+380681165655");
-    Petrov.setMedicalCardID("00000001");
-    Petrov.setDiagnosis("Ипохондрик");
-
-    patientStore.pushToStore(Petrov);
-
-
-    var Sidorov = new Patient();
-
-    Sidorov.setId("00000002");
-    Sidorov.setSurname("Сидоров");
-    Sidorov.setName("Петр");
-    Sidorov.setPatronymic("Викторович");
-    Sidorov.setAddress("Kyiv Vishneva 33");
-    Sidorov.setPhone("+380681165656");
-    Sidorov.setMedicalCardID("00000002");
-    Sidorov.setDiagnosis("Ипохондрик");
-
-    patientStore.pushToStore(Sidorov);
-
-
-    var Markova = new Patient();
-
-    Markova.setId("00000003");
-    Markova.setSurname("Маркова");
-    Markova.setName("Елизавета");
-    Markova.setPatronymic("Давидовна");
-    Markova.setAddress("Kyiv Vishneva 35");
-    Markova.setPhone("+380681165657");
-    Markova.setMedicalCardID("00000003");
-
-    patientStore.pushToStore(Markova);
-
-
-    var Poznakova = new Patient();
-
-    Poznakova.setId("00000004");
-    Poznakova.setSurname("Познякова");
-    Poznakova.setName("Роза");
-    Poznakova.setPatronymic("Марковна");
-    Poznakova.setAddress("Kyiv Vishneva 88");
-    Poznakova.setPhone("+380681165658");
-    Poznakova.setMedicalCardID("00000004");
-
-    patientStore.pushToStore(Poznakova);
 
 
     function Modal() {
@@ -278,12 +222,53 @@
         }
     }
 
+
     var modalMessage = new Modal();
+    var patientStore = new Store();
 
-    document.querySelector(".modal button.delete").addEventListener("click", function () {
-        modalMessage.hideModal();
-    });
 
+    // test patients list
+    var Petrov = new Patient();
+        Petrov.setId("00000001");
+        Petrov.setSurname("Чейни");
+        Petrov.setName("Джон");
+        Petrov.setPatronymic("Федорович");
+        Petrov.setAddress("Kyiv Vishneva 32");
+        Petrov.setPhone("+380681165655");
+        Petrov.setMedicalCardID("00000001");
+        Petrov.setDiagnosis("Ипохондрик");
+    patientStore.pushToStore(Petrov);
+
+    var Sidorov = new Patient();
+        Sidorov.setId("00000002");
+        Sidorov.setSurname("Сидоров");
+        Sidorov.setName("Петр");
+        Sidorov.setPatronymic("Викторович");
+        Sidorov.setAddress("Kyiv Vishneva 33");
+        Sidorov.setPhone("+380681165656");
+        Sidorov.setMedicalCardID("00000002");
+        Sidorov.setDiagnosis("Ипохондрик");
+    patientStore.pushToStore(Sidorov);
+
+    var Markova = new Patient();
+        Markova.setId("00000003");
+        Markova.setSurname("Маркова");
+        Markova.setName("Елизавета");
+        Markova.setPatronymic("Давидовна");
+        Markova.setAddress("Kyiv Vishneva 35");
+        Markova.setPhone("+380681165657");
+        Markova.setMedicalCardID("00000003");
+    patientStore.pushToStore(Markova);
+
+    var Poznakova = new Patient();
+        Poznakova.setId("00000004");
+        Poznakova.setSurname("Познякова");
+        Poznakova.setName("Роза");
+        Poznakova.setPatronymic("Марковна");
+        Poznakova.setAddress("Kyiv Vishneva 88");
+        Poznakova.setPhone("+380681165658");
+        Poznakova.setMedicalCardID("00000004");
+    patientStore.pushToStore(Poznakova);
 
     // input items
     var inputId = document.getElementById("ID"),
@@ -297,6 +282,10 @@
         inputDiagnosis = document.getElementById("diagnosis"),
         searchDiagnosis = document.getElementById("searchDiagnosis");
 
+    // close modal message
+    document.querySelector(".modal button.delete").addEventListener("click", function () {
+        modalMessage.hideModal();
+    });
 
     // check btn submit
     document.getElementById("registerPatient").addEventListener("click", function () {
@@ -304,7 +293,6 @@
             var currentPatient = new Patient();
 
             if ( !patientStore.equalsID( inputId.value )) {
-
                 currentPatient.setId(inputId.value);
                 currentPatient.setSurname(inputSurname.value);
                 currentPatient.setName(inputName.value);
@@ -312,9 +300,7 @@
                 currentPatient.setAddress(inputAddress.value);
                 currentPatient.setPhone(inputPhone.value);
                 currentPatient.setMedicalCardID(inputMedicalCardID.value);
-
                 patientStore.pushToStore(currentPatient);
-
                 modalMessage.allInclusive("Регистрация нового пациента", "Успешно завершена.");
             }
         }
@@ -326,6 +312,7 @@
         console.log(patientStore.getStore());
     });
 
+    // reset input fields
     document.getElementById("resetPatient").addEventListener("click", function () {
         inputId.value = "";
         inputSurname.value = "";
@@ -336,17 +323,14 @@
         inputMedicalCardID.value = "";
     });
 
-
     // diagnosis part
     document.getElementById("diagnosisSubmit").addEventListener("click", function () {
-
         var medicalCardID = inputDiagnosisMedicalCardID.value;
         var diagnosis = inputDiagnosis.value;
 
         if ( patientStore.equalsID( medicalCardID )) {
             console.log(patientStore.setDiagnosisForCardID( medicalCardID, diagnosis ));
             console.log(patientStore.getStore());
-
             modalMessage.allInclusive("Диагноз пациента", "Успешно сохранен.");
         }
 
@@ -414,7 +398,7 @@
         for(var i = 0; i < array.length; i++) {
             console.log(array);
 
-            if (startRange <= array[i].id && array[i].id <= endRange) {
+            if (startRange <= array[i].medicalCardID && array[i].medicalCardID <= endRange) {
 
                 var data = document.createElement('p');
                 data.innerHTML = toStr( array[i]) ;
@@ -426,8 +410,6 @@
         var hr = document.createElement('hr');
         hr.className = "navbar-divider";
         resultMedicalCart.appendChild( hr );
-
-        console.log( subArray );
     });
     //console.log(PatientStore.getStore());
 })();
