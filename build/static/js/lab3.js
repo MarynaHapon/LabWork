@@ -252,12 +252,37 @@
 
     patientStore.pushToStore(Poznakova);
 
-    function modal() {
 
-        this.setModalMessage = function () {
+    function Modal() {
 
+        this.showModal = function () {
+            document.querySelector(".modal").style.display = "flex";
+        };
+
+        this.hideModal = function () {
+            document.querySelector(".modal").style.display = "none";
+        };
+
+        this.setModalTitle = function (title) {
+            document.querySelector(".modal .modal-card-title").innerHTML = title;
+        };
+
+        this.setModalMessage = function (text) {
+            document.querySelector(".modal .modal-card-body").innerHTML = text;
+        };
+
+        this.allInclusive = function (title, text) {
+            this.showModal();
+            this.setModalTitle(title);
+            this.setModalMessage(text);
         }
     }
+
+    var modalMessage = new Modal();
+
+    document.querySelector(".modal button.delete").addEventListener("click", function () {
+        modalMessage.hideModal();
+    });
 
 
     // input items
@@ -320,7 +345,7 @@
             console.log(patientStore.setDiagnosisForCardID( medicalCardID, diagnosis ));
             console.log(patientStore.getStore());
 
-            document.querySelector(".modal").style.display = "flex";
+            modalMessage.allInclusive("Диагноз пациента", "Успешно сохранен.");
         }
 
 
