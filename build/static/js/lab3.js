@@ -456,12 +456,35 @@
         }
 
     }
-
-    var myVector = new Vector();
     
-    myVector.setAllCoordinates(1,2,3);
-    console.log(myVector.getAllCoordinates());
+    function checkOrthogonality(vector1, vector2) {
+        var currentState = [];
 
+        for(var i = 0; i < vector1.length; i++) {
+            currentState.push( vector1[i] * vector2[i] );
+        }
+
+        var result = currentState.reduce(function (a,b) {
+            return a + b;
+        });
+
+        if(result == 0) return true;
+        else return false;
+    }
+
+
+
+    var vector1 = new Vector();
+    vector1.setAllCoordinates(1, 2, 0);
+    console.log(vector1.getAllCoordinates());
+
+
+    var vector2 = new Vector();
+    vector2.setAllCoordinates(2, -1, 10);
+    console.log(vector2.getAllCoordinates());
+
+    console.log( checkOrthogonality(vector1.getAllCoordinates(), vector2.getAllCoordinates()) );
+    //console.log( );
 
 
 
