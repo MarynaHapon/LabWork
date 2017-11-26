@@ -97,7 +97,8 @@
 
 
     function Patient() {
-        Person.call(this);
+        Person.apply(this, arguments);
+
 
         var medicalCardID = "",
             diagnosis = "";
@@ -412,4 +413,57 @@
         resultMedicalCart.appendChild( hr );
     });
     //console.log(PatientStore.getStore());
+
+
+
+
+    //--- --- --- --- --- --- --- --- --- ---
+    function Vector() {
+        var x, y, z;
+
+        this.setX = function (number) {
+            return x = number;
+        };
+
+        this.getX = function () {
+            return x;
+        };
+
+        this.setY = function (number) {
+            return y = number;
+        };
+
+        this.getY= function () {
+            return y;
+        };
+
+        this.setZ = function (number) {
+            return z = number;
+        };
+
+        this.getZ = function () {
+            return z;
+        };
+
+        this.setAllCoordinates = function (x, y, z) {
+            this.setX(x);
+            this.setY(y);
+            this.setZ(z);
+        };
+
+        this.getAllCoordinates = function () {
+            return [this.getX(), this.getY(), this.getZ()]
+        }
+
+    }
+
+    var myVector = new Vector();
+    
+    myVector.setAllCoordinates(1,2,3);
+    console.log(myVector.getAllCoordinates());
+
+
+
+
+
 })();
