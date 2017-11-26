@@ -419,43 +419,41 @@
 
     //--- --- --- --- --- --- --- --- --- ---
     function Vector() {
-        var x, y, z;
+        var startX,
+            startY,
+            startZ;
 
-        this.setX = function (number) {
-            return x = number;
+        var endX,
+            endY,
+            endZ;
+
+        var vector = [];
+
+        this.setStartCoordinate = function (x, y, z) {
+            startX = x; startY = y; startZ = z;
         };
 
-        this.getX = function () {
-            return x;
+        this.getStartCoordinate = function () {
+            return [startX, startY, startZ];
         };
 
-        this.setY = function (number) {
-            return y = number;
+        this.setEndCoordinate = function (x, y, z) {
+            endX = x; endY = y; endZ = z;
         };
 
-        this.getY= function () {
-            return y;
+        this.getEndCoordinate = function () {
+            return [endX, endY, endZ];
         };
 
-        this.setZ = function (number) {
-            return z = number;
+        this.vectorCalculating = function () {
+            for(var i = 0; i < 3; i++) {
+                vector.push( this.getEndCoordinate()[i] - this.getStartCoordinate()[i]);
+            }
+            return vector;
         };
-
-        this.getZ = function () {
-            return z;
-        };
-
-        this.setAllCoordinates = function (x, y, z) {
-            this.setX(x);
-            this.setY(y);
-            this.setZ(z);
-        };
-
-        this.getAllCoordinates = function () {
-            return [this.getX(), this.getY(), this.getZ()]
-        }
-
+        
     }
+
     
     function checkOrthogonality(vector1, vector2) {
         var currentState = [];
@@ -485,6 +483,17 @@
 
     console.log( checkOrthogonality(vector1.getAllCoordinates(), vector2.getAllCoordinates()) );
     //console.log( );
+
+    var v = new Vector();
+
+    v.setStartCoordinate(1,1,1);
+    v.setEndCoordinate(12,2,2);
+
+    var aa = v.vectorCalculating();
+
+    console.log(v.getStartCoordinate());
+
+    console.log( aa );
 
 
 
