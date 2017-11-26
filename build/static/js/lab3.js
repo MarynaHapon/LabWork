@@ -445,13 +445,17 @@
             return [endX, endY, endZ];
         };
 
-        this.vectorCalculating = function () {
+        function vectorCalculating() {
             for(var i = 0; i < 3; i++) {
                 vector.push( this.getEndCoordinate()[i] - this.getStartCoordinate()[i]);
             }
+        }
+
+        this.getVector = function() {
+            vectorCalculating.call(this);
             return vector;
-        };
-        
+        }
+
     }
 
     
@@ -472,28 +476,16 @@
 
 
 
-    var vector1 = new Vector();
-    vector1.setAllCoordinates(1, 2, 0);
-    console.log(vector1.getAllCoordinates());
-
-
-    var vector2 = new Vector();
-    vector2.setAllCoordinates(2, -1, 10);
-    console.log(vector2.getAllCoordinates());
-
-    console.log( checkOrthogonality(vector1.getAllCoordinates(), vector2.getAllCoordinates()) );
-    //console.log( );
-
     var v = new Vector();
 
     v.setStartCoordinate(1,1,1);
     v.setEndCoordinate(12,2,2);
 
-    var aa = v.vectorCalculating();
+    var test = v.getVector();
 
     console.log(v.getStartCoordinate());
 
-    console.log( aa );
+    console.log( test );
 
 
 
