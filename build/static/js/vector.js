@@ -18,36 +18,38 @@ var Vector = /** @class */ (function () {
     };
     return Vector;
 }());
-var VectorsOperations = /** @class */ (function () {
-    function VectorsOperations(inputA, inputB) {
+var Operations = /** @class */ (function () {
+    function Operations(inputA, inputB) {
         this.a = inputA;
         this.b = inputB;
     }
-    VectorsOperations.prototype.getVectorsScalarProduct = function () {
-        return this.a;
+    Operations.prototype.getVectorsScalarProduct = function () {
+        var mulResult = [];
+        for (var i = 0; i < 3; i++) {
+            mulResult[i] = this.a[i] * this.b[i];
+        }
+        var scalarResult = mulResult.reduce(function (a, b) {
+            return a + b;
+        });
+        return scalarResult;
     };
-    VectorsOperations.prototype.getVectorsAdd = function () {
-        var addResult;
-        addResult = [];
+    Operations.prototype.getVectorsAdd = function () {
+        var addResult = [];
         for (var i = 0; i < 3; i++) {
             addResult[i] = this.a[i] + this.b[i];
         }
         return addResult;
     };
-    VectorsOperations.prototype.getVectorsSub = function () {
-        var subResult;
-        subResult = [];
+    Operations.prototype.getVectorsSub = function () {
+        var subResult = [];
         for (var i = 0; i < 3; i++) {
             subResult[i] = this.a[i] - this.b[i];
         }
         return subResult;
     };
-    VectorsOperations.prototype.getVectorsMul = function () {
-        return this.a;
-    };
-    return VectorsOperations;
+    return Operations;
 }());
 //let vector1: Vector = new Vector(1, 2, 3);
 //console.log(vector1.getVector());
-var workField = new VectorsOperations([333, 1, 2], [1, 3, 2]);
-console.log(workField.getVectorsAdd());
+var workField = new Operations([3, 1, 2], [1, 3, 2]);
+console.log(workField.getVectorsScalarProduct());

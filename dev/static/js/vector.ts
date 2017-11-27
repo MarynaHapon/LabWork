@@ -17,15 +17,14 @@ interface VectorPrototype {
 }
 
 
-interface Operations {
+interface VectorsOperations {
 
     a: number[];
     b: number[];
 
-    getVectorsScalarProduct(): number[];
+    getVectorsScalarProduct(): number;
     getVectorsAdd(): number[];
     getVectorsSub(): number[];
-    getVectorsMul(): number[];
 
 }
 
@@ -57,7 +56,7 @@ class Vector implements VectorPrototype {
 }
 
 
-class VectorsOperations implements Operations {
+class Operations implements VectorsOperations {
 
     a: number[];
     b: number[];
@@ -69,13 +68,22 @@ class VectorsOperations implements Operations {
 
     }
 
-    getVectorsScalarProduct():number[] {
-        return this.a
+    getVectorsScalarProduct():number {
+        let mulResult: number[] = [];
+
+        for(let i = 0; i < 3; i++) {
+            mulResult[i] = this.a[i] * this.b[i]
+        }
+
+        let scalarResult: number = mulResult.reduce(function (a,b) {
+            return a + b
+        });
+
+        return scalarResult
     }
 
     getVectorsAdd():number[] {
-        let addResult: number[];
-        addResult = [];
+        let addResult: number[] = [];
 
         for(let i = 0; i < 3; i++) {
             addResult[i] = this.a[i] + this.b[i]
@@ -85,8 +93,7 @@ class VectorsOperations implements Operations {
     }
 
     getVectorsSub():number[] {
-        let subResult: number[];
-        subResult = [];
+        let subResult: number[] = [];
 
         for(let i = 0; i < 3; i++) {
             subResult[i] = this.a[i] - this.b[i]
@@ -95,14 +102,10 @@ class VectorsOperations implements Operations {
         return subResult
     }
 
-    getVectorsMul():number[] {
-        return this.a
-    }
-
 }
 
 //let vector1: Vector = new Vector(1, 2, 3);
 //console.log(vector1.getVector());
 
-let workField: VectorsOperations = new VectorsOperations( [333,1,2], [1,3,2] );
-console.log( workField.getVectorsAdd() );
+let workField: Operations = new Operations( [3,1,2], [1,3,2] );
+console.log( workField.getVectorsScalarProduct() );
