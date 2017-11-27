@@ -56,9 +56,21 @@ var Operations = /** @class */ (function () {
         }
         return subResult;
     };
+    Operations.prototype.checkCollinearity = function () {
+        var res = [];
+        var result;
+        for (var i = 0; i < 3; i++) {
+            res[i] = this.a[i] / this.b[i];
+        }
+        result = res.every(function (item) {
+            return item == res[0];
+        });
+        //console.log(res[0]);
+        return result;
+    };
     return Operations;
 }());
 var vector1 = new Vector(1, 2, 3);
 console.log(vector1.getVectorConstMul());
-var workField = new Operations([3, 1, 2], [1, 3, 2]);
-console.log(workField.getVectorsScalarProduct());
+var workField = new Operations([1, 2, 3], [3, 6, 9]);
+console.log(workField.checkCollinearity());

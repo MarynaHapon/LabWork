@@ -26,6 +26,8 @@ interface VectorsOperations {
     getVectorsAdd(): number[];
     getVectorsSub(): number[];
 
+    checkCollinearity(): boolean;
+
 }
 
 
@@ -89,7 +91,7 @@ class Operations implements VectorsOperations {
             mulResult[i] = this.a[i] * this.b[i]
         }
 
-        let scalarResult: number = mulResult.reduce(function (a,b) {
+        let scalarResult: number = mulResult.reduce(function (a, b) {
             return a + b
         });
 
@@ -109,11 +111,26 @@ class Operations implements VectorsOperations {
     getVectorsSub():number[] {
         let subResult: number[] = [];
 
-        for(let i = 0; i < 3; i++) {
+        for( let i = 0; i < 3; i++ ) {
             subResult[i] = this.a[i] - this.b[i]
         }
 
         return subResult
+    }
+
+    checkCollinearity(): boolean {
+        let res: number[] = [];
+        let result: boolean;
+
+        for( let i = 0; i < 3; i++ ) {
+            res[i] = this.a[i] / this.b[i]
+        }
+
+        result = res.every(function (item) {
+            return item == res[0]
+        });
+        
+        return result
     }
 
 }
@@ -121,5 +138,5 @@ class Operations implements VectorsOperations {
 let vector1: Vector = new Vector(1, 2, 3);
 console.log( vector1.getVectorConstMul() );
 
-let workField: Operations = new Operations( [3,1,2], [1,3,2] );
-console.log( workField.getVectorsScalarProduct() );
+let workField: Operations = new Operations( [1,2,3], [3,6,9] );
+console.log( workField.checkCollinearity() );
