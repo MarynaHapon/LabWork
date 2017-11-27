@@ -27,7 +27,12 @@ var VectorsOperations = /** @class */ (function () {
         return this.a;
     };
     VectorsOperations.prototype.getVectorsAdd = function () {
-        return this.a;
+        var current;
+        current = [];
+        for (var i = 0; i < 3; i++) {
+            current[i] = this.a[i] + this.b[i];
+        }
+        return current;
     };
     VectorsOperations.prototype.getVectorsSub = function () {
         return this.a;
@@ -37,7 +42,7 @@ var VectorsOperations = /** @class */ (function () {
     };
     return VectorsOperations;
 }());
-var vector1 = new Vector(1, 2, 3);
-console.log(vector1.getVector());
-var workField = new VectorsOperations([1, 1, 2], [1, 3, 2]);
-console.log(workField.getVectorsScalarProduct());
+//let vector1: Vector = new Vector(1, 2, 3);
+//console.log(vector1.getVector());
+var workField = new VectorsOperations([333, 1, 2], [1, 3, 2]);
+console.log(workField.getVectorsAdd());

@@ -74,7 +74,14 @@ class VectorsOperations implements Operations {
     }
 
     getVectorsAdd():number[] {
-        return this.a
+        var addResult: number[];
+        addResult = [];
+
+        for(let i = 0; i < 3; i++) {
+            addResult[i] = this.a[i] + this.b[i]
+        }
+
+        return addResult
     }
 
     getVectorsSub():number[] {
@@ -87,8 +94,8 @@ class VectorsOperations implements Operations {
 
 }
 
-let vector1: Vector = new Vector(1, 2, 3);
-console.log(vector1.getVector());
+//let vector1: Vector = new Vector(1, 2, 3);
+//console.log(vector1.getVector());
 
-let workField: VectorsOperations = new VectorsOperations( [1,1,2], [1,3,2] );
-console.log( workField.getVectorsScalarProduct() );
+let workField: VectorsOperations = new VectorsOperations( [333,1,2], [1,3,2] );
+console.log( workField.getVectorsAdd() );
