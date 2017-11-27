@@ -1,6 +1,6 @@
 {
   "files": [
-    "dev/static/js/test.ts"
+    "dev/static/js/vector.ts"
   ],
   "compilerOptions": {
     "noImplicitAny": true,
