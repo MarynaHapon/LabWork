@@ -27,6 +27,7 @@ interface VectorsOperations {
     getVectorsSub(): number[];
 
     checkCollinearity(): boolean;
+    checkOrthogonality(): boolean;
 
 }
 
@@ -54,11 +55,11 @@ class Vector implements VectorPrototype {
         return [this.x, this.y,  this.z];
     }
 
-    getVectorModule():number {
+    getVectorModule(): number {
         return Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2) + Math.pow(this.z,2))
     }
 
-    getVectorConstMul():number[] {
+    getVectorConstMul(): number[] {
         let constMulResult: number[] = [];
 
         for (let i = 0; i < 3; i++) {
@@ -98,7 +99,7 @@ class Operations implements VectorsOperations {
         return scalarResult
     }
 
-    getVectorsAdd():number[] {
+    getVectorsAdd(): number[] {
         let addResult: number[] = [];
 
         for(let i = 0; i < 3; i++) {
@@ -108,7 +109,7 @@ class Operations implements VectorsOperations {
         return addResult
     }
 
-    getVectorsSub():number[] {
+    getVectorsSub(): number[] {
         let subResult: number[] = [];
 
         for( let i = 0; i < 3; i++ ) {
@@ -119,17 +120,29 @@ class Operations implements VectorsOperations {
     }
 
     checkCollinearity(): boolean {
-        let res: number[] = [];
+        let resultArray: number[] = [];
         let result: boolean;
 
         for( let i = 0; i < 3; i++ ) {
-            res[i] = this.a[i] / this.b[i]
+            resultArray[i] = this.a[i] / this.b[i]
         }
 
-        result = res.every(function (item) {
-            return item == res[0]
+        result = resultArray.every(function (item) {
+            return item == resultArray[0]
         });
-        
+
+        return result
+    }
+
+    checkOrthogonality(): boolean {
+        let result: boolean;
+
+        if(  this.getVectorsScalarProduct() == 0) {
+            result = true
+        } else {
+            result = false
+        }
+
         return result
     }
 
@@ -138,5 +151,5 @@ class Operations implements VectorsOperations {
 let vector1: Vector = new Vector(1, 2, 3);
 console.log( vector1.getVectorConstMul() );
 
-let workField: Operations = new Operations( [1,2,3], [3,6,9] );
-console.log( workField.checkCollinearity() );
+let workField: Operations = new Operations( [1,0,1], [0,3,0] ); 
+console.log( workField.checkOrthogonality() );

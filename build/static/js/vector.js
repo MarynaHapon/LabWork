@@ -57,20 +57,29 @@ var Operations = /** @class */ (function () {
         return subResult;
     };
     Operations.prototype.checkCollinearity = function () {
-        var res = [];
+        var resultArray = [];
         var result;
         for (var i = 0; i < 3; i++) {
-            res[i] = this.a[i] / this.b[i];
+            resultArray[i] = this.a[i] / this.b[i];
         }
-        result = res.every(function (item) {
-            return item == res[0];
+        result = resultArray.every(function (item) {
+            return item == resultArray[0];
         });
-        //console.log(res[0]);
+        return result;
+    };
+    Operations.prototype.checkOrthogonality = function () {
+        var result;
+        if (this.getVectorsScalarProduct() == 0) {
+            result = true;
+        }
+        else {
+            result = false;
+        }
         return result;
     };
     return Operations;
 }());
 var vector1 = new Vector(1, 2, 3);
 console.log(vector1.getVectorConstMul());
-var workField = new Operations([1, 2, 3], [3, 6, 9]);
-console.log(workField.checkCollinearity());
+var workField = new Operations([1, 0, 1], [0, 3, 0]); // 2 - 6
+console.log(workField.checkOrthogonality());
