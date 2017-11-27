@@ -27,15 +27,20 @@ var VectorsOperations = /** @class */ (function () {
         return this.a;
     };
     VectorsOperations.prototype.getVectorsAdd = function () {
-        var current;
-        current = [];
+        var addResult;
+        addResult = [];
         for (var i = 0; i < 3; i++) {
-            current[i] = this.a[i] + this.b[i];
+            addResult[i] = this.a[i] + this.b[i];
         }
-        return current;
+        return addResult;
     };
     VectorsOperations.prototype.getVectorsSub = function () {
-        return this.a;
+        var subResult;
+        subResult = [];
+        for (var i = 0; i < 3; i++) {
+            subResult[i] = this.a[i] - this.b[i];
+        }
+        return subResult;
     };
     VectorsOperations.prototype.getVectorsMul = function () {
         return this.a;

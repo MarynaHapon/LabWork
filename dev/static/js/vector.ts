@@ -74,7 +74,7 @@ class VectorsOperations implements Operations {
     }
 
     getVectorsAdd():number[] {
-        var addResult: number[];
+        let addResult: number[];
         addResult = [];
 
         for(let i = 0; i < 3; i++) {
@@ -85,7 +85,14 @@ class VectorsOperations implements Operations {
     }
 
     getVectorsSub():number[] {
-        return this.a
+        let subResult: number[];
+        subResult = [];
+
+        for(let i = 0; i < 3; i++) {
+            subResult[i] = this.a[i] - this.b[i]
+        }
+
+        return subResult
     }
 
     getVectorsMul():number[] {
