@@ -1,9 +1,3 @@
-//      Определить класс Вектор размерности n. Определить несколько конструкторов.
-//      Реализовать методы для вычисления модуля вектора, скалярного произведения,
-//      сложения, вычитания, умножения на константу.
-//
-//      Объявить массив объектов. Написать метод, который для заданной пары векторов будет
-//      определять, являются ли они коллинеарными или ортогональными.
 var ABSOLUTE_TEMPERATURE_ZERO = -273.15;
 var Vector = /** @class */ (function () {
     function Vector(inputX, inputY, inputZ) {
@@ -80,6 +74,8 @@ var Operations = /** @class */ (function () {
     return Operations;
 }());
 var vector1 = new Vector(1, 2, 3);
+var vector2 = new Vector(3, 2, 3);
 console.log(vector1.getVectorConstMul());
-var workField = new Operations([1, 0, 1], [0, 3, 0]); // 2 - 6
+var workField = new Operations(vector1.getVector(), vector2.getVector());
 console.log(workField.checkOrthogonality());
+console.log(vector1.z);

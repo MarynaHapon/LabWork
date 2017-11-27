@@ -1,9 +1,4 @@
-//      Определить класс Вектор размерности n. Определить несколько конструкторов.
-//      Реализовать методы для вычисления модуля вектора, скалярного произведения,
-//      сложения, вычитания, умножения на константу.
-//
-//      Объявить массив объектов. Написать метод, который для заданной пары векторов будет
-//      определять, являются ли они коллинеарными или ортогональными.
+const ABSOLUTE_TEMPERATURE_ZERO: number = -273.15;
 
 interface VectorPrototype {
 
@@ -30,9 +25,6 @@ interface VectorsOperations {
     checkOrthogonality(): boolean;
 
 }
-
-
-const ABSOLUTE_TEMPERATURE_ZERO: number = -273.15;
 
 
 class Vector implements VectorPrototype {
@@ -62,7 +54,7 @@ class Vector implements VectorPrototype {
     getVectorConstMul(): number[] {
         let constMulResult: number[] = [];
 
-        for (let i = 0; i < 3; i++) {
+        for ( let i = 0; i < 3; i++ ) {
             let currentVector: number[] = this.getVector();
             constMulResult[i] = currentVector[i] * ABSOLUTE_TEMPERATURE_ZERO;
         }
@@ -88,7 +80,7 @@ class Operations implements VectorsOperations {
     getVectorsScalarProduct():number {
         let mulResult: number[] = [];
 
-        for(let i = 0; i < 3; i++) {
+        for( let i = 0; i < 3; i++ ) {
             mulResult[i] = this.a[i] * this.b[i]
         }
 
@@ -102,7 +94,7 @@ class Operations implements VectorsOperations {
     getVectorsAdd(): number[] {
         let addResult: number[] = [];
 
-        for(let i = 0; i < 3; i++) {
+        for( let i = 0; i < 3; i++ ) {
             addResult[i] = this.a[i] + this.b[i]
         }
 
@@ -137,7 +129,7 @@ class Operations implements VectorsOperations {
     checkOrthogonality(): boolean {
         let result: boolean;
 
-        if(  this.getVectorsScalarProduct() == 0) {
+        if( this.getVectorsScalarProduct() == 0 ) {
             result = true
         } else {
             result = false
@@ -149,7 +141,10 @@ class Operations implements VectorsOperations {
 }
 
 let vector1: Vector = new Vector(1, 2, 3);
+let vector2: Vector = new Vector(3, 2, 3);
 console.log( vector1.getVectorConstMul() );
 
-let workField: Operations = new Operations( [1,0,1], [0,3,0] ); 
+let workField: Operations = new Operations( vector1.getVector(), vector2.getVector() );
 console.log( workField.checkOrthogonality() );
+
+console.log( vector1.z );
