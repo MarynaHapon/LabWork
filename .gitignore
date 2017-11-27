@@ -5,6 +5,7 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 .idea
+.gulp
 .gulps
 node_modules
 materials

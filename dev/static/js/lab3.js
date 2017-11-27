@@ -414,9 +414,6 @@
     });
     //console.log(PatientStore.getStore());
 
-
-
-
     //--- --- --- --- --- --- --- --- --- ---
     function Vector() {
         var startX,
@@ -458,11 +455,10 @@
 
     }
 
-    
     function checkOrthogonality(vector1, vector2) {
         var currentState = [];
 
-        for(var i = 0; i < vector1.length; i++) {
+        for( var i = 0; i < 3; i++ ) {
             currentState.push( vector1[i] * vector2[i] );
         }
 
@@ -470,24 +466,24 @@
             return a + b;
         });
 
-        if(result == 0) return true;
+        if( result == 0 ) return true;
         else return false;
     }
+    
+    function checkIntersections() {
+        
+    }
 
+    var vector1 = new Vector();
+        vector1.setStartCoordinate(1,1,1);
+        vector1.setEndCoordinate(13,3,3);
+    console.log( vector1.getVector() );
 
+    var vector2 = new Vector();
+        vector2.setStartCoordinate(2,2,2);
+        vector2.setEndCoordinate(-4,20,20);
+    console.log( vector2.getVector() );
 
-    var v = new Vector();
-
-    v.setStartCoordinate(1,1,1);
-    v.setEndCoordinate(12,2,2);
-
-    var test = v.getVector();
-
-    console.log(v.getStartCoordinate());
-
-    console.log( test );
-
-
-
+    console.log( checkOrthogonality(vector1.getVector(), vector2.getVector()) );
 
 })();

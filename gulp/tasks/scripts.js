@@ -8,12 +8,14 @@ module.exports = function() {
             }));
     });
 
+
     $.gulp.task('libsJS:build', () => {
         return $.gulp.src(['node_modules/svg4everybody/dist/svg4everybody.min.js'])
             .pipe($.gp.concat('libs.min.js'))
             .pipe($.gp.uglifyjs())
             .pipe($.gulp.dest('./build/static/js/'));
     });
+
 
     $.gulp.task('js:copy', () => {
         return $.gulp.src(['./dev/static/js/*.js',
@@ -37,4 +39,15 @@ module.exports = function() {
             .pipe(concat('script.min.js'))
             .pipe($.gulp.dest('./build/static/js/'));
     });
+
+
+    //var gulp = require("gulp");
+    var ts = require("gulp-typescript");
+    var tsProject = ts.createProject("tsconfig.json");
+
+    $.gulp.task('js:typescript', () => {
+        return tsProject.src()
+            .pipe(tsProject())
+            .js.pipe($.gulp.dest("./build/static/js/"));
+});
 };

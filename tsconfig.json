@@ -1,0 +1,9 @@
+{
+  "files": [
+    "dev/static/js/test.ts"
+  ],
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "target": "es5"
+  }
+}
