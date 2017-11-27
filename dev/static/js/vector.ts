@@ -13,7 +13,7 @@ interface VectorPrototype {
 
     getVector(): number[];
     getVectorModule(): number;
-
+    getVectorConstMul():number[];
 }
 
 
@@ -27,6 +27,9 @@ interface VectorsOperations {
     getVectorsSub(): number[];
 
 }
+
+
+const ABSOLUTE_TEMPERATURE_ZERO: number = -273.15;
 
 
 class Vector implements VectorPrototype {
@@ -51,6 +54,17 @@ class Vector implements VectorPrototype {
 
     getVectorModule():number {
         return Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2) + Math.pow(this.z,2))
+    }
+
+    getVectorConstMul():number[] {
+        let constMulResult: number[] = [];
+
+        for (let i = 0; i < 3; i++) {
+            let currentVector: number[] = this.getVector();
+            constMulResult[i] = currentVector[i] * ABSOLUTE_TEMPERATURE_ZERO;
+        }
+
+        return constMulResult
     }
 
 }
@@ -104,8 +118,8 @@ class Operations implements VectorsOperations {
 
 }
 
-//let vector1: Vector = new Vector(1, 2, 3);
-//console.log(vector1.getVector());
+let vector1: Vector = new Vector(1, 2, 3);
+console.log( vector1.getVectorConstMul() );
 
 let workField: Operations = new Operations( [3,1,2], [1,3,2] );
 console.log( workField.getVectorsScalarProduct() );
