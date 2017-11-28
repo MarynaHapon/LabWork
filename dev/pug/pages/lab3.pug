@@ -167,23 +167,57 @@ block content
 				//p Введите вектор:
 				.columns
 					.column.is-two-forth.lab3
+						label.label Вектор:
 						.vectorInputs
-							.flex-horizontal
+							.flex-horizontal--between
 								label.label Введите вектор:
-								div
-									input(type="text", placeholder="Координата X")#userX.input.is-primary
-									input(type="text", placeholder="Координата Y")#userY.input.is-primary
-									input(type="text", placeholder="Координата Z")#userZ.input.is-primary
 
-						.flex-horizontal
+								input(type="text", placeholder="Координата X")#userX.input.is-primary
+								input(type="text", placeholder="Координата Y")#userY.input.is-primary
+								input(type="text", placeholder="Координата Z")#userZ.input.is-primary
+
+						.flex-horizontal--between
 							a.button.is-info.is-outlined#vectorModule Модуль вектора
 							a.button.is-info.is-outlined#vectorConstMul Умножение на константу
-
 
 					.column
 						label.label Результат:
 						.notification#vectorResult
 
+				hr.navbar-divider
+
+				.columns
+					.column.is-two-forth.lab3
+						label.label Введите группу векторов:
+						.vectorInputs
+							.flex-horizontal--between
+								label.label Введите вектор:
+
+								input(type="text", placeholder="Координата X")#userFirstX.input.is-primary
+								input(type="text", placeholder="Координата Y")#userFirstY.input.is-primary
+								input(type="text", placeholder="Координата Z")#userFirstZ.input.is-primary
+
+
+						.vectorInputs
+							.flex-horizontal--between
+								label.label Введите вектор:
+
+								input(type="text", placeholder="Координата X")#userSecondX.input.is-primary
+								input(type="text", placeholder="Координата Y")#userSecondY.input.is-primary
+								input(type="text", placeholder="Координата Z")#userSecondZ.input.is-primary
+
+
+						.flex-horizontal--between
+							a.button.is-primary.is-outlined#vectorScalar Scalar
+							a.button.is-link.is-outlined#vectorAdd Add
+							a.button.is-info.is-outlined#vectorSub Sub
+							a.button.is-success.is-outlined#vectorCollinearity Collinearity
+							a.button.is-danger.is-outlined#vectorOrthogonality Orthogonality
+
+
+					.column
+						label.label Результат:
+						.notification#vectorGroupResult
 
 
 	.modal

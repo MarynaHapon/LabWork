@@ -198,21 +198,47 @@
           <!--p Введите вектор:-->
           <div class="columns">
             <div class="column is-two-forth lab3">
+              <label class="label">Вектор:</label>
               <div class="vectorInputs">
-                <div class="flex-horizontal">
+                <div class="flex-horizontal--between">
                   <label class="label">Введите вектор:</label>
-                  <div>
-                    <input class="input is-primary" type="text" placeholder="Координата X" id="userX">
-                    <input class="input is-primary" type="text" placeholder="Координата Y" id="userY">
-                    <input class="input is-primary" type="text" placeholder="Координата Z" id="userZ">
-                  </div>
+                  <input class="input is-primary" type="text" placeholder="Координата X" id="userX">
+                  <input class="input is-primary" type="text" placeholder="Координата Y" id="userY">
+                  <input class="input is-primary" type="text" placeholder="Координата Z" id="userZ">
                 </div>
               </div>
-              <div class="flex-horizontal"><a class="button is-info is-outlined" id="vectorModule">Модуль вектора</a><a class="button is-info is-outlined" id="vectorConstMul">Умножение на константу</a></div>
+              <div class="flex-horizontal--between"><a class="button is-info is-outlined" id="vectorModule">Модуль вектора</a><a class="button is-info is-outlined" id="vectorConstMul">Умножение на константу</a></div>
             </div>
             <div class="column">
               <label class="label">Результат:</label>
               <div class="notification" id="vectorResult"></div>
+            </div>
+          </div>
+          <hr class="navbar-divider">
+          <div class="columns">
+            <div class="column is-two-forth lab3">
+              <label class="label">Введите группу векторов:</label>
+              <div class="vectorInputs">
+                <div class="flex-horizontal--between">
+                  <label class="label">Введите вектор:</label>
+                  <input class="input is-primary" type="text" placeholder="Координата X" id="userFirstX">
+                  <input class="input is-primary" type="text" placeholder="Координата Y" id="userFirstY">
+                  <input class="input is-primary" type="text" placeholder="Координата Z" id="userFirstZ">
+                </div>
+              </div>
+              <div class="vectorInputs">
+                <div class="flex-horizontal--between">
+                  <label class="label">Введите вектор:</label>
+                  <input class="input is-primary" type="text" placeholder="Координата X" id="userSecondX">
+                  <input class="input is-primary" type="text" placeholder="Координата Y" id="userSecondY">
+                  <input class="input is-primary" type="text" placeholder="Координата Z" id="userSecondZ">
+                </div>
+              </div>
+              <div class="flex-horizontal--between"><a class="button is-primary is-outlined" id="vectorScalar">Scalar</a><a class="button is-link is-outlined" id="vectorAdd">Add</a><a class="button is-info is-outlined" id="vectorSub">Sub</a><a class="button is-success is-outlined" id="vectorCollinearity">Collinearity</a><a class="button is-danger is-outlined" id="vectorOrthogonality">Orthogonality</a></div>
+            </div>
+            <div class="column">
+              <label class="label">Результат:</label>
+              <div class="notification" id="vectorGroupResult"></div>
             </div>
           </div>
         </div>
