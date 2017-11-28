@@ -125,6 +125,16 @@ document.getElementById("vectorAdd").addEventListener("click", function () {
     document.getElementById("vectorGroupResult").innerHTML = "Сложение векторов:    (" + String(userFirstVector.getVector()) + ") + (" + String(userSecondVector.getVector()) + ") = (" + String(vectorGroup.getVectorsAdd()) + ")";
 });
 document.getElementById("vectorSub").addEventListener("click", function () {
+    var inputFirstX = Number(document.getElementById("userFirstX").value);
+    var inputFirstY = Number(document.getElementById("userFirstY").value);
+    var inputFirstZ = Number(document.getElementById("userFirstZ").value);
+    var inputSecondX = Number(document.getElementById("userSecondX").value);
+    var inputSecondY = Number(document.getElementById("userSecondY").value);
+    var inputSecondZ = Number(document.getElementById("userSecondZ").value);
+    var userFirstVector = new Vector(inputFirstX, inputFirstY, inputFirstZ);
+    var userSecondVector = new Vector(inputSecondX, inputSecondY, inputSecondZ);
+    var vectorGroup = new Operations(userFirstVector.getVector(), userSecondVector.getVector());
+    document.getElementById("vectorGroupResult").innerHTML = "Вычитание векторов:    (" + String(userFirstVector.getVector()) + ") - (" + String(userSecondVector.getVector()) + ") = (" + String(vectorGroup.getVectorsSub()) + ")";
 });
 document.getElementById("vectorCollinearity").addEventListener("click", function () {
 });
