@@ -5,6 +5,7 @@ interface VectorPrototype {
     getVector(): number[];
     getVectorModule(): number;
     getVectorConstMul():number[];
+
 }
 
 
@@ -54,7 +55,7 @@ class Vector implements VectorPrototype {
 class Operations implements VectorsOperations {
 
     constructor(private a: number[], private b: number[]) {
-        
+
         this.a = a;
         this.b = b;
 

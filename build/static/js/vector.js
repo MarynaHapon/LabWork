@@ -26,7 +26,6 @@ var Vector = /** @class */ (function () {
 }());
 var Operations = /** @class */ (function () {
     function Operations(a, b) {
-        _this = _super.call(this, a, b) || this;
         this.a = a;
         this.b = b;
         this.a = a;
