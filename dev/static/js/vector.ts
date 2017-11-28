@@ -2,10 +2,6 @@ const ABSOLUTE_TEMPERATURE_ZERO: number = -273.15;
 
 interface VectorPrototype {
 
-    x: number;
-    y: number;
-    z: number;
-
     getVector(): number[];
     getVectorModule(): number;
     getVectorConstMul():number[];
@@ -14,13 +10,9 @@ interface VectorPrototype {
 
 interface VectorsOperations {
 
-    a: number[];
-    b: number[];
-
     getVectorsScalarProduct(): number;
     getVectorsAdd(): number[];
     getVectorsSub(): number[];
-
     checkCollinearity(): boolean;
     checkOrthogonality(): boolean;
 
@@ -29,29 +21,23 @@ interface VectorsOperations {
 
 class Vector implements VectorPrototype {
 
-    x: number;
-    y: number;
-    z: number;
+    constructor(private x: number, private y: number, private z: number) {
 
-    constructor(inputX: string, inputY: string, inputZ: string);
-    constructor(inputX: number, inputY: number, inputZ: number);
-    constructor(inputX: any, inputY: any, inputZ: any) {
-
-        this.x = inputX;
-        this.y = inputY;
-        this.z = inputZ;
+        this.x = x;
+        this.y = y;
+        this.z = z;
 
     }
 
-    getVector(): number[] {
+    public getVector(): number[] {
         return [this.x, this.y,  this.z];
     }
 
-    getVectorModule(): number {
+    public getVectorModule(): number {
         return Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2) + Math.pow(this.z,2))
     }
 
-    getVectorConstMul(): number[] {
+    public getVectorConstMul(): number[] {
         let constMulResult: number[] = [];
 
         for ( let i = 0; i < 3; i++ ) {
@@ -67,17 +53,14 @@ class Vector implements VectorPrototype {
 
 class Operations implements VectorsOperations {
 
-    a: number[];
-    b: number[];
-
-    constructor(inputA: number[], inputB: number[]) {
-
-        this.a = inputA;
-        this.b = inputB;
+    constructor(private a: number[], private b: number[]) {
+        
+        this.a = a;
+        this.b = b;
 
     }
 
-    getVectorsScalarProduct():number {
+    public getVectorsScalarProduct():number {
         let mulResult: number[] = [];
 
         for( let i = 0; i < 3; i++ ) {
@@ -91,7 +74,7 @@ class Operations implements VectorsOperations {
         return scalarResult
     }
 
-    getVectorsAdd(): number[] {
+    public getVectorsAdd(): number[] {
         let addResult: number[] = [];
 
         for( let i = 0; i < 3; i++ ) {
@@ -101,7 +84,7 @@ class Operations implements VectorsOperations {
         return addResult
     }
 
-    getVectorsSub(): number[] {
+    public getVectorsSub(): number[] {
         let subResult: number[] = [];
 
         for( let i = 0; i < 3; i++ ) {
@@ -111,7 +94,7 @@ class Operations implements VectorsOperations {
         return subResult
     }
 
-    checkCollinearity(): boolean {
+    public checkCollinearity(): boolean {
         let resultArray: number[] = [];
         let result: boolean;
 
@@ -126,7 +109,7 @@ class Operations implements VectorsOperations {
         return result
     }
 
-    checkOrthogonality(): boolean {
+    public checkOrthogonality(): boolean {
         let result: boolean;
 
         if( this.getVectorsScalarProduct() == 0 ) {
@@ -147,4 +130,5 @@ console.log( vector1.getVectorConstMul() );
 let workField: Operations = new Operations( vector1.getVector(), vector2.getVector() );
 console.log( workField.checkOrthogonality() );
 
-console.log( vector1.z );
+//console.log( vector1.z );
+

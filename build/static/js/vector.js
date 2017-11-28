@@ -1,9 +1,12 @@
 var ABSOLUTE_TEMPERATURE_ZERO = -273.15;
 var Vector = /** @class */ (function () {
-    function Vector(inputX, inputY, inputZ) {
-        this.x = inputX;
-        this.y = inputY;
-        this.z = inputZ;
+    function Vector(x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
     Vector.prototype.getVector = function () {
         return [this.x, this.y, this.z];
@@ -22,9 +25,12 @@ var Vector = /** @class */ (function () {
     return Vector;
 }());
 var Operations = /** @class */ (function () {
-    function Operations(inputA, inputB) {
-        this.a = inputA;
-        this.b = inputB;
+    function Operations(a, b) {
+        _this = _super.call(this, a, b) || this;
+        this.a = a;
+        this.b = b;
+        this.a = a;
+        this.b = b;
     }
     Operations.prototype.getVectorsScalarProduct = function () {
         var mulResult = [];
@@ -78,4 +84,4 @@ var vector2 = new Vector(3, 2, 3);
 console.log(vector1.getVectorConstMul());
 var workField = new Operations(vector1.getVector(), vector2.getVector());
 console.log(workField.checkOrthogonality());
-console.log(vector1.z);
+//console.log( vector1.z );
