@@ -164,7 +164,6 @@ block content
 						p 2. Определить класс Вектор размерности n. Определить несколько конструкторов. Реализовать методы для вычисления модуля вектора, скалярного произведения, сложения, вычитания, умножения на константу. Объявить массив объектов. Написать метод, который для заданной пары векторов будет определять, являются ли они коллинеарными или ортогональными.
 
 				hr.navbar-divider
-
 				//p Введите вектор:
 				.columns
 					.column.is-two-forth.lab3
@@ -172,18 +171,18 @@ block content
 							.flex-horizontal
 								label.label Введите вектор:
 								div
-									input(type="text", placeholder="Координата X").input.is-primary
-									input(type="text", placeholder="Координата Y").input.is-primary
-									input(type="text", placeholder="Координата Z").input.is-primary
+									input(type="text", placeholder="Координата X")#userX.input.is-primary
+									input(type="text", placeholder="Координата Y")#userY.input.is-primary
+									input(type="text", placeholder="Координата Z")#userZ.input.is-primary
 
 						.flex-horizontal
-							a.button.is-info.is-outlined Модуль вектора
-							a.button.is-info.is-outlined Умножение на константу
+							a.button.is-info.is-outlined#vectorModule Модуль вектора
+							a.button.is-info.is-outlined#vectorConstMul Умножение на константу
 
 
 					.column
 						label.label Результат:
-						.notification
+						.notification#vectorResult
 
 
 

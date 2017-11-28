@@ -202,17 +202,17 @@
                 <div class="flex-horizontal">
                   <label class="label">Введите вектор:</label>
                   <div>
-                    <input class="input is-primary" type="text" placeholder="Координата X">
-                    <input class="input is-primary" type="text" placeholder="Координата Y">
-                    <input class="input is-primary" type="text" placeholder="Координата Z">
+                    <input class="input is-primary" type="text" placeholder="Координата X" id="userX">
+                    <input class="input is-primary" type="text" placeholder="Координата Y" id="userY">
+                    <input class="input is-primary" type="text" placeholder="Координата Z" id="userZ">
                   </div>
                 </div>
               </div>
-              <div class="flex-horizontal"><a class="button is-info is-outlined">Модуль вектора</a><a class="button is-info is-outlined">Умножение на константу</a></div>
+              <div class="flex-horizontal"><a class="button is-info is-outlined" id="vectorModule">Модуль вектора</a><a class="button is-info is-outlined" id="vectorConstMul">Умножение на константу</a></div>
             </div>
             <div class="column">
               <label class="label">Результат:</label>
-              <div class="notification"></div>
+              <div class="notification" id="vectorResult"></div>
             </div>
           </div>
         </div>

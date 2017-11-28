@@ -123,13 +123,33 @@ class Operations implements VectorsOperations {
     }
 
 }
+/*
+    let vector1: Vector = new Vector(1, 2, 3);
+    let vector2: Vector = new Vector(3, 2, 3);
+    console.log( vector1.getVectorConstMul() );
 
-let vector1: Vector = new Vector(1, 2, 3);
-let vector2: Vector = new Vector(3, 2, 3);
-console.log( vector1.getVectorConstMul() );
+    let workField: Operations = new Operations( vector1.getVector(), vector2.getVector() );
+    console.log( workField.checkOrthogonality() );
+*/
 
-let workField: Operations = new Operations( vector1.getVector(), vector2.getVector() );
-console.log( workField.checkOrthogonality() );
+document.getElementById("vectorModule").addEventListener("click", function() {
 
-//console.log( vector1.z );
+    let inputX: number = Number( <string>(<HTMLInputElement>document.getElementById("userX")).value );
+    let inputY: number = Number( <string>(<HTMLInputElement>document.getElementById("userY")).value );
+    let inputZ: number = Number( <string>(<HTMLInputElement>document.getElementById("userZ")).value );
 
+    let userVector: Vector = new Vector(inputX, inputY, inputZ);
+    document.getElementById("vectorResult").innerHTML = String( userVector.getVectorModule() )
+
+});
+
+document.getElementById("vectorConstMul").addEventListener("click", function() {
+
+    let inputX: number = Number( <string>(<HTMLInputElement>document.getElementById("userX")).value );
+    let inputY: number = Number( <string>(<HTMLInputElement>document.getElementById("userY")).value );
+    let inputZ: number = Number( <string>(<HTMLInputElement>document.getElementById("userZ")).value );
+
+    let userVector: Vector = new Vector(inputX, inputY, inputZ);
+    document.getElementById("vectorResult").innerHTML = String( userVector.getVectorConstMul() )
+
+});

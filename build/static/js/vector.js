@@ -84,3 +84,18 @@ console.log(vector1.getVectorConstMul());
 var workField = new Operations(vector1.getVector(), vector2.getVector());
 console.log(workField.checkOrthogonality());
 //console.log( vector1.z );
+// ui
+document.getElementById("vectorModule").addEventListener("click", function () {
+    var inputX = Number(document.getElementById("userX").value);
+    var inputY = Number(document.getElementById("userY").value);
+    var inputZ = Number(document.getElementById("userZ").value);
+    var userVector = new Vector(inputX, inputY, inputZ);
+    document.getElementById("vectorResult").innerHTML = String(userVector.getVectorModule());
+});
+document.getElementById("vectorConstMul").addEventListener("click", function () {
+    var inputX = Number(document.getElementById("userX").value);
+    var inputY = Number(document.getElementById("userY").value);
+    var inputZ = Number(document.getElementById("userZ").value);
+    var userVector = new Vector(inputX, inputY, inputZ);
+    document.getElementById("vectorResult").innerHTML = String(userVector.getVectorConstMul());
+});
