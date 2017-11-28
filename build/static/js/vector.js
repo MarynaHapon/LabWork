@@ -78,13 +78,14 @@ var Operations = /** @class */ (function () {
     };
     return Operations;
 }());
-var vector1 = new Vector(1, 2, 3);
-var vector2 = new Vector(3, 2, 3);
-console.log(vector1.getVectorConstMul());
-var workField = new Operations(vector1.getVector(), vector2.getVector());
-console.log(workField.checkOrthogonality());
-//console.log( vector1.z );
-// ui
+/*
+    let vector1: Vector = new Vector(1, 2, 3);
+    let vector2: Vector = new Vector(3, 2, 3);
+    console.log( vector1.getVectorConstMul() );
+
+    let workField: Operations = new Operations( vector1.getVector(), vector2.getVector() );
+    console.log( workField.checkOrthogonality() );
+*/
 document.getElementById("vectorModule").addEventListener("click", function () {
     var inputX = Number(document.getElementById("userX").value);
     var inputY = Number(document.getElementById("userY").value);
@@ -98,4 +99,24 @@ document.getElementById("vectorConstMul").addEventListener("click", function () 
     var inputZ = Number(document.getElementById("userZ").value);
     var userVector = new Vector(inputX, inputY, inputZ);
     document.getElementById("vectorResult").innerHTML = String(userVector.getVectorConstMul());
+});
+document.getElementById("vectorScalar").addEventListener("click", function () {
+    var inputFirstX = Number(document.getElementById("userFirstX").value);
+    var inputFirstY = Number(document.getElementById("userFirstY").value);
+    var inputFirstZ = Number(document.getElementById("userFirstZ").value);
+    var inputSecondX = Number(document.getElementById("userSecondX").value);
+    var inputSecondY = Number(document.getElementById("userSecondY").value);
+    var inputSecondZ = Number(document.getElementById("userSecondZ").value);
+    var userFirstVector = new Vector(inputFirstX, inputFirstY, inputFirstZ);
+    var userSecondVector = new Vector(inputSecondX, inputSecondY, inputSecondZ);
+    var vectorGroup = new Operations(userFirstVector.getVector(), userSecondVector.getVector());
+    document.getElementById("vectorGroupResult").innerHTML = String(vectorGroup.checkOrthogonality());
+});
+document.getElementById("vectorAdd").addEventListener("click", function () {
+});
+document.getElementById("vectorSub").addEventListener("click", function () {
+});
+document.getElementById("vectorCollinearity").addEventListener("click", function () {
+});
+document.getElementById("vectorOrthogonality").addEventListener("click", function () {
 });
