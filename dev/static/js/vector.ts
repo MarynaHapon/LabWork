@@ -169,12 +169,26 @@ document.getElementById("vectorScalar").addEventListener("click", function() {
     let userSecondVector: Vector = new Vector (inputSecondX, inputSecondY, inputSecondZ );
     let vectorGroup: Operations = new Operations( userFirstVector.getVector(), userSecondVector.getVector() );
 
-    document.getElementById("vectorGroupResult").innerHTML = String( vectorGroup.checkOrthogonality() )
+    document.getElementById("vectorGroupResult").innerHTML = String( vectorGroup.getVectorsScalarProduct() )
 
 });
 
 
 document.getElementById("vectorAdd").addEventListener("click", function() {
+
+    let inputFirstX: number = Number( <string>(<HTMLInputElement>document.getElementById("userFirstX")).value );
+    let inputFirstY: number = Number( <string>(<HTMLInputElement>document.getElementById("userFirstY")).value );
+    let inputFirstZ: number = Number( <string>(<HTMLInputElement>document.getElementById("userFirstZ")).value );
+
+    let inputSecondX: number = Number( <string>(<HTMLInputElement>document.getElementById("userSecondX")).value );
+    let inputSecondY: number = Number( <string>(<HTMLInputElement>document.getElementById("userSecondY")).value );
+    let inputSecondZ: number = Number( <string>(<HTMLInputElement>document.getElementById("userSecondZ")).value );
+
+    let userFirstVector: Vector = new Vector( inputFirstX, inputFirstY, inputFirstZ );
+    let userSecondVector: Vector = new Vector (inputSecondX, inputSecondY, inputSecondZ );
+    let vectorGroup: Operations = new Operations( userFirstVector.getVector(), userSecondVector.getVector() );
+
+    document.getElementById("vectorGroupResult").innerHTML = "Сложение векторов:    (" + String( userFirstVector.getVector() ) + ") + (" + String( userSecondVector.getVector() ) + ") = (" + String( vectorGroup.getVectorsAdd() ) + ")"
 
 });
 
