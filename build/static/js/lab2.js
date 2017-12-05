@@ -51,7 +51,7 @@
 
         for(var y = 0; y < allUserStrings.length; y++) {
             var userString = allUserStrings[y].value;
-            var regTest = /[a-z]/g;
+            var regTest = /[a-zA-Zа-яА-ЯёЁ]/g;
 
             if(regTest.test(userString)) {
                 arrayUserStrings.push(userString);
@@ -94,7 +94,7 @@
 
         for(var y = 0; y < allUserStrings.length; y++) {
             var userString = allUserStrings[y].value;
-            var regTest = /[a-z]/g;
+            var regTest = /[a-zA-Zа-яА-ЯёЁ]/g;
 
             if(regTest.test(userString)) {
                 arrayUserStrings.push(userString);

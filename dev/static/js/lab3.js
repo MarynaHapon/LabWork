@@ -2,7 +2,7 @@
     var numberRegExp = new RegExp("^[0-9]+$");
     var nameRegExp = new RegExp("^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']?$");
     var phoneRegExp = new RegExp("^\\+380\\d{3}\\d{2}\\d{2}\\d{2}$");
-
+    
 
     function Person() {
         var id = 0,
@@ -414,7 +414,10 @@
     });
     //console.log(PatientStore.getStore());
 
+
+
     //--- --- --- --- --- --- --- --- --- ---
+    /*
     function Vector() {
         var startX,
             startY,
@@ -485,5 +488,7 @@
     console.log( vector2.getVector() );
 
     console.log( checkOrthogonality(vector1.getVector(), vector2.getVector()) );
+
+    */
 
 })();

@@ -1,0 +1,38 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Lab 0100'
+
+block content
+    section.hero.is-white.is-medium.bg-lab4
+        .container.has-text-centered.title-lab-4
+            h1.title.is-uppercase
+                | Лабораторная работа №4
+            h2.subtitle
+                | Классы. Поля данных и методы. Конструкторы. Наследование. Полиморфизм.
+        canvas#dots
+
+
+    .wrap-box
+        section.container
+            .box
+                .columns
+                    .column
+                        h4.has-text-info Задание 1
+                        hr.navbar-divider
+                        p Создать классы, спецификации которых приведены ниже. Определить конструкторы и методы
+
+                .columns
+                    .column.is-two-forth.lab3
+                        .card
+                            .card-content
+                                h3.title
+                                    | Регистрация нового пациента
+
+                                .field
+                                    .control
+                                        label.label Введите ID
+                                        input.input.is-info(type='text', placeholder='ID')#ID
+
+
+
